@@ -1,0 +1,944 @@
+[
+  {
+    "name": "Anvil",
+    "synergies": [],
+    "rarity": "Legendary",
+    "effect": "Weapon upgrades can now have +1 to their stats, and you may be offered three choices instead of two.",
+    "unlock": "To unlock the Anvil, the player must complete 3 Challenges."
+  },
+  {
+    "name": "Backpack",
+    "synergies": [
+      "Firestaff",
+      "Bananarang",
+      "Quantity Tome"
+    ],
+    "rarity": "Rare",
+    "effect": "+1 Projectile Count for all Weapons.",
+    "unlock": "Unlocked by default."
+  },
+  {
+    "name": "Battery",
+    "synergies": [
+      "Firestaff",
+      "Lightning Staff",
+      "Bananarang",
+      "Aura",
+      "Frostwalker"
+    ],
+    "rarity": "Common",
+    "effect": "+8% Attack Speed.",
+    "unlock": "Upgrade the Cooldown Tome to Level 5."
+  },
+  {
+    "name": "Beacon",
+    "synergies": [
+      "Wrench",
+      "Golden Shield",
+      "Final Swarm"
+    ],
+    "rarity": "Rare",
+    "effect": "Charging a Charge Shrine creates a healing zone and spawns +2 extra Shrines in future stages.",
+    "unlock": "Unlocked by default."
+  },
+  {
+    "name": "Beefy Ring",
+    "synergies": [
+      "Oats",
+      "Leeching Crystal",
+      "Demonic Blood",
+      "Chonkplate"
+    ],
+    "rarity": "Epic",
+    "effect": "Adds +20% Damage per 100 Max HP.",
+    "unlock": "Unlocked by default."
+  },
+  {
+    "name": "Beer",
+    "synergies": [
+      "Medkit",
+      "Oats",
+      "Gym Sauce",
+      "Boss Buster"
+    ],
+    "rarity": "Common",
+    "effect": "+20% Damage; -5% Max HP.",
+    "unlock": "Available from the start."
+  },
+  {
+    "name": "Big Bonk",
+    "synergies": [
+      "Aura",
+      "Bananarang",
+      "Firestaff",
+      "Clover",
+      "Credit Card (Green)",
+      "Damage Tome"
+    ],
+    "rarity": "Legendary",
+    "effect": "2% chance to BONK an enemy, dealing 20x damage.",
+    "unlock": "Available from the start."
+  },
+  {
+    "name": "Bloody Cleaver",
+    "synergies": [],
+    "rarity": "Legendary",
+    "effect": "Lifesteal now also triggers Bloodmark stacks, with a 50% chance to apply Bloodmark.",
+    "unlock": "The specific unlock condition for the Bloody Cleaver is currently unconfirmed based on the provided data."
+  },
+  {
+    "name": "Bob (Dead)",
+    "synergies": [
+      "Turbo Socks",
+      "Cowards Cloak"
+    ],
+    "rarity": "Epic",
+    "effect": "For every 14 units moved, summon Bob (dead).",
+    "unlock": "Survive the Final Swarm for 2 minutes."
+  },
+  {
+    "name": "Bob's Light",
+    "synergies": [],
+    "rarity": "Epic",
+    "effect": "A sphere of light explodes every 45s, killing all nearby enemies. Stacks reduce cooldown by 3s and increases radius by 10m.",
+    "unlock": "Kill Big Bob on Graveyard using the damage from a lamp as the killing blow."
+  },
+  {
+    "name": "Borgar",
+    "synergies": [],
+    "rarity": "Default",
+    "effect": "+2% chance to spawn a healing Borgar upon killing an enemy.",
+    "unlock": ""
+  },
+  {
+    "name": "Boss Buster",
+    "synergies": [
+      "Sniper Rifle",
+      "Dragon’s Breath",
+      "Damage Tome",
+      "Beer"
+    ],
+    "rarity": "Common",
+    "effect": "+15% more damage to Elites and Bosses.",
+    "unlock": "Defeat a Stage Boss in under 30 seconds."
+  },
+  {
+    "name": "Brass Knuckles",
+    "synergies": [
+      "Sword",
+      "Aegis",
+      "Corrupted Sword",
+      "Battery",
+      "Turbo Socks"
+    ],
+    "rarity": "Rare",
+    "effect": "Deal +20% more damage to nearby enemies.",
+    "unlock": "Kill 5,000 enemies with the Sword."
+  },
+  {
+    "name": "Cactus",
+    "synergies": [
+      "Spiky Shield",
+      "Aegis"
+    ],
+    "rarity": "Common",
+    "effect": "Shoots spikes when taking damage, scaling with Thorns.",
+    "unlock": "Kill 100 cactus enemies with Thorns damage."
+  },
+  {
+    "name": "Campfire",
+    "synergies": [
+      "Aura",
+      "Frostwalker",
+      "Cowards Cloak"
+    ],
+    "rarity": "Common",
+    "effect": "Standing still heals you.",
+    "unlock": "Available from the start."
+  },
+  {
+    "name": "Chonkplate",
+    "synergies": [
+      "Leeching Crystal",
+      "Bloody Cleaver",
+      "Demonic Blood"
+    ],
+    "rarity": "Legendary",
+    "effect": "Grants +20% Lifesteal and allows overheal up to 75% of Max HP.",
+    "unlock": "Reach 500 Max HP."
+  },
+  {
+    "name": "Clover",
+    "synergies": [],
+    "rarity": "Default",
+    "effect": "+7.5% Luck.",
+    "unlock": ""
+  },
+  {
+    "name": "Cowards Cloak",
+    "synergies": [
+      "Thunder Mitts",
+      "Electric Plug"
+    ],
+    "rarity": "Common",
+    "effect": "Boosts Move Speed when hit; +5% base Move Speed.",
+    "unlock": "Available from the start."
+  },
+  {
+    "name": "Credit Card Green",
+    "synergies": [],
+    "rarity": "Epic",
+    "effect": "Permanently gain +2% Luck when opening a chest. Also increase Chest price by +10%.",
+    "unlock": "The Credit Card (Green) is available from the start and can drop randomly from chests or appear as a reward during runs."
+  },
+  {
+    "name": "Credit Card Red",
+    "synergies": [],
+    "rarity": "Common",
+    "effect": "Permanently gain +2.5% Damage when opening a chest.",
+    "unlock": "The Credit Card (Red) is available from the start and can be found randomly in chests or as a run reward."
+  },
+  {
+    "name": "Cursed Doll",
+    "synergies": [
+      "Cursed Tome",
+      "Corrupted Sword",
+      "Bloody Cleaver"
+    ],
+    "rarity": "Common",
+    "effect": "Curses enemies, dealing 30% of their Max HP as damage per second.",
+    "unlock": "Die 10 times."
+  },
+  {
+    "name": "Cursed Grabbies",
+    "synergies": [
+      "Cursed Doll",
+      "Corrupted Sword"
+    ],
+    "rarity": "Epic",
+    "effect": "+10% Difficulty, 0.8x Max HP, 5% on-hit chance to cast curse.",
+    "unlock": "Get the Cursed Tome to Level 10."
+  },
+  {
+    "name": "Demonic Blade",
+    "synergies": [
+      "CL4NK",
+      "Precision Tome",
+      "Forbidden Juice",
+      "Grandmas Secret Tonic",
+      "Giant Fork",
+      "Overpowered Lamp"
+    ],
+    "rarity": "Rare",
+    "effect": "Crits have a +25% chance to heal you",
+    "unlock": "Heal for 350 HP using Lifesteal."
+  },
+  {
+    "name": "Demonic Blood",
+    "synergies": [
+      "Blood Magic",
+      "Vlad"
+    ],
+    "rarity": "Rare",
+    "effect": "Increase Max Hp by +0.5 per kill (Max 200 stacks)",
+    "unlock": "Increase your Max HP with Blood Magic 400 times."
+  },
+  {
+    "name": "Demonic Soul",
+    "synergies": [
+      "Aura",
+      "Firestaff"
+    ],
+    "rarity": "Epic",
+    "effect": "+0.1% Damage per kill, up to +100%.",
+    "unlock": "Reach Level 30 as Calcium."
+  },
+  {
+    "name": "Dragonfire",
+    "synergies": [
+      "Firestaff",
+      "Flamewalker",
+      "Dragons Breath",
+      "Spicy Meatball"
+    ],
+    "rarity": "Legendary",
+    "effect": "15% chance to summon dragonfire when hitting enemies. Fire damage can now apply burn.",
+    "unlock": "Kill 4,000 enemies with fire damage."
+  },
+  {
+    "name": "Eagle Claw",
+    "synergies": [
+      "Spiky Shield",
+      "Aegis",
+      "Bananarang"
+    ],
+    "rarity": "Epic",
+    "effect": "66% Damage vs airborne enemies and 8% chance to launch them into the air.",
+    "unlock": "Kill 10,000 enemies as Birdo."
+  },
+  {
+    "name": "Echo Shard",
+    "synergies": [
+      "Time Bracelet",
+      "Attraction Tome",
+      "Sucky Magnet"
+    ],
+    "rarity": "Rare",
+    "effect": "+12% chance to spawn a bonus XP Shard on kill.",
+    "unlock": "Upgrade the XP Tome to Level 8."
+  },
+  {
+    "name": "Electric Plug",
+    "synergies": [
+      "Lightning Staff",
+      "Thunder Mitts",
+      "Aegis"
+    ],
+    "rarity": "Common",
+    "effect": "On taking damage, send out an electric shock.",
+    "unlock": "Available from the start."
+  },
+  {
+    "name": "Energy Core",
+    "synergies": [
+      "Cooldown Tome"
+    ],
+    "rarity": "Legendary",
+    "effect": "Gives cooldown reduction and energy regeneration.",
+    "unlock": "Defeat a Final Boss two times."
+  },
+  {
+    "name": "Feathers",
+    "synergies": [
+      "Scarf"
+    ],
+    "rarity": "Common",
+    "effect": "Lets you jump higher and further.",
+    "unlock": "Available from the start."
+  },
+  {
+    "name": "Forbidden Juice",
+    "synergies": [
+      "Demonic Blade",
+      "Grandmas Secret Tonic",
+      "Giant Fork",
+      "Bush",
+      "Damage Tome",
+      "Precision Tome",
+      "Bow",
+      "Revolver",
+      "Katana",
+      "Dice"
+    ],
+    "rarity": "Common",
+    "effect": "Increase Crit Chance by +10%",
+    "unlock": "Perform 100 critical hits in a single run."
+  },
+  {
+    "name": "Gamer Goggles",
+    "synergies": [
+      "Charge Shrine",
+      "Chaos Tome",
+      "Shield Tome",
+      "Mirror",
+      "Kevin",
+      "Beefy Ring",
+      "Demonic Soul",
+      "Joes Dagger",
+      "Scarf",
+      "Credit Card Red",
+      "Beer",
+      "Eagle Claw",
+      "Tactical Glasses",
+      "Gym Sauce",
+      "Idle Juice",
+      "Brass Knuckles",
+      "Speed Boi",
+      "Corrupted Sword",
+      "Cursed Grabbies"
+    ],
+    "rarity": "Epic",
+    "effect": "Increase Damage the lower your HP is. chat im locking in",
+    "unlock": "Defeat a Stage Boss with less than 10% HP."
+  },
+  {
+    "name": "Gas Mask",
+    "synergies": [
+      "Moldy Cheese",
+      "Poison Flask",
+      "Toxic Barrel"
+    ],
+    "rarity": "Epic",
+    "effect": "Gain Armor and Overheal for each poisoned enemy.",
+    "unlock": "Kill 5,000 enemies using Amog."
+  },
+  {
+    "name": "Ghost",
+    "synergies": [
+      "Aura",
+      "Firestaff"
+    ],
+    "rarity": "Common",
+    "effect": "Summons ghosts using an interactable.",
+    "unlock": "Survive the Final Swarm for 60 seconds."
+  },
+  {
+    "name": "Giant Fork",
+    "synergies": [
+      "Forbidden Juice",
+      "Grandmas Secret Tonic",
+      "Precision Tome",
+      "CL4NK",
+      "Bow",
+      "Revolver",
+      "Slutty Rocket",
+      "Shotgun",
+      "Dexecutioner",
+      "Katana",
+      "Dice",
+      "Overpowered Lamp"
+    ],
+    "rarity": "Legendary",
+    "effect": "You can eat so much spaghetti with this bad boi. Also crits have a chance to become Megacrits",
+    "unlock": "The Giant Fork is unlocked by default. No challenges or requirements are needed — it is available from the start of the game."
+  },
+  {
+    "name": "Golden Glove",
+    "synergies": [],
+    "rarity": "Default",
+    "effect": "+15% more gold from killing enemies.",
+    "unlock": ""
+  },
+  {
+    "name": "Golden Ring",
+    "synergies": [],
+    "rarity": "Legendary",
+    "effect": "It doesn't seem to do anything...",
+    "unlock": "N/A"
+  },
+  {
+    "name": "Golden Shield",
+    "synergies": [
+      "Aegis",
+      "Spiky Shield"
+    ],
+    "rarity": "Common",
+    "effect": "Gain gold when taking damage.",
+    "unlock": "Available from the start."
+  },
+  {
+    "name": "Golden Sneakers",
+    "synergies": [
+      "Golden Glove"
+    ],
+    "rarity": "Rare",
+    "effect": "Earn money by moving.",
+    "unlock": "Break 150 pots."
+  },
+  {
+    "name": "Grandmas Secret Tonic",
+    "synergies": [
+      "CL4NK",
+      "Precision Tome",
+      "Forbidden Juice",
+      "Giant Fork",
+      "Overpowered Lamp",
+      "Demonic Blade"
+    ],
+    "rarity": "Epic",
+    "effect": "Crits have a 50% chance to explode and damage nearby enemies for 50% damage",
+    "unlock": "Kill 3,000 enemies with the Sniper Rifle."
+  },
+  {
+    "name": "Gym Sauce",
+    "synergies": [
+      "Idle Juice",
+      "Brass Knuckles",
+      "Charge Shrine",
+      "Chaos Tome",
+      "Beefy Ring",
+      "Demonic Soul",
+      "Joes Dagger",
+      "Scarf",
+      "Gamer Goggles",
+      "Credit Card Red",
+      "Beer",
+      "Eagle Claw",
+      "Tactical Glasses",
+      "Speed Boi"
+    ],
+    "rarity": "Common",
+    "effect": "Increase Damage by +10%",
+    "unlock": "Available from the start."
+  },
+  {
+    "name": "Holy Book",
+    "synergies": [
+      "Medkit",
+      "Campfire",
+      "Athena",
+      "Aegis"
+    ],
+    "rarity": "Legendary",
+    "effect": "+100 Max HP, +50 HP Regen. Healing radiates damaging energy to nearby enemies.",
+    "unlock": "To unlock the Holy Book, the player must defeat a first Stage Boss without taking any damage."
+  },
+  {
+    "name": "Ice Crystal",
+    "synergies": [
+      "Ice Cube",
+      "Frostwalker",
+      "Aura"
+    ],
+    "rarity": "Common",
+    "effect": "7.5% freeze chance; executes enemies below threshold HP.",
+    "unlock": "Get 50 kills with the Frostwalker weapon."
+  },
+  {
+    "name": "Ice Cube",
+    "synergies": [],
+    "rarity": "Legendary",
+    "effect": "20% chance to inflict ice damage when hitting enemies, which can freeze them.",
+    "unlock": ""
+  },
+  {
+    "name": "Idle Juice",
+    "synergies": [
+      "Aura",
+      "Frostwalker",
+      "Campfire"
+    ],
+    "rarity": "Rare",
+    "effect": "Damage ramps up to +100% while standing still.",
+    "unlock": "Kill 500 enemies while standing still."
+  },
+  {
+    "name": "Joes Dagger",
+    "synergies": [
+      "Charge Shrine",
+      "Chaos Tome",
+      "Beefy Ring",
+      "Demonic Soul",
+      "Gamer Goggles",
+      "Scarf",
+      "Credit Card Red",
+      "Beer",
+      "Eagle Claw",
+      "Tactical Glasses",
+      "Gym Sauce",
+      "Idle Juice",
+      "Brass Knuckles",
+      "Speed Boi"
+    ],
+    "rarity": "Legendary",
+    "effect": "1% chance to instantly Execute an enemy. Performing Execute increases Damage by 1%.",
+    "unlock": "To unlock Joe’s Dagger, the player must kill 10,000 enemies using the Dexecutioner."
+  },
+  {
+    "name": "Kevin",
+    "synergies": [
+      "Electric Plug",
+      "Thunder Mitts",
+      "Mirror",
+      "Spiky Shield"
+    ],
+    "rarity": "Epic",
+    "effect": "25% chance to punch you on hit (cannot kill you). Triggers on-hit effects.",
+    "unlock": "Obtain 3 Leeching Crystal items in one run."
+  },
+  {
+    "name": "Key",
+    "synergies": [
+      "Golden Shield",
+      "Kevin",
+      "Credit Card Green",
+      "Luck Tome",
+      "Fox",
+      "Credit Card Red"
+    ],
+    "rarity": "Common",
+    "effect": "+10% chance to open chests for free.",
+    "unlock": "Purchase items from 25 chests."
+  },
+  {
+    "name": "Leeching Crystal",
+    "synergies": [
+      "Charge Shrine",
+      "Medkit",
+      "Campfire",
+      "Holy Book",
+      "Borgar",
+      "Beacon",
+      "Demonic Blade",
+      "Slurp Gloves",
+      "Electric Plug",
+      "Golden Shield",
+      "Cowards Cloak",
+      "Corrupted Sword",
+      "Gamer Goggles"
+    ],
+    "rarity": "Rare",
+    "effect": "+50% Max HP at the cost of -50% HP Regen.",
+    "unlock": "Upgrade the Regen Tome to Level 8."
+  },
+  {
+    "name": "Lightning Orb",
+    "synergies": [
+      "Lightning Staff",
+      "Thunder Mitts",
+      "Battery",
+      "Cooldown Tome"
+    ],
+    "rarity": "Legendary",
+    "effect": "25% chance on hit to summon lightning that can stun enemies.",
+    "unlock": "Kill 3,000 enemies with lightning damage."
+  },
+  {
+    "name": "Medkit",
+    "synergies": [],
+    "rarity": "Default",
+    "effect": "+45 HP Regen (approx. 0.75 HP/sec).",
+    "unlock": ""
+  },
+  {
+    "name": "Mirror",
+    "synergies": [
+      "Aegis",
+      "Electric Plug"
+    ],
+    "rarity": "Epic",
+    "effect": "Reflects all incoming damage and grants brief invulnerability.",
+    "unlock": "Available from the start."
+  },
+  {
+    "name": "Moldy Cheese",
+    "synergies": [
+      "Black Hole",
+      "Tornado",
+      "Revolver",
+      "Slutty Rocket",
+      "Cursed Doll"
+    ],
+    "rarity": "Default",
+    "effect": "+40% chance to poison enemies on hit.",
+    "unlock": ""
+  },
+  {
+    "name": "Moldy Gloves",
+    "synergies": [
+      "Moldy Cheese",
+      "Poison Flask",
+      "Amog",
+      "Aura",
+      "Firestaff"
+    ],
+    "rarity": "Rare",
+    "effect": "Create a moldy poison cloud upon hitting an enemy.",
+    "unlock": "Use a Microwave to duplicate Moldy Cheese three times in a row."
+  },
+  {
+    "name": "Oats",
+    "synergies": [],
+    "rarity": "Default",
+    "effect": "+25 Max HP.",
+    "unlock": ""
+  },
+  {
+    "name": "Old Mask",
+    "synergies": [],
+    "rarity": "Common",
+    "effect": "",
+    "unlock": "Find on Graveyard"
+  },
+  {
+    "name": "Overpowered Lamp",
+    "synergies": [
+      "Moldy Cheese",
+      "Ice Crystal",
+      "Unstable Transfusion",
+      "Kevin",
+      "Slutty Cannon",
+      "Quins Mask",
+      "Eagle Claw",
+      "Grandmas Secret Tonic",
+      "Cursed Grabbies",
+      "Big Bonk",
+      "Spicy Meatball",
+      "Ice Cube",
+      "Power Gloves",
+      "Lightning Orb",
+      "Dragonfire",
+      "Joes Dagger",
+      "Bloody Cleaver",
+      "Demonic Blade",
+      "Giant Fork"
+    ],
+    "rarity": "Legendary",
+    "effect": "+1 chance to proc on hit effects",
+    "unlock": "Available from the start."
+  },
+  {
+    "name": "Phantom Shroud",
+    "synergies": [
+      "Fox",
+      "Athena",
+      "Slippery Ring"
+    ],
+    "rarity": "Rare",
+    "effect": "After evading, next hit deals 2x Damage and briefly boosts Attack Speed and Move Speed.",
+    "unlock": "Unlocked by default."
+  },
+  {
+    "name": "Pot (Stainless Steel)",
+    "synergies": [],
+    "rarity": "Legendary",
+    "effect": "+10  max levels for all weapons. Gives one less max  level per stack, for a minimum of 2 at 9 stacks.",
+    "unlock": "Collect every pot and chest in the first crypt in Graveyard"
+  },
+  {
+    "name": "Power Gloves",
+    "synergies": [
+      "Firestaff",
+      "Bananarang",
+      "Aura",
+      "Spicy Meatball",
+      "Quantity Tome",
+      "Damage Tome"
+    ],
+    "rarity": "Common",
+    "effect": "8% chance to create a giant blast on hit.",
+    "unlock": "Available from the start."
+  },
+  {
+    "name": "Pumpkin",
+    "synergies": [],
+    "rarity": "Rare",
+    "effect": "",
+    "unlock": "As Roberto, break every pumpkim on Graveyard"
+  },
+  {
+    "name": "Quins Mask",
+    "synergies": [
+      "Spiky Shield",
+      "Cactus"
+    ],
+    "rarity": "Epic",
+    "effect": "Thorns damage has a 50% chance to explode.",
+    "unlock": "As Athena, land the killing blow on a Stage Boss using Aegis."
+  },
+  {
+    "name": "Scarf",
+    "synergies": [
+      "Feathers",
+      "Bananarang",
+      "Aura",
+      "Turbo Socks"
+    ],
+    "rarity": "Epic",
+    "effect": "+50% Damage while airborne.",
+    "unlock": "Available from the start."
+  },
+  {
+    "name": "Shattered Knowledge",
+    "synergies": [
+      "Echo Shard",
+      "Sucky Magnet"
+    ],
+    "rarity": "Epic",
+    "effect": "XP Shards slice through enemies while traveling.",
+    "unlock": "Upgrade the Attraction Tome to Level 8."
+  },
+  {
+    "name": "Skuleg",
+    "synergies": [
+      "Mirror",
+      "Oats"
+    ],
+    "rarity": "Common",
+    "effect": "+7% Difficulty.",
+    "unlock": "Reach a total of 40% Difficulty in a single run."
+  },
+  {
+    "name": "Slippery Ring",
+    "synergies": [],
+    "rarity": "Default",
+    "effect": "+15% Evasion.",
+    "unlock": ""
+  },
+  {
+    "name": "Slurp Gloves",
+    "synergies": [
+      "Unstable Transfusion",
+      "Bloody Cleaver",
+      "Demonic Blood",
+      "Beer"
+    ],
+    "rarity": "Epic",
+    "effect": "Cast blood magic on hit; heals 7.5% with an AoE burst (9s cooldown).",
+    "unlock": "Available from the start."
+  },
+  {
+    "name": "Slutty Cannon",
+    "synergies": [
+      "Slutty Rocket",
+      "Quantity Tome",
+      "Damage Tome"
+    ],
+    "rarity": "Epic",
+    "effect": "20% chance to spawn missiles on kill.",
+    "unlock": "Kill 5,000 enemies with the Slutty Rocket."
+  },
+  {
+    "name": "Snek",
+    "synergies": [],
+    "rarity": "Legendary",
+    "effect": "Apply +4 stacks of poison and a 5% chance to instantly burst all the poison damage when hitting an enemy",
+    "unlock": "Find the hidden chest in the graveyard crypt. (View the discussion tab for spoilers and hints for where the chest is located.)"
+  },
+  {
+    "name": "Soul Harvester",
+    "synergies": [
+      "Aura",
+      "Firestaff",
+      "Revolver"
+    ],
+    "rarity": "Legendary",
+    "effect": "Killing an enemy summons two homing souls that attack other enemies.",
+    "unlock": "Survive the Final Swarm for 6 minutes."
+  },
+  {
+    "name": "Speed Boi",
+    "synergies": [
+      "Za Warudo",
+      "Kevin"
+    ],
+    "rarity": "Legendary",
+    "effect": "Upon taking damage below 50% Max HP, slow down time and deal 2x damage.",
+    "unlock": "To unlock Speed Boi, the player must complete a stage with at least 2 Boss Curses active."
+  },
+  {
+    "name": "Spicy Meatball",
+    "synergies": [
+      "Poison Flask"
+    ],
+    "rarity": "Legendary",
+    "effect": "Attacks have a 25% chance to explode, dealing 65% Damage to surrounding enemies",
+    "unlock": "Available from the start."
+  },
+  {
+    "name": "Spiky Shield",
+    "synergies": [
+      "Cactus",
+      "Quins Mask",
+      "Aegis"
+    ],
+    "rarity": "Epic",
+    "effect": "Gain +2 Thorns per 1% Armor and +10% Armor.",
+    "unlock": "Available from the start."
+  },
+  {
+    "name": "Sucky Magnet",
+    "synergies": [
+      "Shattered Knowledge"
+    ],
+    "rarity": "Legendary",
+    "effect": "Periodically pulls in all XP gems on the screen.",
+    "unlock": "To unlock the Sucky Magnet, the player must complete every single Charge Shrine on the map in a single run."
+  },
+  {
+    "name": "Tactical Glasses",
+    "synergies": [
+      "Sniper Rifle",
+      "Dexecutioner",
+      "Hero Sword"
+    ],
+    "rarity": "Common",
+    "effect": "+20% more damage to enemies above 90% HP.",
+    "unlock": "Defeat a Miniboss in under 25 seconds."
+  },
+  {
+    "name": "Thunder Mitts",
+    "synergies": [
+      "Lightning Staff",
+      "Lightning Orb",
+      "Battery"
+    ],
+    "rarity": "Common",
+    "effect": "On hit, generate a lightning strike (10s cooldown).",
+    "unlock": "Available from the start."
+  },
+  {
+    "name": "Time Bracelet",
+    "synergies": [],
+    "rarity": "Default",
+    "effect": "+8% XP Gain.",
+    "unlock": ""
+  },
+  {
+    "name": "Toxic Barrel",
+    "synergies": [
+      "Moldy Gloves",
+      "Poison Flask",
+      "Gas Mask"
+    ],
+    "rarity": "Epic",
+    "effect": "Releases a toxic cloud when hit.",
+    "unlock": "Kill 2,000 enemies using Poison damage."
+  },
+  {
+    "name": "Turbo Skates",
+    "synergies": [
+      "Turbo Socks",
+      "Cowards Cloak"
+    ],
+    "rarity": "Epic",
+    "effect": "Move Speed converts to Attack Speed (max +40% per stack).",
+    "unlock": "Upgrade both the Cooldown Tome and Agility Tome to Level 5 in the same run."
+  },
+  {
+    "name": "Turbo Socks",
+    "synergies": [
+      "Cowards Cloak",
+      "Thunder Mitts",
+      "Spicy Meatball"
+    ],
+    "rarity": "Common",
+    "effect": "+15% Movement Speed.",
+    "unlock": "Upgrade the Agility Tome to Level 5."
+  },
+  {
+    "name": "Unstable Transfusion",
+    "synergies": [
+      "Bloody Cleaver",
+      "Damage Tome",
+      "Precision Tome"
+    ],
+    "rarity": "Rare",
+    "effect": "Has a 27% chance to apply Bloodmark on hit.",
+    "unlock": "Unlocked by default."
+  },
+  {
+    "name": "Wizard's Hat",
+    "synergies": [],
+    "rarity": "Legendary",
+    "effect": "Functions as a pot but for Tomes",
+    "unlock": "As Vlad, use Pot (Stainless Steel) to upgrade any weapon above the max level of 40."
+  },
+  {
+    "name": "Wrench",
+    "synergies": [],
+    "rarity": "Common",
+    "effect": "Charge Shrines 4% faster and gain 7.5% increased rewards.",
+    "unlock": "The Wrench is available from the start and does not require any special conditions to obtain."
+  },
+  {
+    "name": "Za Warudo",
+    "synergies": [
+      "Speed Boi",
+      "Holy Book"
+    ],
+    "rarity": "Legendary",
+    "effect": "On fatal damage, time freezes once to prevent death.",
+    "unlock": "Unlocked by default."
+  }
+]

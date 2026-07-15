@@ -23,7 +23,7 @@ Scoring is heuristic (synergy coverage + stat archetype balance), not a game sim
 
 ## Tasks
 
-- [ ] **T1** — Data schema + wiki ingest script: pull all weapon/tome/character/item pages from the megabonk.wiki API, parse infoboxes/stat tables into `src/data/*.json`; commit the dataset with a regeneration script. Verify: every entity has name, slot type, stats, unlock; spot-check 5 against the wiki.
+- [x] **T1** — Data schema + wiki ingest script: pull all weapon/tome/character/item pages from the megabonk.wiki API, parse infoboxes/stat tables into `src/data/*.json`; commit the dataset with a regeneration script. Verify: every entity has name, slot type, stats, unlock; spot-check 5 against the wiki. **Done:** `scripts/ingest.mjs` (zero-dep Node, `npm run ingest`) → 27 weapons / 23 tomes / 20 characters / 85 items with infobox fields, per-rarity upgrade tables, synergy links; spot-checked Axe, Damage Tome, Noelle, Anvil, Clover; only gaps are 8 default items (no unlock exists) + Ice Cube unlock undocumented on the wiki.
 - [ ] **T2** — Build model + creator UI: character pick, weapon/tome slots, entity browser with search/filter. Verify: assemble a known meta build end to end.
 - [ ] **T3** — Synergy display: show synergy/evolution relationships lighting up as slots fill. Verify: a known synergy pair renders as linked.
 - [ ] **T4** — Heuristic build score: score = synergy count + archetype coverage (damage/defense/mobility/utility), shown live in the creator. Verify: known meta builds outscore random builds.

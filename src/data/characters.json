@@ -1,0 +1,162 @@
+[
+  {
+    "name": "Amog",
+    "synergies": [],
+    "weapon": "Poison Flask",
+    "blessing": "Poisoned enemies explode on death, adding all stacks of Poison to enemies hit. Also gain 1% Poison Damage per level.",
+    "role": "Crowd Control",
+    "unlock": "Poison 50,000 enemies with Moldy Cheese and get the Poison Flask."
+  },
+  {
+    "name": "Athena",
+    "synergies": [],
+    "weapon": "Aegis",
+    "blessing": "Deals more damage at lower HP, gains +2 Thorns per level. Also increases her attack speed by 150% when no shields are active.",
+    "role": "Tank",
+    "unlock": "Upgrade Thorns Tome to level 9 and get the Aegis"
+  },
+  {
+    "name": "Bandit",
+    "synergies": [],
+    "weapon": "Dexecutioner",
+    "blessing": "+1% Attack Speed per level.",
+    "role": "Melee / Assassin",
+    "unlock": "Find and defeat Bandit in the Desert and get the Dexecutioner"
+  },
+  {
+    "name": "Birdo",
+    "synergies": [],
+    "weapon": "Tornado",
+    "blessing": "Hold \"Jump\" to float in the air. Also gain 1% Airborne Damage per level.",
+    "role": "Mobile",
+    "unlock": "Kill 100 enemies using the Tornado while carried by a Tornado on Desert"
+  },
+  {
+    "name": "Bush",
+    "synergies": [],
+    "weapon": "Sniper Rifle",
+    "blessing": "Marked enemies explode when shot. +1% Crit Damage per level",
+    "role": "Ranged",
+    "unlock": "Find and defeat Bush in the Forest and get the Sniper Rifle"
+  },
+  {
+    "name": "Calcium",
+    "synergies": [],
+    "weapon": "Bone",
+    "blessing": "Speed builds up over time, but is halved when you take damage. Gain damage based on speed.",
+    "role": "Ranged / Skirmisher",
+    "unlock": "Kill 1,000 Skeletons."
+  },
+  {
+    "name": "CL4NK",
+    "synergies": [],
+    "weapon": "Revolver",
+    "blessing": "Gain 1% Crit Chance per level.",
+    "role": "Ranged / Glass Cannon",
+    "unlock": "Complete Forest Tier 1 and get the Revolver."
+  },
+  {
+    "name": "Dicehead",
+    "synergies": [],
+    "weapon": "Dice",
+    "blessing": "Roll the dice and upgrade a random stat when you level up.",
+    "role": "RNG / Trickster",
+    "unlock": "Complete 100 Quests and get the Dice."
+  },
+  {
+    "name": "Fox",
+    "synergies": [],
+    "weapon": "Firestaff",
+    "blessing": "Gain 2% Luck per level.",
+    "role": "Ranged DPS / Lucky",
+    "unlock": "Starting Character"
+  },
+  {
+    "name": "Megachad",
+    "synergies": [],
+    "weapon": "Aura",
+    "blessing": "Stuns enemies and prevents damage; cooldown decreases by 0.2s per level. Gain 2.5% damage when you flex",
+    "role": "Tank / CC",
+    "unlock": "Get the Damage Tome to Level 7 and get the Aura"
+  },
+  {
+    "name": "Monke",
+    "synergies": [],
+    "weapon": "Bananarang",
+    "blessing": "Climb up walls. Also gain +2 Max HP per level",
+    "role": "Brawler / High HP",
+    "unlock": "Find and release Monke from his cage in the Forest; also find the Bananarang in the Forest"
+  },
+  {
+    "name": "Ninja",
+    "synergies": [],
+    "weapon": "Katana",
+    "blessing": "Execute an enemy upon evading them. Also, 0.5% Evasion per level.",
+    "role": "Melee / Assassin",
+    "unlock": "Complete Desert Tier 1 and get the Katana."
+  },
+  {
+    "name": "Noelle",
+    "synergies": [],
+    "weapon": "Frostwalker",
+    "blessing": "Gain 0.75% Size per level. Also increase Damage by 1.5% per currently frozen enemy.",
+    "role": "Mage / Control",
+    "unlock": "Use a Microwave to duplicate an Ice Crystal 3 times in a row and get the Frostwalker"
+  },
+  {
+    "name": "Ogre",
+    "synergies": [],
+    "weapon": "Axe",
+    "blessing": "Gain 1.5% damage per level.",
+    "role": "Bruiser",
+    "unlock": "Kill 15,000 Goblins and get the Axe."
+  },
+  {
+    "name": "Robinette",
+    "synergies": [],
+    "weapon": "Bow",
+    "blessing": "+1% Gold Gain per level. Increase Damage by 10% per 1000 gold in inventory.",
+    "role": "Mobile / Scout",
+    "unlock": "Complete Forest Tier 2."
+  },
+  {
+    "name": "Sir Chadwell",
+    "synergies": [],
+    "weapon": "Corrupted Sword",
+    "blessing": "Gain 1% Difficulty per level",
+    "role": "Melee",
+    "unlock": "Complete Forest Tier 3 and get the Corrupted Sword."
+  },
+  {
+    "name": "Sir Oofie",
+    "synergies": [],
+    "weapon": "Sword",
+    "blessing": "Gain 1% Armor per level.",
+    "role": "Tank",
+    "unlock": "Starting Character"
+  },
+  {
+    "name": "Spaceman",
+    "synergies": [],
+    "weapon": "Black Hole",
+    "blessing": "Gain 1% XP Gain per level",
+    "role": "Crowd Control",
+    "unlock": "Complete 6 Challenges and get the Black Hole."
+  },
+  {
+    "name": "Tony McZoom",
+    "synergies": [],
+    "weapon": "Wireless Dagger",
+    "blessing": "Charge an electric attack by moving around. Gain 2% pickup range per level.",
+    "role": "Speed / Assassin",
+    "unlock": "Complete 2 challenges and get the Wireless Dagger."
+  },
+  {
+    "name": "Vlad",
+    "synergies": [],
+    "weapon": "Blood Magic",
+    "blessing": "+1% Lifesteal per level",
+    "role": "Mage / Lifesteal",
+    "unlock": "Complete Desert Tier 2 and get the Blood Magic (unlocks after upgrading the Bloody Tome to level 12)."
+  }
+]

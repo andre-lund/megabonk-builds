@@ -1,0 +1,536 @@
+[
+  {
+    "name": "Agility Tome",
+    "synergies": [
+      "Cooldown Tome",
+      "Precision Tome",
+      "Attraction Tome",
+      "XP Tome",
+      "Cursed Tome",
+      "Shield Tome",
+      "Evasion Tome"
+    ],
+    "stat": "Movement Speed",
+    "effect": "Increases overall movement speed for safer dodging and faster repositioning.",
+    "unlock": "Default",
+    "maxLevel": 99,
+    "upgrades": [
+      {
+        "stat": "Movement Speed",
+        "common": "15%",
+        "uncommon": "18%",
+        "rare": "21%",
+        "epic": "24%",
+        "legendary": "30%"
+      }
+    ]
+  },
+  {
+    "name": "Armor Tome",
+    "synergies": [
+      "Shield Tome",
+      "Thorns Tome",
+      "Regen Tome",
+      "Bloody Tome",
+      "Cursed Tome"
+    ],
+    "stat": "Armor",
+    "effect": "Increases overall Armor, reducing incoming damage.",
+    "unlock": "Kill 5,000 enemies as Sir Oofie",
+    "maxLevel": 99,
+    "upgrades": [
+      {
+        "stat": "Armor",
+        "common": "12%",
+        "uncommon": "14%",
+        "rare": "17%",
+        "epic": "19%",
+        "legendary": "24%"
+      }
+    ]
+  },
+  {
+    "name": "Attraction Tome",
+    "synergies": [
+      "XP Tome",
+      "Cursed Tome"
+    ],
+    "stat": "Pickup Range",
+    "effect": "Increases pickup range, letting you collect XP orbs from much further away.",
+    "unlock": "Use the Shrine 8 times",
+    "maxLevel": 99,
+    "upgrades": [
+      {
+        "stat": "Pickup Range",
+        "common": "75%",
+        "uncommon": "90%",
+        "rare": "105%",
+        "epic": "120%",
+        "legendary": "150%"
+      }
+    ]
+  },
+  {
+    "name": "Bloody Tome",
+    "synergies": [
+      "Cooldown Tome",
+      "Quantity Tome",
+      "Armor Tome",
+      "Shield Tome",
+      "Cursed Tome"
+    ],
+    "stat": "Lifesteal",
+    "effect": "Grants a chance to heal 1 HP on hit; over 100% guarantees 1 heal and can roll for a second point.",
+    "unlock": "Kill 12,500 enemies",
+    "maxLevel": 99,
+    "upgrades": [
+      {
+        "stat": "Lifesteal",
+        "common": "10%",
+        "uncommon": "12%",
+        "rare": "14%",
+        "epic": "16%",
+        "legendary": "20%"
+      }
+    ]
+  },
+  {
+    "name": "Chaos Tome",
+    "synergies": [
+      "Luck Tome",
+      "Cursed Tome"
+    ],
+    "stat": "Random Stat",
+    "effect": "Grants a random stat boost per level. Reward bonus is 50% higher as of Patch 1.0.12.",
+    "unlock": "Charge all Charge Shrines on a Tier 3 run across all 3 stages without leaving the charge zone",
+    "maxLevel": 99,
+    "upgrades": []
+  },
+  {
+    "name": "Cooldown Tome",
+    "synergies": [
+      "Damage Tome",
+      "Precision Tome",
+      "Quantity Tome",
+      "Knockback Tome"
+    ],
+    "stat": "Attack Speed",
+    "effect": "Reduces the cooldown between attacks, letting you shoot and strike faster.",
+    "unlock": "Default (available at start)",
+    "maxLevel": 99,
+    "upgrades": [
+      {
+        "stat": "Attack Speed",
+        "common": "8%",
+        "uncommon": "9%",
+        "rare": "11%",
+        "epic": "12%",
+        "legendary": "15%"
+      }
+    ]
+  },
+  {
+    "name": "Cursed Tome",
+    "synergies": [
+      "XP Tome",
+      "Attraction Tome",
+      "Agility Tome",
+      "Damage Tome",
+      "Precision Tome",
+      "Cooldown Tome",
+      "Quantity Tome",
+      "Armor Tome",
+      "Regen Tome",
+      "Bloody Tome",
+      "Charge Shrine",
+      "Chaos Tome"
+    ],
+    "stat": "Difficulty",
+    "effect": "Makes the game harder by spawning more enemies with higher health, speed and damage. In return you get more XP and drops.",
+    "unlock": "Beat the Stage Boss in under 5 minutes",
+    "maxLevel": 99,
+    "upgrades": [
+      {
+        "stat": "Difficulty",
+        "common": "4%",
+        "uncommon": "4%",
+        "rare": "5%",
+        "epic": "6%",
+        "legendary": "7%"
+      }
+    ]
+  },
+  {
+    "name": "Damage Tome",
+    "synergies": [
+      "Precision Tome",
+      "Cooldown Tome",
+      "Quantity Tome",
+      "Size Tome"
+    ],
+    "stat": "Damage",
+    "effect": "Increases the base damage of your attacks, improving overall DPS and scaling with most weapons.",
+    "unlock": "Default (available at start)",
+    "maxLevel": 99,
+    "upgrades": [
+      {
+        "stat": "Damage",
+        "common": "0.08",
+        "uncommon": "0.1",
+        "rare": "0.11",
+        "epic": "0.13",
+        "legendary": "0.16"
+      }
+    ]
+  },
+  {
+    "name": "Duration Tome",
+    "synergies": [
+      "Size Tome",
+      "Cooldown Tome",
+      "Damage Tome",
+      "Cursed Tome"
+    ],
+    "stat": "Duration",
+    "effect": "Increases how long your projectiles and attack effects last on the battlefield.",
+    "unlock": "Upgrade Axe to level 10",
+    "maxLevel": 99,
+    "upgrades": [
+      {
+        "stat": "Duration",
+        "common": "15%",
+        "uncommon": "18%",
+        "rare": "21%",
+        "epic": "24%",
+        "legendary": "30%"
+      }
+    ]
+  },
+  {
+    "name": "Evasion Tome",
+    "synergies": [
+      "Agility Tome",
+      "Shield Tome",
+      "Health Tome",
+      "Cursed Tome"
+    ],
+    "stat": "Evasion",
+    "effect": "Increases your chance to completely avoid incoming attacks, taking no damage when it triggers.",
+    "unlock": "Default (available at start)",
+    "maxLevel": 99,
+    "upgrades": [
+      {
+        "stat": "Evasion",
+        "common": "10%",
+        "uncommon": "12%",
+        "rare": "14%",
+        "epic": "16%",
+        "legendary": "20%"
+      }
+    ]
+  },
+  {
+    "name": "Golden Tome",
+    "synergies": [
+      "Silver Tome",
+      "Luck Tome",
+      "XP Tome",
+      "Cursed Tome"
+    ],
+    "stat": "Gold Gain",
+    "effect": "Increases the amount of Gold earned from all sources, boosting your economy during runs.",
+    "unlock": "Default (available at start)",
+    "maxLevel": 99,
+    "upgrades": [
+      {
+        "stat": "Gold Gain",
+        "common": "12%",
+        "uncommon": "14%",
+        "rare": "17%",
+        "epic": "19%",
+        "legendary": "24%"
+      }
+    ]
+  },
+  {
+    "name": "Health Tome",
+    "synergies": [
+      "Regen Tome",
+      "Bloody Tome",
+      "Armor Tome"
+    ],
+    "stat": "Max HP",
+    "effect": "Increases maximum health, letting you take more hits before going down.",
+    "unlock": "Default (available at start)",
+    "maxLevel": 99,
+    "upgrades": [
+      {
+        "stat": "Max HP",
+        "common": "25",
+        "uncommon": "30",
+        "rare": "35",
+        "epic": "40",
+        "legendary": "50"
+      }
+    ]
+  },
+  {
+    "name": "Knockback Tome",
+    "synergies": [
+      "Agility Tome",
+      "Cooldown Tome",
+      "Damage Tome",
+      "Precision Tome",
+      "Cursed Tome"
+    ],
+    "stat": "Knockback",
+    "effect": "Increases the distance enemies are pushed back when hit, giving you more breathing room.",
+    "unlock": "Default (available at start)",
+    "maxLevel": 99,
+    "upgrades": [
+      {
+        "stat": "Knockback",
+        "common": "20%",
+        "uncommon": "24%",
+        "rare": "28%",
+        "epic": "32%",
+        "legendary": "40%"
+      }
+    ]
+  },
+  {
+    "name": "Luck Tome",
+    "synergies": [
+      "XP Tome",
+      "Cursed Tome",
+      "Golden Tome",
+      "Kevin",
+      "Golden Shield",
+      "Chaos Tome"
+    ],
+    "stat": "Luck",
+    "effect": "Increases overall Luck, improving the chance of better tier offers, shrine rolls, and item chest rewards.",
+    "unlock": "0.01% chance drop from killing an enemy",
+    "maxLevel": 99,
+    "upgrades": [
+      {
+        "stat": "Luck",
+        "common": "7%",
+        "uncommon": "8%",
+        "rare": "10%",
+        "epic": "11%",
+        "legendary": "14%"
+      }
+    ]
+  },
+  {
+    "name": "Precision Tome",
+    "synergies": [
+      "Damage Tome",
+      "Cooldown Tome",
+      "Quantity Tome"
+    ],
+    "stat": "Crit Chance",
+    "effect": "Increases critical strike chance and unlocks the ability to Overcrit at high values.",
+    "unlock": "Default (available at start)",
+    "maxLevel": 99,
+    "upgrades": [
+      {
+        "stat": "Crit Chance",
+        "common": "7%",
+        "uncommon": "8%",
+        "rare": "10%",
+        "epic": "11%",
+        "legendary": "14%"
+      }
+    ]
+  },
+  {
+    "name": "Projectile Speed Tome",
+    "synergies": [
+      "Quantity Tome",
+      "Damage Tome",
+      "Precision Tome",
+      "Cooldown Tome"
+    ],
+    "stat": "Projectile Speed",
+    "effect": "Increases the speed of your projectiles, making them hit targets faster and travel further before disappearing.",
+    "unlock": "Default (available at start)",
+    "maxLevel": 99,
+    "upgrades": [
+      {
+        "stat": "Projectile Speed",
+        "common": "15%",
+        "uncommon": "18%",
+        "rare": "21%",
+        "epic": "24%",
+        "legendary": "30%"
+      }
+    ]
+  },
+  {
+    "name": "Quantity Tome",
+    "synergies": [
+      "Damage Tome",
+      "Precision Tome",
+      "Cooldown Tome"
+    ],
+    "stat": "Projectile Count",
+    "effect": "Increases the number of projectiles or attacks, depending on the weapon.",
+    "unlock": "Fire 5,000 projectiles",
+    "maxLevel": 99,
+    "upgrades": [
+      {
+        "stat": "Projectile Count",
+        "common": "1",
+        "uncommon": "1.2",
+        "rare": "1.4",
+        "epic": "1.6",
+        "legendary": "2"
+      }
+    ]
+  },
+  {
+    "name": "Regen Tome",
+    "synergies": [],
+    "stat": "HP Regen",
+    "effect": "Increases natural health regeneration, letting you recover HP over time during runs.",
+    "unlock": "Default (available at start)",
+    "maxLevel": 99,
+    "upgrades": [
+      {
+        "stat": "HP Regen",
+        "common": "40",
+        "uncommon": "48",
+        "rare": "56",
+        "epic": "64",
+        "legendary": "80"
+      }
+    ]
+  },
+  {
+    "name": "Shield Tome",
+    "synergies": [
+      "Regen Tome",
+      "Evasion Tome",
+      "Armor Tome",
+      "Cursed Tome"
+    ],
+    "stat": "Shield",
+    "effect": "Grants a protective shield that takes damage before HP. The shield regenerates if you avoid damage for a short time.",
+    "unlock": "Default (available at start)",
+    "maxLevel": 99,
+    "upgrades": [
+      {
+        "stat": "Shield",
+        "common": "25",
+        "uncommon": "30",
+        "rare": "35",
+        "epic": "40",
+        "legendary": "50"
+      }
+    ]
+  },
+  {
+    "name": "Silver Tome",
+    "synergies": [
+      "Golden Tome",
+      "XP Tome",
+      "Luck Tome",
+      "Cursed Tome"
+    ],
+    "stat": "Silver Gain",
+    "effect": "Increases the amount of Silver earned from all sources, improving economy and progression between runs.",
+    "unlock": "Default (available at start)",
+    "maxLevel": 99,
+    "upgrades": [
+      {
+        "stat": "Silver Gain",
+        "common": "12%",
+        "uncommon": "14%",
+        "rare": "17%",
+        "epic": "19%",
+        "legendary": "24%"
+      }
+    ]
+  },
+  {
+    "name": "Size Tome",
+    "synergies": [
+      "Damage Tome",
+      "Precision Tome",
+      "Duration Tome",
+      "Cooldown Tome",
+      "Cursed Tome",
+      "Beacon",
+      "Charge Shrine"
+    ],
+    "stat": "Size",
+    "effect": "Increases the size of attacks, projectiles, and explosions, making them easier to hit with and more impactful.",
+    "unlock": "Default (available at start)",
+    "maxLevel": 99,
+    "upgrades": [
+      {
+        "stat": "Size",
+        "common": "10%",
+        "uncommon": "12%",
+        "rare": "14%",
+        "epic": "16%",
+        "legendary": "20%"
+      }
+    ]
+  },
+  {
+    "name": "Thorns Tome",
+    "synergies": [
+      "Armor Tome",
+      "Shield Tome",
+      "Regen Tome",
+      "Bloody Tome",
+      "Cursed Tome"
+    ],
+    "stat": "Thorns",
+    "effect": "Deals damage back to enemies when they hit you, reflecting part of the damage taken.",
+    "unlock": "Block 250 attacks with Aegis",
+    "maxLevel": 99,
+    "upgrades": [
+      {
+        "stat": "Thorns",
+        "common": "15",
+        "uncommon": "18",
+        "rare": "21",
+        "epic": "24",
+        "legendary": "30"
+      }
+    ]
+  },
+  {
+    "name": "XP Tome",
+    "synergies": [
+      "Echo Shard",
+      "Luck Tome",
+      "Cursed Tome",
+      "Cooldown Tome",
+      "Damage Tome",
+      "Precision Tome",
+      "Quantity Tome",
+      "Agility Tome",
+      "Attraction Tome",
+      "Golden Tome"
+    ],
+    "stat": "XP Gain",
+    "effect": "Increases XP gained from all sources, accelerating level-ups and build scaling.",
+    "unlock": "Break 20 pots in a single run",
+    "maxLevel": 99,
+    "upgrades": [
+      {
+        "stat": "XP Gain",
+        "common": "7%",
+        "uncommon": "8%",
+        "rare": "10%",
+        "epic": "11%",
+        "legendary": "14%"
+      }
+    ]
+  }
+]

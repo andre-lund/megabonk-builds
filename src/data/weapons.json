@@ -1,0 +1,1287 @@
+[
+  {
+    "name": "Aegis",
+    "synergies": [
+      "Quantity Tome",
+      "Thorns Tome",
+      "Spiky Shield",
+      "Cooldown Tome",
+      "Athena",
+      "Sir Oofie"
+    ],
+    "type": "Shield",
+    "description": "Blocks incoming attacks and sends out shockwaves",
+    "unlock": "Block 500 damage with Armor as Sir Oofie.",
+    "special": "Deals damage when you take damage",
+    "upgrades": [
+      {
+        "stat": "Damage",
+        "common": "2",
+        "uncommon": "2.4",
+        "rare": "2.8",
+        "epic": "3.2",
+        "legendary": "4"
+      },
+      {
+        "stat": "Projectile Count",
+        "common": "1",
+        "uncommon": "1.2",
+        "rare": "1.4",
+        "epic": "1.6",
+        "legendary": "2"
+      },
+      {
+        "stat": "Knockback",
+        "common": "0.8",
+        "uncommon": "0.9",
+        "rare": "1.1",
+        "epic": "1.2",
+        "legendary": "1.5"
+      },
+      {
+        "stat": "Size",
+        "common": "15%",
+        "uncommon": "18%",
+        "rare": "21%",
+        "epic": "24%",
+        "legendary": "30%"
+      }
+    ]
+  },
+  {
+    "name": "Aura",
+    "synergies": [
+      "Charge Shrine",
+      "Chaos Tome",
+      "Megachad",
+      "Noelle"
+    ],
+    "type": "Area of Effect (AoE)",
+    "description": "Damages enemies in an area around you",
+    "unlock": "Survive for 2 consecutive minutes without taking damage.",
+    "special": "None.",
+    "upgrades": [
+      {
+        "stat": "Damage",
+        "common": "1.4",
+        "uncommon": "1.7",
+        "rare": "2",
+        "epic": "2.2",
+        "legendary": "2.8"
+      },
+      {
+        "stat": "Size",
+        "common": "14%",
+        "uncommon": "17%",
+        "rare": "20%",
+        "epic": "22%",
+        "legendary": "28%"
+      }
+    ]
+  },
+  {
+    "name": "Axe",
+    "synergies": [
+      "Noelle"
+    ],
+    "type": "Projectile, Area Damage",
+    "description": "Throws spinning axes that deal area-damage",
+    "unlock": "Kill 2,000 enemies using the Sword.",
+    "special": "None",
+    "upgrades": [
+      {
+        "stat": "Damage",
+        "common": "1.5",
+        "uncommon": "1.8",
+        "rare": "2.1",
+        "epic": "2.4",
+        "legendary": "3"
+      },
+      {
+        "stat": "Projectile Count",
+        "common": "1",
+        "uncommon": "1.2",
+        "rare": "1.4",
+        "epic": "1.6",
+        "legendary": "2"
+      },
+      {
+        "stat": "Duration",
+        "common": "0.08s",
+        "uncommon": "0.1s",
+        "rare": "0.11s",
+        "epic": "0.13s",
+        "legendary": "0.16s"
+      },
+      {
+        "stat": "Size",
+        "common": "10%",
+        "uncommon": "12%",
+        "rare": "14%",
+        "epic": "16%",
+        "legendary": "20%"
+      }
+    ]
+  },
+  {
+    "name": "Bananarang",
+    "synergies": [
+      "Monke"
+    ],
+    "type": "Projectile",
+    "description": "Throws bananas that return to the owner",
+    "unlock": "Find the hidden banana in the Forest.",
+    "special": "Returning projectile",
+    "upgrades": [
+      {
+        "stat": "Damage",
+        "common": "2",
+        "uncommon": "2.4",
+        "rare": "2.8",
+        "epic": "3.2",
+        "legendary": "4"
+      },
+      {
+        "stat": "Projectile Count",
+        "common": "1",
+        "uncommon": "1.2",
+        "rare": "1.4",
+        "epic": "1.6",
+        "legendary": "2"
+      },
+      {
+        "stat": "Projectile Speed",
+        "common": "0.1",
+        "uncommon": "0.12",
+        "rare": "0.14",
+        "epic": "0.16",
+        "legendary": "0.2"
+      },
+      {
+        "stat": "Size",
+        "common": "14%",
+        "uncommon": "17%",
+        "rare": "20%",
+        "epic": "22%",
+        "legendary": "28%"
+      }
+    ]
+  },
+  {
+    "name": "Black Hole",
+    "synergies": [
+      "Unstable Transfusion",
+      "Bloody Cleaver",
+      "Dexecutioner"
+    ],
+    "type": "Projectile, Crowd Control",
+    "description": "Shoots a black hole that pulls enemies in.",
+    "unlock": "Get the Knockback Tome to Level 10.",
+    "special": "Enemies hit are pulled towards the projectile.",
+    "upgrades": [
+      {
+        "stat": "Damage",
+        "common": "1.3",
+        "uncommon": "1.5",
+        "rare": "1.8",
+        "epic": "2",
+        "legendary": "2.5"
+      },
+      {
+        "stat": "Projectile Count",
+        "common": "1",
+        "uncommon": "1.2",
+        "rare": "1.4",
+        "epic": "1.6",
+        "legendary": "2"
+      },
+      {
+        "stat": "Duration",
+        "common": "0.12s",
+        "uncommon": "0.14%",
+        "rare": "0.17s",
+        "epic": "0.19s",
+        "legendary": "0.24s"
+      },
+      {
+        "stat": "Size",
+        "common": "13%",
+        "uncommon": "16%",
+        "rare": "18%",
+        "epic": "21%",
+        "legendary": "26%"
+      }
+    ]
+  },
+  {
+    "name": "Blood Magic",
+    "synergies": [
+      "Beefy Ring",
+      "Bloody Tome",
+      "Sniper Rifle",
+      "Katana"
+    ],
+    "type": "Area of Effect (AoE), Instant, Utility",
+    "description": "Summons blood magic. 5% chance to increase Max HP upon killing enemies.",
+    "unlock": "Get the Bloody Tome to Level 12.",
+    "special": "5% chance on kill to permanently increase Max HP by 1.",
+    "upgrades": [
+      {
+        "stat": "Damage",
+        "common": "1.5",
+        "uncommon": "1.8",
+        "rare": "2.1",
+        "epic": "2.4",
+        "legendary": "3"
+      },
+      {
+        "stat": "Projectile Count",
+        "common": "1",
+        "uncommon": "1.2",
+        "rare": "1.4",
+        "epic": "1.6",
+        "legendary": "2"
+      },
+      {
+        "stat": "Size",
+        "common": "15%",
+        "uncommon": "18%",
+        "rare": "21%",
+        "epic": "24%",
+        "legendary": "30%"
+      }
+    ]
+  },
+  {
+    "name": "Bone",
+    "synergies": [
+      "Tomes",
+      "Projectile Speed Tome",
+      "Quantity Tome"
+    ],
+    "type": "Projectile",
+    "description": "Throws bones that bounce off enemies",
+    "unlock": "Starter Weapon",
+    "special": "None",
+    "upgrades": [
+      {
+        "stat": "Damage",
+        "common": "2.5",
+        "uncommon": "3",
+        "rare": "3.5",
+        "epic": "4",
+        "legendary": "5"
+      },
+      {
+        "stat": "Projectile Count",
+        "common": "1",
+        "uncommon": "1.2",
+        "rare": "1.4",
+        "epic": "1.6",
+        "legendary": "2"
+      },
+      {
+        "stat": "Projectile Bounces",
+        "common": "1",
+        "uncommon": "1.2",
+        "rare": "1.4",
+        "epic": "1.6",
+        "legendary": "2"
+      },
+      {
+        "stat": "Projectile Speed",
+        "common": "0.2",
+        "uncommon": "0.24",
+        "rare": "0.28",
+        "epic": "0.32",
+        "legendary": "0.4"
+      },
+      {
+        "stat": "Critical Chance",
+        "common": "0",
+        "uncommon": "0",
+        "rare": "0",
+        "epic": "0",
+        "legendary": "0"
+      },
+      {
+        "stat": "Critical Damage",
+        "common": "0",
+        "uncommon": "0",
+        "rare": "0",
+        "epic": "0",
+        "legendary": "0"
+      }
+    ]
+  },
+  {
+    "name": "Chunkers",
+    "synergies": [
+      "Tomes",
+      "Size Tome",
+      "Quantity Tome"
+    ],
+    "type": "Area of Effect (AoE)",
+    "description": "Summons chunky rocks that orbit around you.",
+    "unlock": "Starter weapon",
+    "special": "None",
+    "upgrades": [
+      {
+        "stat": "Damage",
+        "common": "3",
+        "uncommon": "3.6",
+        "rare": "4.2",
+        "epic": "4.8",
+        "legendary": "6"
+      },
+      {
+        "stat": "Projectile Count",
+        "common": "1",
+        "uncommon": "1.2",
+        "rare": "1.4",
+        "epic": "1.6",
+        "legendary": "2"
+      },
+      {
+        "stat": "Projectile Speed",
+        "common": "0.35",
+        "uncommon": "0.42",
+        "rare": "0.49",
+        "epic": "0.56",
+        "legendary": "0.7"
+      },
+      {
+        "stat": "Knockback",
+        "common": "0.7",
+        "uncommon": "0.8",
+        "rare": "0.8",
+        "epic": "1",
+        "legendary": "1.3"
+      },
+      {
+        "stat": "Size",
+        "common": "20%",
+        "uncommon": "24%",
+        "rare": "28%",
+        "epic": "32%",
+        "legendary": "40%"
+      }
+    ]
+  },
+  {
+    "name": "Corrupted Sword",
+    "synergies": [
+      "Charge Shrine",
+      "Chaos Tome",
+      "Shield Tome",
+      "Mirror",
+      "Kevin",
+      "Athena",
+      "Aegis",
+      "Noelle",
+      "Frostwalker"
+    ],
+    "type": "Melee, Projectile",
+    "description": "Slashes in both directions. Deals increased damage at low HP.",
+    "unlock": "Upgrade the Cursed Tome to Level 20 within 10 minutes of starting a run.",
+    "special": "Damage is reduced at high HP, but significantly increased at low HP. Fires a ranged slash projectile behind you. Projectiles pierce enemies.",
+    "upgrades": [
+      {
+        "stat": "Damage",
+        "common": "2",
+        "uncommon": "2.4",
+        "rare": "2.8",
+        "epic": "3.2",
+        "legendary": "4"
+      },
+      {
+        "stat": "Projectile Count",
+        "common": "1",
+        "uncommon": "1.2",
+        "rare": "1.4",
+        "epic": "1.6",
+        "legendary": "2"
+      },
+      {
+        "stat": "Projectile Speed",
+        "common": "4",
+        "uncommon": "4.8",
+        "rare": "5.6",
+        "epic": "6.4",
+        "legendary": "8"
+      },
+      {
+        "stat": "Size",
+        "common": "15%",
+        "uncommon": "18%",
+        "rare": "21%",
+        "epic": "24%",
+        "legendary": "30%"
+      }
+    ]
+  },
+  {
+    "name": "Dexecutioner",
+    "synergies": [
+      "Tomes",
+      "Size Tome",
+      "Quantity Tome",
+      "Cooldown Tome",
+      "Joes Dagger",
+      "Black Hole",
+      "Overpowered Lamp",
+      "Bandit",
+      "Noelle",
+      "Frostwalker"
+    ],
+    "type": "Piercing, Execute, Projectile",
+    "description": "A piercing blade. Small chance to instantly execute an enemy.",
+    "unlock": "Kill 12500 enemies using the Sword",
+    "special": "2% Chance to instantly kill on hit.",
+    "upgrades": [
+      {
+        "stat": "Damage",
+        "common": "2",
+        "uncommon": "2.4",
+        "rare": "2.8",
+        "epic": "3.2",
+        "legendary": "4"
+      },
+      {
+        "stat": "Crit Chance",
+        "common": "5%",
+        "uncommon": "6%",
+        "rare": "7%",
+        "epic": "8%",
+        "legendary": "10%"
+      },
+      {
+        "stat": "Projectile Count",
+        "common": "1",
+        "uncommon": "1.2",
+        "rare": "1.4",
+        "epic": "1.6",
+        "legendary": "2"
+      },
+      {
+        "stat": "Size",
+        "common": "20%",
+        "uncommon": "24%",
+        "rare": "28%",
+        "epic": "32%",
+        "legendary": "40%"
+      }
+    ]
+  },
+  {
+    "name": "Dice",
+    "synergies": [
+      "Charge Shrine",
+      "Bush",
+      "Noelle"
+    ],
+    "type": "Projectile, RNG",
+    "description": "Throw dice that deal 1-6 damage. Rolling a 6 increases the weapons Crit Chance permanently.",
+    "unlock": "Get the Luck Tome to Level 12.",
+    "special": "Rolling a 6 permanently increases the Dice's own Crit Chance by 0.5% for the rest of the run.",
+    "upgrades": [
+      {
+        "stat": "Damage",
+        "common": "2",
+        "uncommon": "2.4",
+        "rare": "2.8",
+        "epic": "3.2",
+        "legendary": "4"
+      },
+      {
+        "stat": "Crit Chance",
+        "common": "10%",
+        "uncommon": "12%",
+        "rare": "14%",
+        "epic": "16%",
+        "legendary": "20%"
+      },
+      {
+        "stat": "Crit Damage",
+        "common": "20%",
+        "uncommon": "24%",
+        "rare": "28%",
+        "epic": "32%",
+        "legendary": "40%"
+      },
+      {
+        "stat": "Projectile Count",
+        "common": "1",
+        "uncommon": "1.2",
+        "rare": "1.4",
+        "epic": "1.6",
+        "legendary": "2"
+      },
+      {
+        "stat": "Projectile Speed",
+        "common": "0.2",
+        "uncommon": "0.24",
+        "rare": "0.28",
+        "epic": "0.32",
+        "legendary": "0.4"
+      },
+      {
+        "stat": "Size",
+        "common": "15%",
+        "uncommon": "18%",
+        "rare": "21%",
+        "epic": "24%",
+        "legendary": "30%"
+      }
+    ]
+  },
+  {
+    "name": "Dragons Breath",
+    "synergies": [
+      "Tomes",
+      "Size Tome",
+      "Duration Tome",
+      "Dragonfire"
+    ],
+    "type": "Area of Effect (AoE)",
+    "description": "Fires a fierce dragon's breath in the movement direction.",
+    "unlock": "Kill 1,000 Wisp as Fox on Desert.",
+    "special": "Damage Type: Fire",
+    "upgrades": [
+      {
+        "stat": "Damage",
+        "common": "3",
+        "uncommon": "3.6",
+        "rare": "4.2",
+        "epic": "4.8",
+        "legendary": "6"
+      },
+      {
+        "stat": "Duration",
+        "common": "0.2s",
+        "uncommon": "0.24s",
+        "rare": "0.28s",
+        "epic": "0.32s",
+        "legendary": "0.4s"
+      },
+      {
+        "stat": "Size",
+        "common": "15%",
+        "uncommon": "18%",
+        "rare": "21%",
+        "epic": "24%",
+        "legendary": "30%"
+      }
+    ]
+  },
+  {
+    "name": "Firestaff",
+    "synergies": [
+      "Tomes",
+      "Size Tome",
+      "Quantity Tome",
+      "Dragonfire"
+    ],
+    "type": "Projectile, Area of Effect (AoE)",
+    "description": "Shoots fireballs that explode on impact",
+    "unlock": "Starter Weapon",
+    "special": "Damage Type: Fire",
+    "upgrades": [
+      {
+        "stat": "Damage",
+        "common": "2.5",
+        "uncommon": "3",
+        "rare": "3.5",
+        "epic": "4",
+        "legendary": "5"
+      },
+      {
+        "stat": "Projectile Count",
+        "common": "1",
+        "uncommon": "1.2",
+        "rare": "1.4",
+        "epic": "1.6",
+        "legendary": "2"
+      },
+      {
+        "stat": "Projectile Speed",
+        "common": "0.1",
+        "uncommon": "0.12",
+        "rare": "0.14",
+        "epic": "0.16",
+        "legendary": "0.2"
+      },
+      {
+        "stat": "Size",
+        "common": "16%",
+        "uncommon": "19%",
+        "rare": "22%",
+        "epic": "26%",
+        "legendary": "32%"
+      }
+    ]
+  },
+  {
+    "name": "Flamewalker",
+    "synergies": [
+      "Aura"
+    ],
+    "type": "Area of Effect (AoE)",
+    "description": "Leaves a trail of fire behind you",
+    "unlock": "Starter weapon",
+    "special": "Damage Type: Fire",
+    "upgrades": [
+      {
+        "stat": "Damage",
+        "common": "2",
+        "uncommon": "2.4",
+        "rare": "2.8",
+        "epic": "3.2",
+        "legendary": "4"
+      },
+      {
+        "stat": "Projectile Count",
+        "common": "1",
+        "uncommon": "1.2",
+        "rare": "1.4",
+        "epic": "1.6",
+        "legendary": "2"
+      },
+      {
+        "stat": "Duration",
+        "common": "0.18s",
+        "uncommon": "0.21s",
+        "rare": "0.25s",
+        "epic": "0.29s",
+        "legendary": "0.36s"
+      },
+      {
+        "stat": "Size",
+        "common": "15%",
+        "uncommon": "18%",
+        "rare": "21%",
+        "epic": "24%",
+        "legendary": "30%"
+      }
+    ]
+  },
+  {
+    "name": "Frostwalker",
+    "synergies": [
+      "Cursed Doll",
+      "Axe",
+      "Black Hole",
+      "Noelle"
+    ],
+    "type": "Area of Effect (AoE), Crowd Control",
+    "description": "Freezes and damages enemies in an area around you",
+    "unlock": "Freeze 1,000 enemies using the Ice Cube item.",
+    "special": "Damage Type: Ice Freezes enemies on hit.",
+    "upgrades": [
+      {
+        "stat": "Damage",
+        "common": "2",
+        "uncommon": "2.4",
+        "rare": "2.8",
+        "epic": "3.2",
+        "legendary": "4"
+      },
+      {
+        "stat": "Duration",
+        "common": "0.12s",
+        "uncommon": "0.14s",
+        "rare": "0.17s",
+        "epic": "0.19s",
+        "legendary": "0.24s"
+      },
+      {
+        "stat": "Size",
+        "common": "10%",
+        "uncommon": "12%",
+        "rare": "14%",
+        "epic": "16%",
+        "legendary": "20%"
+      }
+    ]
+  },
+  {
+    "name": "Hero Sword",
+    "synergies": [],
+    "type": "Melee, Projectile",
+    "description": "Slashes through multiple enemies and fires a slashing projectile.",
+    "unlock": "Defeat a Stage Boss without picking up any ground items, powerups, or using shrines.",
+    "special": "Melee slashes also fire a ranged projectile. Projectiles pierce enemies.",
+    "upgrades": [
+      {
+        "stat": "Damage",
+        "common": "2",
+        "uncommon": "2.4",
+        "rare": "2.8",
+        "epic": "3.2",
+        "legendary": "4"
+      },
+      {
+        "stat": "Projectile Count",
+        "common": "1",
+        "uncommon": "1.2",
+        "rare": "1.4",
+        "epic": "1.6",
+        "legendary": "2"
+      },
+      {
+        "stat": "Projectile Speed",
+        "common": "4",
+        "uncommon": "4.8",
+        "rare": "5.6",
+        "epic": "6.4",
+        "legendary": "8"
+      },
+      {
+        "stat": "Size",
+        "common": "15%",
+        "uncommon": "18%",
+        "rare": "21%",
+        "epic": "24%",
+        "legendary": "30%"
+      }
+    ]
+  },
+  {
+    "name": "Katana",
+    "synergies": [
+      "Precision Tome",
+      "Noelle",
+      "Bush",
+      "Spaceman"
+    ],
+    "type": "Melee, Single-Target",
+    "description": "A sharp blade that targets the closest enemy.",
+    "unlock": "5% drop chance from breaking a Tumbleweed on Desert Stage 1.",
+    "special": "None.",
+    "upgrades": [
+      {
+        "stat": "Damage",
+        "common": "2.2",
+        "uncommon": "2.6",
+        "rare": "3.1",
+        "epic": "3.5",
+        "legendary": "4.4"
+      },
+      {
+        "stat": "Crit Chance",
+        "common": "8%",
+        "uncommon": "10%",
+        "rare": "11%",
+        "epic": "13%",
+        "legendary": "16%"
+      },
+      {
+        "stat": "Crit Damage",
+        "common": "20%",
+        "uncommon": "24%",
+        "rare": "28%",
+        "epic": "32%",
+        "legendary": "40%"
+      },
+      {
+        "stat": "Projectile Count",
+        "common": "1",
+        "uncommon": "1.2",
+        "rare": "1.4",
+        "epic": "1.6",
+        "legendary": "2"
+      },
+      {
+        "stat": "Size",
+        "common": "20%",
+        "uncommon": "24%",
+        "rare": "28%",
+        "epic": "32%",
+        "legendary": "40%"
+      }
+    ]
+  },
+  {
+    "name": "Mines",
+    "synergies": [
+      "Tomes",
+      "Size Tome",
+      "Quantity Tome",
+      "Cooldown Tome"
+    ],
+    "type": "Area of Effect (AoE), Projectile",
+    "description": "Deploys mines around you that explode when enemies get close.",
+    "unlock": "Kill 7,500 enemies with the Slutty Rocket.",
+    "special": "Projectiles stay in place until Duration ends or an enemy touches them.",
+    "upgrades": [
+      {
+        "stat": "Damage",
+        "common": "3",
+        "uncommon": "3.6",
+        "rare": "4.2",
+        "epic": "4.8",
+        "legendary": "6"
+      },
+      {
+        "stat": "Projectile Count",
+        "common": "1",
+        "uncommon": "1.2",
+        "rare": "1.4",
+        "epic": "1.6",
+        "legendary": "2"
+      },
+      {
+        "stat": "Duration",
+        "common": "0.4s",
+        "uncommon": "0.48s",
+        "rare": "0.56s",
+        "epic": "0.64s",
+        "legendary": "0.8s"
+      },
+      {
+        "stat": "Size",
+        "common": "15%",
+        "uncommon": "18%",
+        "rare": "21%",
+        "epic": "24%",
+        "legendary": "30%"
+      }
+    ]
+  },
+  {
+    "name": "Poison Flask",
+    "synergies": [
+      "Tomes",
+      "Size Tome",
+      "Quantity Tome",
+      "Cooldown Tome",
+      "Amog",
+      "Toggler",
+      "Revolver",
+      "Tornado",
+      "Black Hole",
+      "Moldy Cheese",
+      "Moldy Gloves"
+    ],
+    "type": "Area of Effect (AoE), Damage over Time (DoT), Projectile",
+    "description": "Throws toxic flasks at enemies, dealing area-damage and poisoning them.",
+    "unlock": "Kill Scorpionussy Miniboss in the Desert 3 times.",
+    "special": "Damage Type: Poison",
+    "upgrades": [
+      {
+        "stat": "Damage",
+        "common": "0.5",
+        "uncommon": "0.6",
+        "rare": "0.7",
+        "epic": "0.8",
+        "legendary": "1"
+      },
+      {
+        "stat": "Projectile Count",
+        "common": "1",
+        "uncommon": "1.2",
+        "rare": "1.4",
+        "epic": "1.6",
+        "legendary": "2"
+      },
+      {
+        "stat": "Projectile Speed",
+        "common": "2",
+        "uncommon": "2.4",
+        "rare": "2.8",
+        "epic": "3.2",
+        "legendary": "4"
+      },
+      {
+        "stat": "Duration",
+        "common": "1s",
+        "uncommon": "1.2s",
+        "rare": "1.4s",
+        "epic": "1.6s",
+        "legendary": "2s"
+      },
+      {
+        "stat": "Size",
+        "common": "15%",
+        "uncommon": "18%",
+        "rare": "21%",
+        "epic": "24%",
+        "legendary": "30%"
+      }
+    ]
+  },
+  {
+    "name": "Revolver",
+    "synergies": [
+      "Precision Tome",
+      "Quantity Tome",
+      "CL4NK"
+    ],
+    "type": "Projectile",
+    "description": "Fires multiple bullets at enemies",
+    "unlock": "Kill 7,500 enemies.",
+    "special": "None",
+    "upgrades": [
+      {
+        "stat": "Damage",
+        "common": "2.5",
+        "uncommon": "3",
+        "rare": "3.5",
+        "epic": "4",
+        "legendary": "5"
+      },
+      {
+        "stat": "Crit Chance",
+        "common": "10%",
+        "uncommon": "12%",
+        "rare": "14%",
+        "epic": "16%",
+        "legendary": "20%"
+      },
+      {
+        "stat": "Crit Damage",
+        "common": "20%",
+        "uncommon": "24%",
+        "rare": "28%",
+        "epic": "32%",
+        "legendary": "40%"
+      },
+      {
+        "stat": "Projectile Count",
+        "common": "1",
+        "uncommon": "1.2",
+        "rare": "1.4",
+        "epic": "1.6",
+        "legendary": "2"
+      },
+      {
+        "stat": "Projectile Bounces",
+        "common": "1",
+        "uncommon": "1.2",
+        "rare": "1.4",
+        "epic": "1.6",
+        "legendary": "2"
+      },
+      {
+        "stat": "Projectile Speed",
+        "common": "0.4",
+        "uncommon": "0.5",
+        "rare": "0.6",
+        "epic": "0.6",
+        "legendary": "0.8"
+      }
+    ]
+  },
+  {
+    "name": "Shotgun",
+    "synergies": [
+      "Noelle",
+      "Bandit",
+      "Charge Shrine",
+      "Bush"
+    ],
+    "type": "Area of Effect (AoE), Projectile",
+    "description": "Fires a spread shot, stronger at close range. Can be manually aimed.",
+    "unlock": "5% drop chance from breaking a Tumbleweed on Desert Stage 2",
+    "special": "Projectiles pierce enemies. Projectile Count scales damage instead of firing more times. Deals less damage the further away enemies are.",
+    "upgrades": [
+      {
+        "stat": "Damage",
+        "common": "3",
+        "uncommon": "3.6",
+        "rare": "4.2",
+        "epic": "4.8",
+        "legendary": "6"
+      },
+      {
+        "stat": "Crit Chance",
+        "common": "7%",
+        "uncommon": "8%",
+        "rare": "10%",
+        "epic": "11%",
+        "legendary": "14%"
+      },
+      {
+        "stat": "Projectile Count",
+        "common": "1",
+        "uncommon": "1.2",
+        "rare": "1.4",
+        "epic": "1.6",
+        "legendary": "2"
+      },
+      {
+        "stat": "Crit Damage",
+        "common": "0",
+        "uncommon": "0",
+        "rare": "0",
+        "epic": "0",
+        "legendary": "0"
+      },
+      {
+        "stat": "Size",
+        "common": "15%",
+        "uncommon": "18%",
+        "rare": "21%",
+        "epic": "24%",
+        "legendary": "30%"
+      }
+    ]
+  },
+  {
+    "name": "Slutty Rocket",
+    "synergies": [
+      "Quantity Tome",
+      "Bush"
+    ],
+    "type": "Projectile, Homing",
+    "description": "Fires missiles that automatically seek out enemies.",
+    "unlock": "Kill 15,000 enemies as CL4NK.",
+    "special": "None.",
+    "upgrades": [
+      {
+        "stat": "Damage",
+        "common": "2",
+        "uncommon": "2.4",
+        "rare": "2.8",
+        "epic": "3.2",
+        "legendary": "4"
+      },
+      {
+        "stat": "Crit Chance",
+        "common": "8%",
+        "uncommon": "10%",
+        "rare": "11%",
+        "epic": "13%",
+        "legendary": "16%"
+      },
+      {
+        "stat": "Projectile Count",
+        "common": "1",
+        "uncommon": "1.2",
+        "rare": "1.4",
+        "epic": "1.6",
+        "legendary": "2"
+      },
+      {
+        "stat": "Projectile Speed",
+        "common": "0.2",
+        "uncommon": "0.24",
+        "rare": "0.28",
+        "epic": "0.32",
+        "legendary": "0.4"
+      }
+    ]
+  },
+  {
+    "name": "Sniper Rifle",
+    "synergies": [],
+    "type": "Projectile, Aimable",
+    "description": "Fires a high-powered, piercing bullet that can be manually aimed.",
+    "unlock": "Upgrade the Precision Tome to Level 10.",
+    "special": "Projectiles pierce enemies.",
+    "upgrades": [
+      {
+        "stat": "Damage",
+        "common": "4",
+        "uncommon": "4.8",
+        "rare": "5.6",
+        "epic": "6.4",
+        "legendary": "8"
+      },
+      {
+        "stat": "Projectile Count",
+        "common": "1",
+        "uncommon": "1.2",
+        "rare": "1.4",
+        "epic": "1.6",
+        "legendary": "2"
+      },
+      {
+        "stat": "Size",
+        "common": "13%",
+        "uncommon": "16%",
+        "rare": "18%",
+        "epic": "21%",
+        "legendary": "26%"
+      }
+    ]
+  },
+  {
+    "name": "Space Noodle",
+    "synergies": [
+      "Tomes",
+      "Size Tome",
+      "Duration Tome",
+      "Charge Shrine",
+      "Chaos Tome"
+    ],
+    "type": "Area of Effect (AoE)",
+    "description": "Attaches to a nearby enemy. Deals damage to enemies in-between.",
+    "unlock": "Complete Desert Tier 2 as Tony McZoom.",
+    "special": "Can't kill the attached enemy until duration ends.",
+    "upgrades": [
+      {
+        "stat": "Damage",
+        "common": "2",
+        "uncommon": "2.4",
+        "rare": "2.8",
+        "epic": "3.2",
+        "legendary": "4"
+      },
+      {
+        "stat": "Duration",
+        "common": "0.2s",
+        "uncommon": "0.24s",
+        "rare": "0.28s",
+        "epic": "0.32s",
+        "legendary": "0.4s"
+      },
+      {
+        "stat": "Size",
+        "common": "20%",
+        "uncommon": "24%",
+        "rare": "28%",
+        "epic": "32%",
+        "legendary": "40%"
+      }
+    ]
+  },
+  {
+    "name": "Sword",
+    "synergies": [],
+    "type": "Melee",
+    "description": "Slashes through multiple enemies",
+    "unlock": "Starter Weapon",
+    "special": "None.",
+    "upgrades": [
+      {
+        "stat": "Damage",
+        "common": "2",
+        "uncommon": "2.4",
+        "rare": "2.8",
+        "epic": "3.2",
+        "legendary": "4"
+      },
+      {
+        "stat": "Projectile Count",
+        "common": "1",
+        "uncommon": "1.2",
+        "rare": "1.4",
+        "epic": "1.6",
+        "legendary": "2"
+      },
+      {
+        "stat": "Knockback",
+        "common": "0.5",
+        "uncommon": "0.6",
+        "rare": "0.7",
+        "epic": "0.8",
+        "legendary": "1"
+      },
+      {
+        "stat": "Size",
+        "common": "20%",
+        "uncommon": "24%",
+        "rare": "28%",
+        "epic": "32%",
+        "legendary": "40%"
+      }
+    ]
+  },
+  {
+    "name": "Tornado",
+    "synergies": [
+      "Sniper Rifle",
+      "Shotgun",
+      "Dragon's Breath"
+    ],
+    "type": "Projectile, Crowd Control, Knockback",
+    "description": "Sends out tornadoes, knocking enemies back",
+    "unlock": "Charge 5  Charge Shrines during a Sandstorm event on any Desert stage.",
+    "special": "Projectiles pierce enemies.",
+    "upgrades": [
+      {
+        "stat": "Damage",
+        "common": "2",
+        "uncommon": "2.4",
+        "rare": "2.8",
+        "epic": "3.2",
+        "legendary": "4"
+      },
+      {
+        "stat": "Projectile Count",
+        "common": "1",
+        "uncommon": "1.2",
+        "rare": "1.4",
+        "epic": "1.6",
+        "legendary": "2"
+      },
+      {
+        "stat": "Projectile Speed",
+        "common": "4",
+        "uncommon": "4.8",
+        "rare": "5.6",
+        "epic": "6.4",
+        "legendary": "8"
+      },
+      {
+        "stat": "Knockback",
+        "common": "0.6",
+        "uncommon": "0.72",
+        "rare": "0.84",
+        "epic": "0.96",
+        "legendary": "1.2"
+      },
+      {
+        "stat": "Size",
+        "common": "14%",
+        "uncommon": "17%",
+        "rare": "20%",
+        "epic": "22%",
+        "legendary": "28%"
+      }
+    ]
+  },
+  {
+    "name": "Wireless Dagger",
+    "synergies": [],
+    "type": "Projectile, Homing",
+    "description": "Throws smart daggers at your enemies. Wireless tech goes crazy these days.",
+    "unlock": "Upgrade the Lightning Staff to Level 15.",
+    "special": "Projectile homing makes them never miss.",
+    "upgrades": [
+      {
+        "stat": "Damage",
+        "common": "2",
+        "uncommon": "2.4",
+        "rare": "2.8",
+        "epic": "3.2",
+        "legendary": "4"
+      },
+      {
+        "stat": "Projectile Count",
+        "common": "1",
+        "uncommon": "1.2",
+        "rare": "1.4",
+        "epic": "1.6",
+        "legendary": "2"
+      },
+      {
+        "stat": "Projectile Bounces",
+        "common": "1",
+        "uncommon": "1.2",
+        "rare": "1.4",
+        "epic": "1.6",
+        "legendary": "2"
+      },
+      {
+        "stat": "Projectile Speed",
+        "common": "0.1",
+        "uncommon": "0.12",
+        "rare": "0.14",
+        "epic": "0.16",
+        "legendary": "0.2"
+      }
+    ]
+  }
+]
