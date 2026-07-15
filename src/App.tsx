@@ -14,11 +14,14 @@ import {
   type Build,
   type SlotKind,
 } from "./lib/build";
+import { activeSynergies, synergizesWithBuild, synergyIndex } from "./lib/synergy";
 
 const weapons = weaponsJson as Weapon[];
 const tomes = tomesJson as Tome[];
 const characters = charactersJson as Character[];
 const items = itemsJson as Item[];
+
+const synergyAdj = synergyIndex([weapons, tomes, characters, items]);
 
 type Tab = "character" | SlotKind;
 
@@ -79,6 +82,7 @@ export default function App() {
   const [query, setQuery] = useState("");
 
   const picked = useMemo(() => pickedNames(build), [build]);
+  const synergies = useMemo(() => activeSynergies(picked, synergyAdj), [picked]);
 
   const entries = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -118,6 +122,20 @@ export default function App() {
         <SlotRow label="Weapons" kind="weapon" slots={build.weapons} onClear={(k, i) => setBuild((b) => clearSlot(b, k, i))} />
         <SlotRow label="Tomes" kind="tome" slots={build.tomes} onClear={(k, i) => setBuild((b) => clearSlot(b, k, i))} />
         <SlotRow label="Items" kind="item" slots={build.items} onClear={(k, i) => setBuild((b) => clearSlot(b, k, i))} />
+        <div className="slot-group">
+          <h3>Synergies ({synergies.length})</h3>
+          {synergies.length === 0 ? (
+            <p className="synergy-empty">No active synergies yet.</p>
+          ) : (
+            <ul className="synergy-list">
+              {synergies.map((s) => (
+                <li key={`${s.a}|${s.b}`}>
+                  <span>{s.a}</span> ↔ <span>{s.b}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
         <button className="reset" onClick={() => setBuild(emptyBuild())}>
           Reset build
         </button>
@@ -140,15 +158,25 @@ export default function App() {
           />
         </div>
         <ul className="entries">
-          {entries.map((e) => (
-            <li key={e.name}>
-              <button className={picked.has(e.name) ? "entry picked" : "entry"} onClick={() => pick(e.name)}>
-                <span className="entry-name">{e.name}</span>
-                <span className="entry-subtitle">{e.subtitle}</span>
-                <span className="entry-detail">{e.detail}</span>
-              </button>
-            </li>
-          ))}
+          {entries.map((e) => {
+            const isPicked = picked.has(e.name);
+            const linked = !isPicked && synergizesWithBuild(e.name, picked, synergyAdj);
+            return (
+              <li key={e.name}>
+                <button
+                  className={isPicked ? "entry picked" : linked ? "entry linked" : "entry"}
+                  onClick={() => pick(e.name)}
+                >
+                  <span className="entry-name">
+                    {e.name}
+                    {linked && <span className="synergy-badge">synergy</span>}
+                  </span>
+                  <span className="entry-subtitle">{e.subtitle}</span>
+                  <span className="entry-detail">{e.detail}</span>
+                </button>
+              </li>
+            );
+          })}
           {entries.length === 0 && <li className="no-results">No matches.</li>}
         </ul>
       </section>
