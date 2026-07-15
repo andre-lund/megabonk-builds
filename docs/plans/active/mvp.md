@@ -1,0 +1,37 @@
+---
+status: active
+created: 2026-07-15
+updated: 2026-07-15
+adrs: []
+---
+
+# Plan: Megabonk build planner MVP
+
+## Intent
+
+A build planner for Megabonk: assemble character + weapon + tome builds, see synergies and a heuristic strength score, get suggestions for open slots, and browse the most popular community builds. Delivers the four phases scoped in the kickoff discussion: dataset → build creator → scoring/suggestions → community-build scraping.
+
+## Approach
+
+Web app (Vite + React + TS, already scaffolded) over a static JSON game-data dataset checked into the repo.
+
+Primary dataset source per the 2026-07-15 research: **megabonk.wiki via its MediaWiki API** (verified working: `https://megabonk.wiki/api.php?action=query&list=allpages&format=json`) — weapon/tome/character/item pages carry base stats, per-rarity upgrade tables, unlocks, and synergy notes. Parse wikitext into our own JSON schema with an ingest script. Ground-truth option for later: a one-off MelonLoader dump mod (game is Unity IL2CPP, mature mod ecosystem) that serializes the game's ScriptableObjects to JSON; cross-check against BonkMaster's embedded data.
+
+Community builds: megabonk.wiki Builds pages (same API) + Steam guide HTML; Reddit API optional later.
+
+Scoring is heuristic (synergy coverage + stat archetype balance), not a game sim. [NEEDS CLARIFICATION: exact scoring formula — decide during T5 after playing with real data.]
+
+## Tasks
+
+- [ ] **T1** — Data schema + wiki ingest script: pull all weapon/tome/character/item pages from the megabonk.wiki API, parse infoboxes/stat tables into `src/data/*.json`; commit the dataset with a regeneration script. Verify: every entity has name, slot type, stats, unlock; spot-check 5 against the wiki.
+- [ ] **T2** — Build model + creator UI: character pick, weapon/tome slots, entity browser with search/filter. Verify: assemble a known meta build end to end.
+- [ ] **T3** — Synergy display: show synergy/evolution relationships lighting up as slots fill. Verify: a known synergy pair renders as linked.
+- [ ] **T4** — Heuristic build score: score = synergy count + archetype coverage (damage/defense/mobility/utility), shown live in the creator. Verify: known meta builds outscore random builds.
+- [ ] **T5** — Slot suggestions: for a partial build, rank all candidates for each open slot by marginal score gain. Verify: suggestions for a half-built meta build include the build's actual remaining picks near the top.
+- [ ] **T6** — Community builds: scrape megabonk.wiki Builds pages (MediaWiki API) + selected Steam guides into a normalized builds list with popularity ordering; browsable + importable into the creator. Verify: top-10 list matches community consensus by eyeball.
+
+## Decision log
+
+- Primary dataset = megabonk.wiki MediaWiki API; MelonLoader game-file dump deferred as a later ground-truth pass — wiki is scriptable today, dump mod is a spike.
+- Dataset checked into the repo as static JSON (no backend) — app stays a pure static web app until scraping needs a server.
+- Scoring is heuristic, not a damage sim — a real sim requires reverse-engineered formulas; revisit only if the heuristic proves misleading.
