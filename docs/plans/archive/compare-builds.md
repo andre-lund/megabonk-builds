@@ -24,4 +24,4 @@ Comparing a planned build against a community build (or a friend's shared link) 
 ## Decision log
 
 - Each column is scored with its own map emphasis — comparing a Desert build to a Graveyard build on either single map would misstate both.
-- Compare target is view-only; loading it into the editor already exists via the Community tab / opening the link.
+- Compare target was initially view-only; a follow-up added "Load into editor" on the compared column (goes through the standard setBuild path, so starting-weapon enforcement and URL sync apply). Live-verified: after loading, both columns show zero unique picks and the hash carries the loaded build.

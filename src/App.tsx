@@ -597,13 +597,13 @@ export default function App() {
             ) : (
               (() => {
                 const diff = diffBuilds(build, compareWith.build);
-                const columns: { title: string; b: Build; unique: Set<string> }[] = [
+                const columns: { title: string; b: Build; unique: Set<string>; loadable?: boolean }[] = [
                   { title: "Current build", b: build, unique: diff.onlyA },
-                  { title: compareWith.label, b: compareWith.build, unique: diff.onlyB },
+                  { title: compareWith.label, b: compareWith.build, unique: diff.onlyB, loadable: true },
                 ];
                 return (
                   <div className="compare-columns">
-                    {columns.map(({ title, b, unique }) => {
+                    {columns.map(({ title, b, unique, loadable }) => {
                       const emphasis = (maps.find((m) => m.name === b.map)?.emphasis ?? []) as Archetype[];
                       const s = scoreBuild(b, synergyAdj, archetypes, emphasis);
                       const groups: [string, (string | null)[]][] = [
@@ -615,7 +615,14 @@ export default function App() {
                       ];
                       return (
                         <div key={title} className="compare-column">
-                          <h3>{title}</h3>
+                          <h3>
+                            {title}
+                            {loadable && (
+                              <button className="action load-compared" onClick={() => setBuild(compareWith.build)}>
+                                Load into editor
+                              </button>
+                            )}
+                          </h3>
                           <div className="score-main">
                             <span className="score-tier" data-tier={tier(s.total)}>
                               {tier(s.total)}
