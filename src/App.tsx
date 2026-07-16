@@ -29,6 +29,7 @@ import { decryptSave, mapPurchases, mapStats, saveKind } from "./lib/saveimport"
 import { isBackup, restoreBackup, serializeBackup } from "./lib/backup";
 import { enforceStartingWeapon, isStartingSlot, startingWeaponIndex } from "./lib/starting";
 import { recommendBans } from "./lib/bans";
+import { diffBuilds, parseSharedLink } from "./lib/compare";
 
 const weapons = weaponsJson as Weapon[];
 const tomes = tomesJson as Tome[];
@@ -170,7 +171,7 @@ const archetypes = archetypeIndex([
   items.map((i) => ({ name: i.name, text: i.effect })),
 ]);
 
-type Tab = "character" | SlotKind | "community" | "progress";
+type Tab = "character" | SlotKind | "community" | "progress" | "compare";
 
 const TABS: { id: Tab; label: string }[] = [
   { id: "character", label: "Characters" },
@@ -179,6 +180,7 @@ const TABS: { id: Tab; label: string }[] = [
   { id: "item", label: "Items" },
   { id: "community", label: "Community" },
   { id: "progress", label: "Unlocks" },
+  { id: "compare", label: "Compare" },
 ];
 
 interface LockableEntity {
@@ -212,6 +214,7 @@ function entriesFor(tab: Tab): BrowserEntry[] {
     case "item":
       return items.map((i) => ({ name: i.name, subtitle: i.rarity, detail: i.effect }));
     case "progress":
+    case "compare":
       return []; // rendered separately
     case "community":
       // Dataset is vote-ordered; score each build with our heuristic for the subtitle.
@@ -279,6 +282,8 @@ export default function App() {
   const [onlyUnlocked, setOnlyUnlocked] = useState(() => localStorage.getItem(FILTER_KEY) === "1");
   const [progress, setProgressState] = useState(() => loadProgress(localStorage));
   const [importStatus, setImportStatus] = useState<string | null>(null);
+  const [compareWith, setCompareWith] = useState<{ label: string; build: Build } | null>(null);
+  const [compareInput, setCompareInput] = useState("");
 
   useEffect(() => saveUnlocked(unlocked, localStorage), [unlocked]);
   useEffect(() => localStorage.setItem(FILTER_KEY, onlyUnlocked ? "1" : "0"), [onlyUnlocked]);
@@ -378,7 +383,7 @@ export default function App() {
   const score = useMemo(() => scoreBuild(build, synergyAdj, archetypes, mapEmphasis), [build, mapEmphasis]);
 
   const gains = useMemo(() => {
-    if (tab === "community" || tab === "progress") return new Map<string, number>();
+    if (tab === "community" || tab === "progress" || tab === "compare") return new Map<string, number>();
     const pool = tab === "character" ? activePools.characters : activePools[`${tab}s`];
     return new Map(suggestFor(build, tab, pool, synergyAdj, archetypes, mapEmphasis).map((s) => [s.name, s.gain]));
   }, [tab, build, activePools]);
@@ -401,7 +406,7 @@ export default function App() {
   }, [tab, query, gains, onlyUnlocked, unlocked]);
 
   function pick(name: string) {
-    if (tab === "progress") {
+    if (tab === "progress" || tab === "compare") {
       return;
     } else if (tab === "community") {
       const cb = communityBuilds.find((c) => c.name === name);
@@ -557,6 +562,99 @@ export default function App() {
             </label>
           </div>
         </div>
+        {tab === "compare" && (
+          <div className="compare-view">
+            <div className="compare-controls">
+              <select
+                value=""
+                onChange={(ev) => {
+                  const cb = communityBuilds.find((c) => c.name === ev.target.value);
+                  if (cb) setCompareWith({ label: cb.name, build: enforceStartingWeapon(toBuild(cb), startingWeaponOf) });
+                }}
+              >
+                <option value="" disabled>
+                  Compare with a community build…
+                </option>
+                {communityBuilds.map((cb) => (
+                  <option key={cb.name} value={cb.name}>
+                    {cb.name} ({cb.votes} votes)
+                  </option>
+                ))}
+              </select>
+              <input
+                type="text"
+                placeholder="…or paste a share link"
+                value={compareInput}
+                onChange={(ev) => {
+                  setCompareInput(ev.target.value);
+                  const parsed = parseSharedLink(ev.target.value, knownNames);
+                  if (parsed) setCompareWith({ label: "Pasted build", build: enforceStartingWeapon(parsed, startingWeaponOf) });
+                }}
+              />
+            </div>
+            {!compareWith ? (
+              <p className="no-results">Pick a community build or paste a share link to compare against your current build.</p>
+            ) : (
+              (() => {
+                const diff = diffBuilds(build, compareWith.build);
+                const columns: { title: string; b: Build; unique: Set<string> }[] = [
+                  { title: "Current build", b: build, unique: diff.onlyA },
+                  { title: compareWith.label, b: compareWith.build, unique: diff.onlyB },
+                ];
+                return (
+                  <div className="compare-columns">
+                    {columns.map(({ title, b, unique }) => {
+                      const emphasis = (maps.find((m) => m.name === b.map)?.emphasis ?? []) as Archetype[];
+                      const s = scoreBuild(b, synergyAdj, archetypes, emphasis);
+                      const groups: [string, (string | null)[]][] = [
+                        ["Character", [b.character]],
+                        ["Map", [b.map]],
+                        ["Weapons", b.weapons],
+                        ["Tomes", b.tomes],
+                        ["Items", b.items],
+                      ];
+                      return (
+                        <div key={title} className="compare-column">
+                          <h3>{title}</h3>
+                          <div className="score-main">
+                            <span className="score-tier" data-tier={tier(s.total)}>
+                              {tier(s.total)}
+                            </span>
+                            <span className="score-total">{s.total} pts</span>
+                          </div>
+                          <div className="score-breakdown">
+                            <span>{s.synergyPairs} synergies</span>
+                            <span>{s.filledSlots}/15 slots</span>
+                            {s.mapBonus > 0 && <span>+{s.mapBonus} map fit</span>}
+                          </div>
+                          {groups.map(([label, names]) => (
+                            <div key={label} className="compare-group">
+                              <h4>{label}</h4>
+                              <ul>
+                                {names.filter((n): n is string => n !== null).map((n) => (
+                                  <li key={n} className={unique.has(n) ? "compare-pick unique" : "compare-pick"}>
+                                    <EntityIcon name={n} size={18} />
+                                    {n}
+                                  </li>
+                                ))}
+                                {names.every((n) => n === null) && <li className="compare-pick empty">—</li>}
+                              </ul>
+                            </div>
+                          ))}
+                        </div>
+                      );
+                    })}
+                  </div>
+                );
+              })()
+            )}
+            {compareWith && (
+              <p className="compare-legend">
+                Highlighted picks are unique to that build; unhighlighted picks are shared by both.
+              </p>
+            )}
+          </div>
+        )}
         {tab === "progress" && (
           <div className="import-bar">
             <label className="action import-save">
@@ -623,7 +721,7 @@ export default function App() {
             {lockedRows.length === 0 && <li className="no-results">Everything is unlocked. Go bonk.</li>}
           </ul>
         )}
-        <ul className="entries" hidden={tab === "progress"} onMouseLeave={() => setInspect(null)}>
+        <ul className="entries" hidden={tab === "progress" || tab === "compare"} onMouseLeave={() => setInspect(null)}>
           {entries.map((e) => {
             const isPicked = picked.has(e.name);
             const linked = !isPicked && synergizesWithBuild(e.name, picked, synergyAdj);
