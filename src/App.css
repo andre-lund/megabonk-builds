@@ -155,6 +155,35 @@
   margin-left: 0.15rem;
 }
 
+.ban-hint {
+  margin: 0 0 0.4rem;
+  color: #6b7280;
+  font-size: 0.75rem;
+}
+
+.ban-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.ban-list li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.55rem;
+  border: 1px solid #4a2c2c;
+  border-radius: 6px;
+  background: #221718;
+  color: #cf8d8d;
+  font-size: 0.78rem;
+  text-decoration: line-through;
+  text-decoration-color: rgba(207, 141, 141, 0.55);
+}
+
 .actions {
   margin-top: 1rem;
   display: flex;

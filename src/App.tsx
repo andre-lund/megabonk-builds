@@ -26,6 +26,7 @@ import { loadProgress, parseGoal, saveProgress, setProgress } from "./lib/progre
 import { decryptSave, mapPurchases, mapStats, saveKind } from "./lib/saveimport";
 import { isBackup, restoreBackup, serializeBackup } from "./lib/backup";
 import { enforceStartingWeapon, isStartingSlot, startingWeaponIndex } from "./lib/starting";
+import { recommendBans } from "./lib/bans";
 
 const weapons = weaponsJson as Weapon[];
 const tomes = tomesJson as Tome[];
@@ -353,6 +354,10 @@ export default function App() {
   }
 
   const picked = useMemo(() => pickedNames(build), [build]);
+  const bans = useMemo(
+    () => (picked.size < 2 ? [] : recommendBans(build, activePools.items, synergyAdj, archetypes, 10)),
+    [build, picked, activePools],
+  );
   const synergies = useMemo(() => activeSynergies(picked, synergyAdj), [picked]);
   const score = useMemo(() => scoreBuild(build, synergyAdj, archetypes), [build]);
 
@@ -467,6 +472,20 @@ export default function App() {
             </ul>
           )}
         </div>
+        {bans.length > 0 && (
+          <div className="slot-group">
+            <h3>Disable before run</h3>
+            <p className="ban-hint">Items with the worst fit for this build — inactivate them in-game to clean up the drop pool.</p>
+            <ul className="ban-list">
+              {bans.map((c) => (
+                <li key={c.name} data-rarity={rarityOf.get(c.name)?.toLowerCase()}>
+                  <EntityIcon name={c.name} size={18} />
+                  {c.name}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
         <div className="actions">
           <button className="action generate" onClick={() => setBuild((b) => generateBuild(b, activePools, synergyAdj, archetypes))}>
             Generate
