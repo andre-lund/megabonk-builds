@@ -70,6 +70,19 @@ describe("heuristic score", () => {
     expect(metaScore).toBeGreaterThan(avg);
   });
 
+  it("map emphasis pays per picked entity carrying the archetype", () => {
+    let b = makeBuild("Ninja", [], ["Agility Tome"], []);
+    const plain = scoreBuild(b, adj, archetypes);
+    const desert = scoreBuild(b, adj, archetypes, ["mobility"]);
+    expect(plain.mapBonus).toBe(0);
+    expect(desert.mapBonus).toBeGreaterThan(0);
+    expect(desert.total).toBe(plain.total + desert.mapBonus);
+    // stacking a second mobility entity keeps paying
+    b = makeBuild("Ninja", [], ["Agility Tome", "Cooldown Tome"], ["Turbo Socks"]);
+    const stacked = scoreBuild(b, adj, archetypes, ["mobility"]);
+    expect(stacked.mapBonus).toBeGreaterThan(desert.mapBonus);
+  });
+
   it("maps totals to tiers", () => {
     expect(tier(0)).toBe("D");
     expect(tier(45)).toBe("B");

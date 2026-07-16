@@ -45,6 +45,18 @@ describe("generate best combo", () => {
     expect(generateBuild(b, pools, adj, archetypes)).toEqual(generateBuild(b, pools, adj, archetypes));
   });
 
+  it("map emphasis shifts generation toward emphasized archetypes", () => {
+    const base = setCharacter(emptyBuild(), "Ninja");
+    const plain = generateBuild(base, pools, adj, archetypes);
+    const desert = generateBuild(base, pools, adj, archetypes, ["mobility"]);
+    const mobilityCount = (b: ReturnType<typeof generateBuild>) =>
+      [b.character, ...b.weapons, ...b.tomes, ...b.items]
+        .filter((n): n is string => n !== null)
+        .filter((n) => (archetypes.get(n) ?? []).includes("mobility")).length;
+    expect(mobilityCount(desert)).toBeGreaterThanOrEqual(mobilityCount(plain));
+    expect(desert).not.toEqual(plain);
+  });
+
   it("never lowers the score of what it completes", () => {
     let b = setCharacter(emptyBuild(), "Ninja");
     b = addToBuild(b, "weapon", "Katana");

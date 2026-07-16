@@ -16,6 +16,7 @@ export function generateBuild(
   pools: GeneratePools,
   adj: Map<string, Set<string>>,
   archetypes: Map<string, Archetype[]>,
+  mapEmphasis: Archetype[] = [],
 ): Build {
   let current = build;
   for (;;) {
@@ -27,7 +28,7 @@ export function generateBuild(
     if (open.length === 0) return current;
     let best: { kind: SlotKind | "character"; name: string; gain: number } | null = null;
     for (const [kind, pool] of open) {
-      const top = suggestFor(current, kind, pool, adj, archetypes)[0];
+      const top = suggestFor(current, kind, pool, adj, archetypes, mapEmphasis)[0];
       if (top && (!best || top.gain > best.gain)) best = { kind, name: top.name, gain: top.gain };
     }
     if (!best) return current;

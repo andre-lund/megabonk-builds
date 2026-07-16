@@ -16,15 +16,16 @@ export function suggestFor(
   candidates: string[],
   adj: Map<string, Set<string>>,
   archetypes: Map<string, Archetype[]>,
+  mapEmphasis: Archetype[] = [],
 ): Suggestion[] {
   if (kind === "character" ? build.character !== null : firstOpenSlot(build, kind) === -1) return [];
   const picked = pickedNames(build);
-  const base = scoreBuild(build, adj, archetypes).total;
+  const base = scoreBuild(build, adj, archetypes, mapEmphasis).total;
   return candidates
     .filter((name) => !picked.has(name))
     .map((name) => {
       const next = kind === "character" ? setCharacter(build, name) : addToBuild(build, kind, name);
-      return { name, gain: scoreBuild(next, adj, archetypes).total - base };
+      return { name, gain: scoreBuild(next, adj, archetypes, mapEmphasis).total - base };
     })
     .sort((a, b) => b.gain - a.gain || a.name.localeCompare(b.name));
 }

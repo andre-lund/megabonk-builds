@@ -35,12 +35,16 @@ export function archetypeIndex(groups: ScoredEntity[][]): Map<string, Archetype[
 export const SYNERGY_POINTS = 10;
 export const ARCHETYPE_POINTS = 8;
 export const SLOT_POINTS = 1;
+// Per picked entity carrying a map-emphasized archetype — per-entity (not
+// coverage-once) so stacking the emphasized archetype keeps paying.
+export const MAP_POINTS = 3;
 
 export interface Score {
   total: number;
   synergyPairs: number;
   covered: Archetype[];
   filledSlots: number;
+  mapBonus: number;
 }
 
 const TIERS: [number, string][] = [
@@ -59,17 +63,24 @@ export function scoreBuild(
   build: Build,
   adj: Map<string, Set<string>>,
   archetypes: Map<string, Archetype[]>,
+  mapEmphasis: Archetype[] = [],
 ): Score {
   const picked = pickedNames(build);
   const synergyPairs = activeSynergies(picked, adj).length;
   const coveredSet = new Set<Archetype>();
-  for (const name of picked) for (const a of archetypes.get(name) ?? []) coveredSet.add(a);
+  let mapBonus = 0;
+  for (const name of picked) {
+    const list = archetypes.get(name) ?? [];
+    for (const a of list) coveredSet.add(a);
+    mapBonus += list.filter((a) => mapEmphasis.includes(a)).length * MAP_POINTS;
+  }
   const covered = ARCHETYPES.filter((a) => coveredSet.has(a));
   const filledSlots = picked.size;
   return {
-    total: synergyPairs * SYNERGY_POINTS + covered.length * ARCHETYPE_POINTS + filledSlots * SLOT_POINTS,
+    total: synergyPairs * SYNERGY_POINTS + covered.length * ARCHETYPE_POINTS + filledSlots * SLOT_POINTS + mapBonus,
     synergyPairs,
     covered,
     filledSlots,
+    mapBonus,
   };
 }

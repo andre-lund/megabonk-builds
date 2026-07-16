@@ -18,7 +18,7 @@ import {
   type SlotKind,
 } from "./lib/build";
 import { activeSynergies, synergizesWithBuild, synergyIndex } from "./lib/synergy";
-import { ARCHETYPES, archetypeIndex, scoreBuild, tier } from "./lib/score";
+import { ARCHETYPES, archetypeIndex, scoreBuild, tier, type Archetype } from "./lib/score";
 import { suggestFor } from "./lib/suggest";
 import { toBuild, type CommunityBuild } from "./lib/community";
 import { decodeBuild, encodeBuild, type KnownNames } from "./lib/share";
@@ -56,6 +56,7 @@ interface GameMap {
   tiers: number;
   unlock: string;
   icon: string;
+  emphasis: string[];
 }
 const maps = mapsJson as GameMap[];
 
@@ -365,17 +366,21 @@ export default function App() {
   }
 
   const picked = useMemo(() => pickedNames(build), [build]);
+  const mapEmphasis = useMemo(
+    () => (maps.find((m) => m.name === build.map)?.emphasis ?? []) as Archetype[],
+    [build.map],
+  );
   const bans = useMemo(
     () => (picked.size < 2 ? [] : recommendBans(build, activePools.items, synergyAdj, archetypes, 10)),
     [build, picked, activePools],
   );
   const synergies = useMemo(() => activeSynergies(picked, synergyAdj), [picked]);
-  const score = useMemo(() => scoreBuild(build, synergyAdj, archetypes), [build]);
+  const score = useMemo(() => scoreBuild(build, synergyAdj, archetypes, mapEmphasis), [build, mapEmphasis]);
 
   const gains = useMemo(() => {
     if (tab === "community" || tab === "progress") return new Map<string, number>();
     const pool = tab === "character" ? activePools.characters : activePools[`${tab}s`];
-    return new Map(suggestFor(build, tab, pool, synergyAdj, archetypes).map((s) => [s.name, s.gain]));
+    return new Map(suggestFor(build, tab, pool, synergyAdj, archetypes, mapEmphasis).map((s) => [s.name, s.gain]));
   }, [tab, build, activePools]);
 
   const entries = useMemo(() => {
@@ -430,6 +435,7 @@ export default function App() {
           <div className="score-breakdown">
             <span>{score.synergyPairs} synergies</span>
             <span>{score.filledSlots}/15 slots</span>
+            {score.mapBonus > 0 && <span>+{score.mapBonus} map fit</span>}
           </div>
           <div className="archetype-chips">
             {ARCHETYPES.map((a) => (
@@ -514,7 +520,10 @@ export default function App() {
           </div>
         )}
         <div className="actions">
-          <button className="action generate" onClick={() => setBuild((b) => generateBuild(b, activePools, synergyAdj, archetypes))}>
+          <button
+            className="action generate"
+            onClick={() => setBuild((b) => generateBuild(b, activePools, synergyAdj, archetypes, mapEmphasis))}
+          >
             Generate
           </button>
           <button className="action" onClick={share}>
