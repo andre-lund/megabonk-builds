@@ -1,3 +1,19 @@
+:root {
+  --rarity-default: #9aa1af;
+  --rarity-common: #3fbf6f;
+  --rarity-uncommon: #3d9be0;
+  --rarity-rare: #c85cc3;
+  --rarity-epic: #e0554f;
+  --rarity-legendary: #d9b23e;
+  /* wiki table header backgrounds */
+  --rarity-bg-common: #20854b;
+  --rarity-bg-uncommon: #0c5582;
+  --rarity-bg-rare: #7e0079;
+  --rarity-bg-epic: #7e1011;
+  --rarity-bg-legendary: #897900;
+  --display-font: "Titan One", system-ui, sans-serif;
+}
+
 .layout {
   display: grid;
   grid-template-columns: 340px 1fr;
@@ -18,6 +34,10 @@
 .panel h2 {
   margin: 0 0 0.75rem;
   font-size: 1.1rem;
+  font-family: var(--display-font);
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  color: #e8ecf5;
 }
 
 .score-card {
@@ -35,8 +55,9 @@
 }
 
 .score-tier {
-  font-size: 1.4rem;
-  font-weight: 700;
+  font-size: 1.5rem;
+  font-weight: 400;
+  font-family: var(--display-font);
   line-height: 1;
 }
 
@@ -80,10 +101,12 @@
 
 .slot-group h3 {
   margin: 0.75rem 0 0.35rem;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   color: #9aa1af;
+  font-family: var(--display-font);
+  font-weight: 400;
 }
 
 .slots {
@@ -145,6 +168,10 @@
   background: transparent;
   color: #9aa1af;
   cursor: pointer;
+  font-family: var(--display-font);
+  font-weight: 400;
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
 }
 
 .tab.active {
@@ -261,4 +288,118 @@
 .no-results {
   color: #6b7280;
   padding: 0.5rem;
+}
+
+/* Rarity coloring: entries + item slots get a left accent and tinted subtitle. */
+.entry[data-rarity] {
+  border-left-width: 3px;
+}
+.entry[data-rarity="default"] { border-left-color: var(--rarity-default); }
+.entry[data-rarity="common"] { border-left-color: var(--rarity-common); }
+.entry[data-rarity="uncommon"] { border-left-color: var(--rarity-uncommon); }
+.entry[data-rarity="rare"] { border-left-color: var(--rarity-rare); }
+.entry[data-rarity="epic"] { border-left-color: var(--rarity-epic); }
+.entry[data-rarity="legendary"] { border-left-color: var(--rarity-legendary); }
+.entry[data-rarity="default"] .entry-subtitle { color: var(--rarity-default); }
+.entry[data-rarity="common"] .entry-subtitle { color: var(--rarity-common); }
+.entry[data-rarity="uncommon"] .entry-subtitle { color: var(--rarity-uncommon); }
+.entry[data-rarity="rare"] .entry-subtitle { color: var(--rarity-rare); }
+.entry[data-rarity="epic"] .entry-subtitle { color: var(--rarity-epic); }
+.entry[data-rarity="legendary"] .entry-subtitle { color: var(--rarity-legendary); }
+
+.slot.filled[data-rarity="default"] { border-color: var(--rarity-default); }
+.slot.filled[data-rarity="common"] { border-color: var(--rarity-common); }
+.slot.filled[data-rarity="uncommon"] { border-color: var(--rarity-uncommon); }
+.slot.filled[data-rarity="rare"] { border-color: var(--rarity-rare); }
+.slot.filled[data-rarity="epic"] { border-color: var(--rarity-epic); }
+.slot.filled[data-rarity="legendary"] { border-color: var(--rarity-legendary); }
+
+.rarity-tag {
+  font-family: system-ui, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.1rem 0.45rem;
+  border-radius: 4px;
+  border: 1px solid currentColor;
+}
+.rarity-tag[data-rarity="default"] { color: var(--rarity-default); }
+.rarity-tag[data-rarity="common"] { color: var(--rarity-common); }
+.rarity-tag[data-rarity="uncommon"] { color: var(--rarity-uncommon); }
+.rarity-tag[data-rarity="rare"] { color: var(--rarity-rare); }
+.rarity-tag[data-rarity="epic"] { color: var(--rarity-epic); }
+.rarity-tag[data-rarity="legendary"] { color: var(--rarity-legendary); }
+
+/* Inspect card */
+.inspect-card {
+  margin-top: 1rem;
+  border: 1px solid #3a3e4a;
+  border-radius: 6px;
+  padding: 0.7rem 0.8rem;
+  background: #14161b;
+}
+
+.inspect-title {
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+  font-family: var(--display-font);
+  font-weight: 400;
+  color: #e8ecf5;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.inspect-rows {
+  margin: 0;
+  display: grid;
+  gap: 0.35rem;
+  font-size: 0.82rem;
+}
+
+.inspect-rows dt {
+  color: #9aa1af;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.inspect-rows dd {
+  margin: 0;
+  color: #c9cfdb;
+}
+
+.upgrade-table {
+  margin-top: 0.6rem;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.75rem;
+}
+
+.upgrade-table th {
+  font-family: var(--display-font);
+  font-weight: 400;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  padding: 0.25rem 0.3rem;
+  color: #e8ecf5;
+}
+
+.upgrade-table th[data-rarity="common"] { background: var(--rarity-bg-common); }
+.upgrade-table th[data-rarity="uncommon"] { background: var(--rarity-bg-uncommon); }
+.upgrade-table th[data-rarity="rare"] { background: var(--rarity-bg-rare); }
+.upgrade-table th[data-rarity="epic"] { background: var(--rarity-bg-epic); }
+.upgrade-table th[data-rarity="legendary"] { background: var(--rarity-bg-legendary); }
+
+.upgrade-table td {
+  padding: 0.25rem 0.3rem;
+  text-align: center;
+  border-bottom: 1px solid #22242c;
+  color: #c9cfdb;
+}
+
+.upgrade-table td.upgrade-stat {
+  text-align: left;
+  color: #9aa1af;
 }

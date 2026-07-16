@@ -5,7 +5,7 @@ import tomesJson from "./data/tomes.json";
 import charactersJson from "./data/characters.json";
 import itemsJson from "./data/items.json";
 import buildsJson from "./data/builds.json";
-import type { Character, Item, Tome, Weapon } from "./types";
+import type { Character, Item, Tome, UpgradeRow, Weapon } from "./types";
 import {
   addToBuild,
   clearSlot,
@@ -37,6 +37,92 @@ function EntityIcon({ name, size }: { name: string; size: number }) {
   const src = iconOf.get(name);
   if (!src) return null;
   return <img className="entity-icon" src={src} alt="" width={size} height={size} />;
+}
+
+const rarityOf = new Map<string, string>(items.map((i) => [i.name, i.rarity]));
+
+const RARITY_COLUMNS = ["common", "uncommon", "rare", "epic", "legendary"] as const;
+
+function UpgradeTable({ upgrades }: { upgrades: UpgradeRow[] }) {
+  if (upgrades.length === 0) return null;
+  return (
+    <table className="upgrade-table">
+      <thead>
+        <tr>
+          <th />
+          {RARITY_COLUMNS.map((r) => (
+            <th key={r} data-rarity={r}>
+              {r.slice(0, 3)}
+            </th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        {upgrades.map((u) => (
+          <tr key={u.stat}>
+            <td className="upgrade-stat">{u.stat}</td>
+            {RARITY_COLUMNS.map((r) => (
+              <td key={r}>{u[r]}</td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
+}
+
+function InspectCard({ target }: { target: { tab: Tab; name: string } }) {
+  const rows: [string, string][] = [];
+  let upgrades: UpgradeRow[] = [];
+  let rarity: string | undefined;
+  if (target.tab === "weapon") {
+    const w = weapons.find((x) => x.name === target.name);
+    if (!w) return null;
+    rows.push(["Type", w.type], ["Unlock", w.unlock]);
+    if (w.special && w.special !== "None") rows.push(["Special", w.special]);
+    upgrades = w.upgrades;
+  } else if (target.tab === "tome") {
+    const t = tomes.find((x) => x.name === target.name);
+    if (!t) return null;
+    rows.push(["Stat", t.stat], ["Effect", t.effect], ["Unlock", t.unlock]);
+    if (t.maxLevel) rows.push(["Max level", String(t.maxLevel)]);
+    upgrades = t.upgrades;
+  } else if (target.tab === "character") {
+    const c = characters.find((x) => x.name === target.name);
+    if (!c) return null;
+    rows.push(["Weapon", c.weapon], ["Blessing", c.blessing], ["Role", c.role], ["Unlock", c.unlock]);
+  } else if (target.tab === "item") {
+    const i = items.find((x) => x.name === target.name);
+    if (!i) return null;
+    rarity = i.rarity;
+    rows.push(["Effect", i.effect], ["Unlock", i.unlock || "Default"]);
+  } else {
+    return null;
+  }
+  return (
+    <div className="inspect-card">
+      <h3 className="inspect-title">
+        <EntityIcon name={target.name} size={26} />
+        {target.name}
+        {rarity && (
+          <span className="rarity-tag" data-rarity={rarity.toLowerCase()}>
+            {rarity}
+          </span>
+        )}
+      </h3>
+      <dl className="inspect-rows">
+        {rows
+          .filter(([, v]) => v)
+          .map(([k, v]) => (
+            <div key={k}>
+              <dt>{k}</dt>
+              <dd>{v}</dd>
+            </div>
+          ))}
+      </dl>
+      <UpgradeTable upgrades={upgrades} />
+    </div>
+  );
 }
 
 const archetypes = archetypeIndex([
@@ -101,6 +187,7 @@ function SlotRow(props: {
           <button
             key={i}
             className={name ? "slot filled" : "slot"}
+            data-rarity={props.kind === "item" && name ? rarityOf.get(name)?.toLowerCase() : undefined}
             title={name ? `Remove ${name}` : "Empty slot"}
             onClick={() => name && props.onClear(props.kind, i)}
           >
@@ -117,6 +204,7 @@ export default function App() {
   const [build, setBuild] = useState<Build>(emptyBuild);
   const [tab, setTab] = useState<Tab>("character");
   const [query, setQuery] = useState("");
+  const [inspect, setInspect] = useState<{ tab: Tab; name: string } | null>(null);
 
   const picked = useMemo(() => pickedNames(build), [build]);
   const synergies = useMemo(() => activeSynergies(picked, synergyAdj), [picked]);
@@ -211,6 +299,7 @@ export default function App() {
         <button className="reset" onClick={() => setBuild(emptyBuild())}>
           Reset build
         </button>
+        {inspect && <InspectCard target={inspect} />}
       </section>
 
       <section className="panel browser-panel">
@@ -238,7 +327,9 @@ export default function App() {
               <li key={e.name}>
                 <button
                   className={isPicked ? "entry picked" : linked ? "entry linked" : "entry"}
+                  data-rarity={tab === "item" ? rarityOf.get(e.name)?.toLowerCase() : undefined}
                   onClick={() => pick(e.name)}
+                  onMouseEnter={() => tab !== "community" && setInspect({ tab, name: e.name })}
                 >
                   <span className="entry-name">
                     <EntityIcon name={e.iconName ?? e.name} size={26} />
