@@ -15,6 +15,7 @@ import {
   type SlotKind,
 } from "./lib/build";
 import { activeSynergies, synergizesWithBuild, synergyIndex } from "./lib/synergy";
+import { ARCHETYPES, archetypeIndex, scoreBuild, tier } from "./lib/score";
 
 const weapons = weaponsJson as Weapon[];
 const tomes = tomesJson as Tome[];
@@ -22,6 +23,13 @@ const characters = charactersJson as Character[];
 const items = itemsJson as Item[];
 
 const synergyAdj = synergyIndex([weapons, tomes, characters, items]);
+
+const archetypes = archetypeIndex([
+  weapons.map((w) => ({ name: w.name, text: `${w.type} ${w.description}` })),
+  tomes.map((t) => ({ name: t.name, text: `${t.stat} ${t.effect}` })),
+  characters.map((c) => ({ name: c.name, text: `${c.role} ${c.blessing}` })),
+  items.map((i) => ({ name: i.name, text: i.effect })),
+]);
 
 type Tab = "character" | SlotKind;
 
@@ -83,6 +91,7 @@ export default function App() {
 
   const picked = useMemo(() => pickedNames(build), [build]);
   const synergies = useMemo(() => activeSynergies(picked, synergyAdj), [picked]);
+  const score = useMemo(() => scoreBuild(build, synergyAdj, archetypes), [build]);
 
   const entries = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -107,6 +116,25 @@ export default function App() {
     <div className="layout">
       <section className="panel build-panel">
         <h2>Build</h2>
+        <div className="score-card">
+          <div className="score-main">
+            <span className="score-tier" data-tier={tier(score.total)}>
+              {tier(score.total)}
+            </span>
+            <span className="score-total">{score.total} pts</span>
+          </div>
+          <div className="score-breakdown">
+            <span>{score.synergyPairs} synergies</span>
+            <span>{score.filledSlots}/15 slots</span>
+          </div>
+          <div className="archetype-chips">
+            {ARCHETYPES.map((a) => (
+              <span key={a} className={score.covered.includes(a) ? "chip covered" : "chip"}>
+                {a}
+              </span>
+            ))}
+          </div>
+        </div>
         <div className="slot-group">
           <h3>Character</h3>
           <div className="slots">

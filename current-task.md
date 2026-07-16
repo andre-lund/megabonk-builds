@@ -1,3 +1,3 @@
 # Current task
 
-plan: active/mvp — T1-T3 done; next up: T4 (heuristic build score).
+plan: active/mvp — T1-T4 done; next up: T5 (slot suggestions).

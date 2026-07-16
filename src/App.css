@@ -20,6 +20,64 @@
   font-size: 1.1rem;
 }
 
+.score-card {
+  border: 1px solid #2c2f38;
+  border-radius: 6px;
+  padding: 0.6rem 0.7rem;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.score-main {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+
+.score-tier {
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.score-tier[data-tier="S"] { color: #e8c76a; }
+.score-tier[data-tier="A"] { color: #3fbf6f; }
+.score-tier[data-tier="B"] { color: #4f8cff; }
+.score-tier[data-tier="C"] { color: #9aa1af; }
+.score-tier[data-tier="D"] { color: #6b7280; }
+
+.score-total {
+  color: #dbe4f5;
+  font-weight: 600;
+}
+
+.score-breakdown {
+  display: flex;
+  gap: 0.9rem;
+  color: #9aa1af;
+  font-size: 0.8rem;
+}
+
+.archetype-chips {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.chip {
+  padding: 0.12rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid #2c2f38;
+  color: #6b7280;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.chip.covered {
+  border-color: #3fbf6f;
+  color: #3fbf6f;
+}
+
 .slot-group h3 {
   margin: 0.75rem 0 0.35rem;
   font-size: 0.8rem;
