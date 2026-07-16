@@ -16,6 +16,7 @@ import {
 } from "./lib/build";
 import { activeSynergies, synergizesWithBuild, synergyIndex } from "./lib/synergy";
 import { ARCHETYPES, archetypeIndex, scoreBuild, tier } from "./lib/score";
+import { suggestFor } from "./lib/suggest";
 
 const weapons = weaponsJson as Weapon[];
 const tomes = tomesJson as Tome[];
@@ -93,16 +94,26 @@ export default function App() {
   const synergies = useMemo(() => activeSynergies(picked, synergyAdj), [picked]);
   const score = useMemo(() => scoreBuild(build, synergyAdj, archetypes), [build]);
 
+  const gains = useMemo(() => {
+    const all = entriesFor(tab).map((e) => e.name);
+    return new Map(suggestFor(build, tab, all, synergyAdj, archetypes).map((s) => [s.name, s.gain]));
+  }, [tab, build]);
+
   const entries = useMemo(() => {
     const q = query.trim().toLowerCase();
-    return entriesFor(tab).filter(
+    const filtered = entriesFor(tab).filter(
       (e) =>
         !q ||
         e.name.toLowerCase().includes(q) ||
         e.subtitle.toLowerCase().includes(q) ||
         e.detail.toLowerCase().includes(q),
     );
-  }, [tab, query]);
+    // Suggestion order: unpicked by marginal gain descending, picked entries last.
+    if (gains.size > 0) {
+      filtered.sort((a, b) => (gains.get(b.name) ?? -1) - (gains.get(a.name) ?? -1));
+    }
+    return filtered;
+  }, [tab, query, gains]);
 
   function pick(name: string) {
     if (tab === "character") {
@@ -189,6 +200,7 @@ export default function App() {
           {entries.map((e) => {
             const isPicked = picked.has(e.name);
             const linked = !isPicked && synergizesWithBuild(e.name, picked, synergyAdj);
+            const gain = gains.get(e.name);
             return (
               <li key={e.name}>
                 <button
@@ -198,6 +210,7 @@ export default function App() {
                   <span className="entry-name">
                     {e.name}
                     {linked && <span className="synergy-badge">synergy</span>}
+                    {gain !== undefined && gain > 0 && <span className="gain-badge">+{gain}</span>}
                   </span>
                   <span className="entry-subtitle">{e.subtitle}</span>
                   <span className="entry-detail">{e.detail}</span>
