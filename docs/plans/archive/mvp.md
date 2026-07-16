@@ -1,8 +1,10 @@
 ---
-status: active
+status: done
 created: 2026-07-15
-updated: 2026-07-15
+updated: 2026-07-16
+completed: 2026-07-16
 adrs: []
+commit refs: [3f9ee56, e7e41f3, ad4de73, 503418e, 5ac1640, 61932d1]
 ---
 
 # Plan: Megabonk build planner MVP
