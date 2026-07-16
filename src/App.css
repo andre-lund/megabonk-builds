@@ -350,6 +350,76 @@
   padding: 0.5rem;
 }
 
+/* Unlock progress tab */
+.progress-row {
+  border: 1px solid #2c2f38;
+  border-radius: 6px;
+  padding: 0.55rem 0.7rem;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.progress-head {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.progress-head .action.own-now {
+  margin-left: auto;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.7rem;
+}
+
+.progress-unlock {
+  margin: 0;
+  color: #b7bdc9;
+  font-size: 0.85rem;
+}
+
+.progress-track {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.progress-track input[type="number"] {
+  width: 90px;
+  padding: 0.3rem 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #2c2f38;
+  background: #14161b;
+  color: inherit;
+  font-size: 0.85rem;
+}
+
+.progress-goal {
+  color: #9aa1af;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 8px;
+  border-radius: 999px;
+  background: #22242c;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #3d9be0, #3fbf6f);
+}
+
+.progress-pct {
+  color: #9aa1af;
+  font-size: 0.78rem;
+  width: 3ch;
+  text-align: right;
+}
+
 /* Rarity coloring: entries + item slots get a left accent and tinted subtitle. */
 .entry[data-rarity] {
   border-left-width: 3px;

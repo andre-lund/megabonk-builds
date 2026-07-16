@@ -22,6 +22,7 @@ import { toBuild, type CommunityBuild } from "./lib/community";
 import { decodeBuild, encodeBuild, type KnownNames } from "./lib/share";
 import { generateBuild, type GeneratePools } from "./lib/generate";
 import { FILTER_KEY, defaultUnlocked, loadUnlocked, saveUnlocked, toggleUnlocked } from "./lib/unlocks";
+import { loadProgress, parseGoal, saveProgress, setProgress } from "./lib/progress";
 
 const weapons = weaponsJson as Weapon[];
 const tomes = tomesJson as Tome[];
@@ -151,7 +152,7 @@ const archetypes = archetypeIndex([
   items.map((i) => ({ name: i.name, text: i.effect })),
 ]);
 
-type Tab = "character" | SlotKind | "community";
+type Tab = "character" | SlotKind | "community" | "progress";
 
 const TABS: { id: Tab; label: string }[] = [
   { id: "character", label: "Characters" },
@@ -159,6 +160,20 @@ const TABS: { id: Tab; label: string }[] = [
   { id: "tome", label: "Tomes" },
   { id: "item", label: "Items" },
   { id: "community", label: "Community" },
+  { id: "progress", label: "Unlocks" },
+];
+
+interface LockableEntity {
+  name: string;
+  unlock: string;
+  kind: string;
+}
+
+const lockableEntities: LockableEntity[] = [
+  ...characters.map((c) => ({ name: c.name, unlock: c.unlock, kind: "Character" })),
+  ...weapons.map((w) => ({ name: w.name, unlock: w.unlock, kind: "Weapon" })),
+  ...tomes.map((t) => ({ name: t.name, unlock: t.unlock, kind: "Tome" })),
+  ...items.map((i) => ({ name: i.name, unlock: i.unlock, kind: "Item" })),
 ];
 
 interface BrowserEntry {
@@ -178,6 +193,8 @@ function entriesFor(tab: Tab): BrowserEntry[] {
       return tomes.map((t) => ({ name: t.name, subtitle: t.stat, detail: t.effect }));
     case "item":
       return items.map((i) => ({ name: i.name, subtitle: i.rarity, detail: i.effect }));
+    case "progress":
+      return []; // rendered separately
     case "community":
       // Dataset is vote-ordered; score each build with our heuristic for the subtitle.
       return communityBuilds.map((cb) => {
@@ -227,9 +244,24 @@ export default function App() {
   const [copied, setCopied] = useState(false);
   const [unlocked, setUnlocked] = useState(() => loadUnlocked(defaultOwned, localStorage));
   const [onlyUnlocked, setOnlyUnlocked] = useState(() => localStorage.getItem(FILTER_KEY) === "1");
+  const [progress, setProgressState] = useState(() => loadProgress(localStorage));
 
   useEffect(() => saveUnlocked(unlocked, localStorage), [unlocked]);
   useEffect(() => localStorage.setItem(FILTER_KEY, onlyUnlocked ? "1" : "0"), [onlyUnlocked]);
+  useEffect(() => saveProgress(progress, localStorage), [progress]);
+
+  const lockedRows = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    return lockableEntities
+      .filter((e) => !unlocked.has(e.name))
+      .filter((e) => !q || e.name.toLowerCase().includes(q) || e.unlock.toLowerCase().includes(q))
+      .map((e) => {
+        const goal = parseGoal(e.unlock);
+        const current = progress.get(e.name) ?? 0;
+        return { ...e, goal, current, ratio: goal ? Math.min(1, current / goal) : 0 };
+      })
+      .sort((a, b) => b.ratio - a.ratio || a.name.localeCompare(b.name));
+  }, [unlocked, progress, query]);
 
   const activePools = useMemo<GeneratePools>(() => {
     if (!onlyUnlocked) return generatePools;
@@ -258,7 +290,7 @@ export default function App() {
   const score = useMemo(() => scoreBuild(build, synergyAdj, archetypes), [build]);
 
   const gains = useMemo(() => {
-    if (tab === "community") return new Map<string, number>();
+    if (tab === "community" || tab === "progress") return new Map<string, number>();
     const pool = tab === "character" ? activePools.characters : activePools[`${tab}s`];
     return new Map(suggestFor(build, tab, pool, synergyAdj, archetypes).map((s) => [s.name, s.gain]));
   }, [tab, build, activePools]);
@@ -281,7 +313,9 @@ export default function App() {
   }, [tab, query, gains, onlyUnlocked, unlocked]);
 
   function pick(name: string) {
-    if (tab === "community") {
+    if (tab === "progress") {
+      return;
+    } else if (tab === "community") {
       const cb = communityBuilds.find((c) => c.name === name);
       if (cb) setBuild(toBuild(cb));
     } else if (tab === "character") {
@@ -380,7 +414,48 @@ export default function App() {
             </label>
           </div>
         </div>
-        <ul className="entries">
+        {tab === "progress" && (
+          <ul className="entries progress-list">
+            {lockedRows.map((row) => (
+              <li key={row.name} className="progress-row">
+                <div className="progress-head">
+                  <span className="entry-name">
+                    <EntityIcon name={row.name} size={26} />
+                    {row.name}
+                  </span>
+                  <span className="entry-subtitle">{row.kind}</span>
+                  <button
+                    className="action own-now"
+                    onClick={() => setUnlocked((u) => toggleUnlocked(u, row.name))}
+                  >
+                    Mark owned
+                  </button>
+                </div>
+                <p className="progress-unlock">{row.unlock || "No unlock condition documented."}</p>
+                {row.goal !== null && (
+                  <div className="progress-track">
+                    <input
+                      type="number"
+                      min={0}
+                      value={row.current || ""}
+                      placeholder="0"
+                      onChange={(ev) =>
+                        setProgressState((p) => setProgress(p, row.name, Number(ev.target.value) || 0))
+                      }
+                    />
+                    <span className="progress-goal">/ {row.goal.toLocaleString()}</span>
+                    <div className="progress-bar">
+                      <div className="progress-fill" style={{ width: `${row.ratio * 100}%` }} />
+                    </div>
+                    <span className="progress-pct">{Math.round(row.ratio * 100)}%</span>
+                  </div>
+                )}
+              </li>
+            ))}
+            {lockedRows.length === 0 && <li className="no-results">Everything is unlocked. Go bonk.</li>}
+          </ul>
+        )}
+        <ul className="entries" hidden={tab === "progress"}>
           {entries.map((e) => {
             const isPicked = picked.has(e.name);
             const linked = !isPicked && synergizesWithBuild(e.name, picked, synergyAdj);
