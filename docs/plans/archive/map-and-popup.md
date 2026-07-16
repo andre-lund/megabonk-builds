@@ -4,7 +4,7 @@ created: 2026-07-16
 updated: 2026-07-16
 completed: 2026-07-16
 adrs: []
-commit refs: [PENDING]
+commit refs: [f61697e]
 ---
 
 # Plan: Map selection + floating inspect popup
