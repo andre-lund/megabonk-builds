@@ -21,6 +21,7 @@ import { suggestFor } from "./lib/suggest";
 import { toBuild, type CommunityBuild } from "./lib/community";
 import { decodeBuild, encodeBuild, type KnownNames } from "./lib/share";
 import { generateBuild, type GeneratePools } from "./lib/generate";
+import { FILTER_KEY, defaultUnlocked, loadUnlocked, saveUnlocked, toggleUnlocked } from "./lib/unlocks";
 
 const weapons = weaponsJson as Weapon[];
 const tomes = tomesJson as Tome[];
@@ -56,6 +57,8 @@ const generatePools: GeneratePools = {
   tomes: tomes.map((t) => t.name),
   items: items.map((i) => i.name),
 };
+
+const defaultOwned = defaultUnlocked([weapons, tomes, characters, items]);
 
 const RARITY_COLUMNS = ["common", "uncommon", "rare", "epic", "legendary"] as const;
 
@@ -222,6 +225,22 @@ export default function App() {
   const [query, setQuery] = useState("");
   const [inspect, setInspect] = useState<{ tab: Tab; name: string } | null>(null);
   const [copied, setCopied] = useState(false);
+  const [unlocked, setUnlocked] = useState(() => loadUnlocked(defaultOwned, localStorage));
+  const [onlyUnlocked, setOnlyUnlocked] = useState(() => localStorage.getItem(FILTER_KEY) === "1");
+
+  useEffect(() => saveUnlocked(unlocked, localStorage), [unlocked]);
+  useEffect(() => localStorage.setItem(FILTER_KEY, onlyUnlocked ? "1" : "0"), [onlyUnlocked]);
+
+  const activePools = useMemo<GeneratePools>(() => {
+    if (!onlyUnlocked) return generatePools;
+    const own = (names: string[]) => names.filter((n) => unlocked.has(n));
+    return {
+      characters: own(generatePools.characters),
+      weapons: own(generatePools.weapons),
+      tomes: own(generatePools.tomes),
+      items: own(generatePools.items),
+    };
+  }, [onlyUnlocked, unlocked]);
 
   useEffect(() => {
     const encoded = encodeBuild(build);
@@ -240,25 +259,26 @@ export default function App() {
 
   const gains = useMemo(() => {
     if (tab === "community") return new Map<string, number>();
-    const all = entriesFor(tab).map((e) => e.name);
-    return new Map(suggestFor(build, tab, all, synergyAdj, archetypes).map((s) => [s.name, s.gain]));
-  }, [tab, build]);
+    const pool = tab === "character" ? activePools.characters : activePools[`${tab}s`];
+    return new Map(suggestFor(build, tab, pool, synergyAdj, archetypes).map((s) => [s.name, s.gain]));
+  }, [tab, build, activePools]);
 
   const entries = useMemo(() => {
     const q = query.trim().toLowerCase();
     const filtered = entriesFor(tab).filter(
       (e) =>
-        !q ||
-        e.name.toLowerCase().includes(q) ||
-        e.subtitle.toLowerCase().includes(q) ||
-        e.detail.toLowerCase().includes(q),
+        (!onlyUnlocked || tab === "community" || unlocked.has(e.name)) &&
+        (!q ||
+          e.name.toLowerCase().includes(q) ||
+          e.subtitle.toLowerCase().includes(q) ||
+          e.detail.toLowerCase().includes(q)),
     );
     // Suggestion order: unpicked by marginal gain descending, picked entries last.
     if (gains.size > 0) {
       filtered.sort((a, b) => (gains.get(b.name) ?? -1) - (gains.get(a.name) ?? -1));
     }
     return filtered;
-  }, [tab, query, gains]);
+  }, [tab, query, gains, onlyUnlocked, unlocked]);
 
   function pick(name: string) {
     if (tab === "community") {
@@ -325,7 +345,7 @@ export default function App() {
           )}
         </div>
         <div className="actions">
-          <button className="action generate" onClick={() => setBuild((b) => generateBuild(b, generatePools, synergyAdj, archetypes))}>
+          <button className="action generate" onClick={() => setBuild((b) => generateBuild(b, activePools, synergyAdj, archetypes))}>
             Generate
           </button>
           <button className="action" onClick={share}>
@@ -347,12 +367,18 @@ export default function App() {
               </button>
             ))}
           </nav>
-          <input
-            type="search"
-            placeholder="Search name, stat, effect…"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-          />
+          <div className="filter-row">
+            <input
+              type="search"
+              placeholder="Search name, stat, effect…"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+            />
+            <label className="unlocked-filter">
+              <input type="checkbox" checked={onlyUnlocked} onChange={(e) => setOnlyUnlocked(e.target.checked)} />
+              Only unlocked
+            </label>
+          </div>
         </div>
         <ul className="entries">
           {entries.map((e) => {
@@ -372,6 +398,22 @@ export default function App() {
                     {e.name}
                     {linked && <span className="synergy-badge">synergy</span>}
                     {gain !== undefined && gain > 0 && <span className="gain-badge">+{gain}</span>}
+                    {tab !== "community" && (
+                      <span
+                        role="checkbox"
+                        aria-checked={unlocked.has(e.name)}
+                        aria-label={`owned: ${e.name}`}
+                        tabIndex={0}
+                        className={unlocked.has(e.name) ? "own-toggle owned" : "own-toggle"}
+                        title={unlocked.has(e.name) ? "Owned — click to mark locked" : "Locked — click to mark owned"}
+                        onClick={(ev) => {
+                          ev.stopPropagation();
+                          setUnlocked((u) => toggleUnlocked(u, e.name));
+                        }}
+                      >
+                        {unlocked.has(e.name) ? "owned" : "locked"}
+                      </span>
+                    )}
                   </span>
                   <span className="entry-subtitle">{e.subtitle}</span>
                   <span className="entry-detail">{e.detail}</span>
