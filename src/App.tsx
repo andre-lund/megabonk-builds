@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import "./App.css";
 import weaponsJson from "./data/weapons.json";
 import tomesJson from "./data/tomes.json";
@@ -19,6 +19,8 @@ import { activeSynergies, synergizesWithBuild, synergyIndex } from "./lib/synerg
 import { ARCHETYPES, archetypeIndex, scoreBuild, tier } from "./lib/score";
 import { suggestFor } from "./lib/suggest";
 import { toBuild, type CommunityBuild } from "./lib/community";
+import { decodeBuild, encodeBuild, type KnownNames } from "./lib/share";
+import { generateBuild, type GeneratePools } from "./lib/generate";
 
 const weapons = weaponsJson as Weapon[];
 const tomes = tomesJson as Tome[];
@@ -40,6 +42,20 @@ function EntityIcon({ name, size }: { name: string; size: number }) {
 }
 
 const rarityOf = new Map<string, string>(items.map((i) => [i.name, i.rarity]));
+
+const knownNames: KnownNames = {
+  characters: new Set(characters.map((c) => c.name)),
+  weapons: new Set(weapons.map((w) => w.name)),
+  tomes: new Set(tomes.map((t) => t.name)),
+  items: new Set(items.map((i) => i.name)),
+};
+
+const generatePools: GeneratePools = {
+  characters: characters.map((c) => c.name),
+  weapons: weapons.map((w) => w.name),
+  tomes: tomes.map((t) => t.name),
+  items: items.map((i) => i.name),
+};
 
 const RARITY_COLUMNS = ["common", "uncommon", "rare", "epic", "legendary"] as const;
 
@@ -201,10 +217,22 @@ function SlotRow(props: {
 }
 
 export default function App() {
-  const [build, setBuild] = useState<Build>(emptyBuild);
+  const [build, setBuild] = useState<Build>(() => decodeBuild(window.location.hash, knownNames));
   const [tab, setTab] = useState<Tab>("character");
   const [query, setQuery] = useState("");
   const [inspect, setInspect] = useState<{ tab: Tab; name: string } | null>(null);
+  const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    const encoded = encodeBuild(build);
+    history.replaceState(null, "", encoded ? `#${encoded}` : window.location.pathname + window.location.search);
+  }, [build]);
+
+  async function share() {
+    await navigator.clipboard.writeText(window.location.href);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1500);
+  }
 
   const picked = useMemo(() => pickedNames(build), [build]);
   const synergies = useMemo(() => activeSynergies(picked, synergyAdj), [picked]);
@@ -296,9 +324,17 @@ export default function App() {
             </ul>
           )}
         </div>
-        <button className="reset" onClick={() => setBuild(emptyBuild())}>
-          Reset build
-        </button>
+        <div className="actions">
+          <button className="action generate" onClick={() => setBuild((b) => generateBuild(b, generatePools, synergyAdj, archetypes))}>
+            Generate
+          </button>
+          <button className="action" onClick={share}>
+            {copied ? "Copied!" : "Share"}
+          </button>
+          <button className="action" onClick={() => setBuild(emptyBuild())}>
+            Reset
+          </button>
+        </div>
         {inspect && <InspectCard target={inspect} />}
       </section>
 

@@ -143,10 +143,32 @@
   cursor: pointer;
 }
 
-.reset {
+.actions {
   margin-top: 1rem;
+  display: flex;
+  gap: 0.4rem;
+}
+
+.action {
   padding: 0.4rem 0.8rem;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
+  font-family: var(--display-font);
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  border-radius: 6px;
+  border: 1px solid #2c2f38;
+  background: transparent;
+  color: #c9cfdb;
+  cursor: pointer;
+}
+
+.action:hover {
+  border-color: #4f8cff;
+}
+
+.action.generate {
+  border-color: #3fbf6f;
+  color: #3fbf6f;
 }
 
 .browser-header {
