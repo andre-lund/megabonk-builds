@@ -1,0 +1,998 @@
+[
+  {
+    "name": "Mega Crit CL4NK Build",
+    "page": "CL4NK Builds/Mega Crit CL4NK Build",
+    "character": "CL4NK",
+    "author": "Xtra",
+    "votes": 6,
+    "created": "2026-07-16",
+    "weapons": [
+      "Revolver",
+      "Wireless Dagger",
+      "Katana",
+      "Aegis"
+    ],
+    "tomes": [
+      "XP Tome",
+      "Precision Tome",
+      "Damage Tome",
+      "Quantity Tome"
+    ],
+    "items": [
+      "Echo Shard",
+      "Forbidden Juice",
+      "Demonic Blade",
+      "Grandmas Secret Tonic",
+      "Giant Fork",
+      "Sucky Magnet"
+    ]
+  },
+  {
+    "name": "Face Tank Ninja Build",
+    "page": "Ninja Builds/Face Tank Ninja Build",
+    "character": "Ninja",
+    "author": "Xtra",
+    "votes": 6,
+    "created": "2026-07-16",
+    "weapons": [
+      "Katana",
+      "Shotgun",
+      "Hero Sword",
+      "Aegis"
+    ],
+    "tomes": [
+      "XP Tome",
+      "Armor Tome",
+      "Bloody Tome",
+      "Quantity Tome"
+    ],
+    "items": [
+      "Phantom Shroud",
+      "Slippery Ring",
+      "Cactus",
+      "Toxic Barrel",
+      "Gas Mask",
+      "Kevin"
+    ]
+  },
+  {
+    "name": "Self Sized Power Overload (v1.0.19)",
+    "page": "Noelle Builds/Self Sized Power Overload",
+    "character": "Noelle",
+    "author": "CqRs-TR",
+    "votes": 6,
+    "created": "2026-07-16",
+    "weapons": [
+      "Frostwalker",
+      "Aura",
+      "Blood Magic",
+      "Dice"
+    ],
+    "tomes": [
+      "Chaos Tome",
+      "XP Tome",
+      "Luck Tome",
+      "Cooldown Tome"
+    ],
+    "items": [
+      "Ice Crystal",
+      "Ice Cube",
+      "Overpowered Lamp",
+      "Sucky Magnet",
+      "Moldy Cheese",
+      "Unstable Transfusion"
+    ]
+  },
+  {
+    "name": "Robinette at 530,000 kills",
+    "page": "Robinette Builds/Robinnet at 530,000 kills",
+    "character": "Robinette",
+    "author": "Rafaelo",
+    "votes": 5,
+    "created": "2026-07-16",
+    "weapons": [
+      "Bow",
+      "Dice",
+      "Katana",
+      "Aura"
+    ],
+    "tomes": [
+      "Golden Tome",
+      "XP Tome",
+      "Chaos Tome",
+      "Cursed Tome"
+    ],
+    "items": [
+      "Credit Card Green",
+      "Anvil",
+      "Sucky Magnet",
+      "Key"
+    ]
+  },
+  {
+    "name": "Infinity Dagger",
+    "page": "Tony McZoom Builds/Infinity Dagger",
+    "character": "Tony McZoom",
+    "author": "deevee",
+    "votes": 4,
+    "created": "2026-07-16",
+    "weapons": [
+      "Wireless Dagger",
+      "Aegis",
+      "Bananarang",
+      "Blood Magic"
+    ],
+    "tomes": [
+      "XP Tome",
+      "Luck Tome",
+      "Quantity Tome",
+      "Cooldown Tome"
+    ],
+    "items": [
+      "Moldy Cheese",
+      "Unstable Transfusion",
+      "Bloody Cleaver",
+      "Turbo Skates"
+    ]
+  },
+  {
+    "name": "Tank Oofie",
+    "page": "Sir Oofie Builds/Tank Oofie",
+    "character": "Sir Oofie",
+    "author": "Kalraas",
+    "votes": 3,
+    "created": "2026-07-16",
+    "weapons": [
+      "Sword"
+    ],
+    "tomes": [
+      "Armor Tome",
+      "Bloody Tome",
+      "Quantity Tome",
+      "Regen Tome"
+    ],
+    "items": []
+  },
+  {
+    "name": "tony mczoom go zoom",
+    "page": "Tony McZoom Builds/tony mczoom go zoom",
+    "character": "Tony McZoom",
+    "author": "...",
+    "votes": 3,
+    "created": "2026-07-16",
+    "weapons": [
+      "Wireless Dagger",
+      "Katana",
+      "Dexecutioner",
+      "Revolver"
+    ],
+    "tomes": [
+      "Chaos Tome",
+      "Cursed Tome",
+      "Precision Tome",
+      "XP Tome"
+    ],
+    "items": [
+      "Cursed Grabbies",
+      "Credit Card Green",
+      "Echo Shard",
+      "Skuleg",
+      "Forbidden Juice",
+      "Holy Book"
+    ]
+  },
+  {
+    "name": "Black Hole sucky",
+    "page": "Bandit Builds/Black Hole sucky",
+    "character": "Bandit",
+    "author": "Chair",
+    "votes": 2,
+    "created": "2026-07-16",
+    "weapons": [
+      "Dexecutioner",
+      "Black Hole",
+      "Flamewalker",
+      "Katana"
+    ],
+    "tomes": [
+      "Size Tome",
+      "XP Tome",
+      "Luck Tome",
+      "Cursed Tome"
+    ],
+    "items": [
+      "Joes Dagger",
+      "Anvil",
+      "Sucky Magnet"
+    ]
+  },
+  {
+    "name": "Scale Early (With Early Unlocks) Fox Build",
+    "page": "Fox Builds/Scale Early (With Early Unlocks) Fox Build",
+    "character": "Fox",
+    "author": "Eklouve",
+    "votes": 2,
+    "created": "2026-07-16",
+    "weapons": [
+      "Firestaff",
+      "Axe",
+      "Wireless Dagger",
+      "Blood Magic"
+    ],
+    "tomes": [
+      "Quantity Tome",
+      "Cursed Tome",
+      "XP Tome",
+      "Damage Tome"
+    ],
+    "items": [
+      "Cursed Grubbies",
+      "Sucky Magnet",
+      "Key"
+    ]
+  },
+  {
+    "name": "Ninja Mega Shock Destroyer Build",
+    "page": "Ninja Builds/Ninja Mega Shock Destroyer Build",
+    "character": "Ninja",
+    "author": "Ryujin",
+    "votes": 2,
+    "created": "2026-07-16",
+    "weapons": [
+      "Katana",
+      "Wireless Dagger",
+      "Dexecutioner",
+      "Aegis"
+    ],
+    "tomes": [
+      "Luck Tome",
+      "XP Tome",
+      "Quantity Tome",
+      "Armor Tome"
+    ],
+    "items": [
+      "Dragonfire",
+      "Giant Fork",
+      "Demonic Soul",
+      "Demonic Blade",
+      "Forbidden Juice",
+      "Gym Sauce"
+    ]
+  },
+  {
+    "name": "Mega Crit McZoom Build",
+    "page": "Tony McZoom Builds/Mega Crit McZoom Build",
+    "character": "Tony McZoom",
+    "author": "Xtra",
+    "votes": 2,
+    "created": "2026-07-16",
+    "weapons": [
+      "Wireless Dagger",
+      "Revolver",
+      "Katana",
+      "Aegis"
+    ],
+    "tomes": [
+      "XP Tome",
+      "Precision Tome",
+      "Damage Tome",
+      "Quantity Tome"
+    ],
+    "items": [
+      "Forbidden Juice",
+      "Demonic Blade",
+      "Grandmas Secret Tonic",
+      "Slutty Cannon",
+      "Giant Fork"
+    ]
+  },
+  {
+    "name": "Bomber Birdo 2.0",
+    "page": "Birdo Builds/Bomber Birdo 2.0",
+    "character": "Birdo",
+    "author": "Emitê",
+    "votes": 2,
+    "created": "2026-07-16",
+    "weapons": [
+      "Tornado",
+      "Flamewalker",
+      "Poison Flask",
+      "Bananarang"
+    ],
+    "tomes": [
+      "XP Tome",
+      "Luck Tome",
+      "Size Tome",
+      "Cursed Tome"
+    ],
+    "items": [
+      "Scarf",
+      "Feathers",
+      "Moldy Cheese",
+      "Gas Mask",
+      "Dragonfire"
+    ]
+  },
+  {
+    "name": "HIGH DPS GIGATANK SPACEMAN",
+    "page": "Spaceman Builds/HIGH DPS GIGATANK SPACEMAN",
+    "character": "Spaceman",
+    "author": "Divra",
+    "votes": 2,
+    "created": "2026-07-16",
+    "weapons": [
+      "Black Hole",
+      "Axe",
+      "Frostwalker",
+      "Aegis"
+    ],
+    "tomes": [
+      "Cooldown Tome",
+      "Size Tome",
+      "Armor Tome",
+      "Duration Tome"
+    ],
+    "items": [
+      "Sucky Magnet",
+      "Joes Dagger",
+      "Chonkplate",
+      "Anvil"
+    ]
+  },
+  {
+    "name": "evasive ninja",
+    "page": "Ninja Builds/evasive ninja",
+    "character": "Ninja",
+    "author": "Neon",
+    "votes": 2,
+    "created": "2026-07-16",
+    "weapons": [
+      "Katana",
+      "Flamewalker",
+      "Slutty Rocket",
+      "Firestaff"
+    ],
+    "tomes": [
+      "Precision Tome",
+      "Evasion Tome",
+      "Quantity Tome",
+      "Bloody Tome"
+    ],
+    "items": [
+      "Backpack",
+      "Beefy Ring",
+      "Slurp Gloves",
+      "Credit Card Green",
+      "Moldy Cheese",
+      "Moldy Gloves"
+    ]
+  },
+  {
+    "name": "Spaceman no XP tome",
+    "page": "Spaceman Builds/Spaceman no XP tome",
+    "character": "Spaceman",
+    "author": "ava",
+    "votes": 2,
+    "created": "2026-07-16",
+    "weapons": [
+      "Black Hole",
+      "Dexecutioner",
+      "Katana",
+      "Aura"
+    ],
+    "tomes": [
+      "Cooldown Tome",
+      "Size Tome",
+      "Cursed Tome",
+      "Luck Tome"
+    ],
+    "items": []
+  },
+  {
+    "name": "Little Idea please try out",
+    "page": "Noelle Builds/Little Idea please try out",
+    "character": "Noelle",
+    "author": "MrRandom",
+    "votes": 2,
+    "created": "2026-07-16",
+    "weapons": [
+      "Frostwalker",
+      "Aura",
+      "Black Hole",
+      "Tornado"
+    ],
+    "tomes": [
+      "XP Tome",
+      "Duration Tome",
+      "Quantity Tome",
+      "Size Tome"
+    ],
+    "items": []
+  },
+  {
+    "name": "HPxDamage Monke Build",
+    "page": "Monke Builds/HPxDamage Monke Build",
+    "character": "Monke",
+    "author": "Xtra",
+    "votes": 2,
+    "created": "2026-07-16",
+    "weapons": [
+      "Bananarang",
+      "Blood Magic",
+      "Katana",
+      "Flamewalker"
+    ],
+    "tomes": [
+      "XP Tome",
+      "Cursed Tome",
+      "Quantity Tome",
+      "Size Tome"
+    ],
+    "items": [
+      "Beefy Ring",
+      "Oats",
+      "Demonic Blood",
+      "Leeching Crystal",
+      "Holy Book"
+    ]
+  },
+  {
+    "name": "god bless america",
+    "page": "Bush Builds/god bless america",
+    "character": "Bush",
+    "author": "...",
+    "votes": 2,
+    "created": "2026-07-16",
+    "weapons": [
+      "Sniper Rifle",
+      "Revolver",
+      "Slutty Rocket",
+      "Shotgun"
+    ],
+    "tomes": [
+      "Precision Tome",
+      "Quantity Tome",
+      "Cooldown Tome",
+      "Bloody Tome"
+    ],
+    "items": [
+      "Forbidden Juice",
+      "Giant Fork",
+      "Demonic Blade",
+      "Grandmas Secret Tonic"
+    ]
+  },
+  {
+    "name": "Fox Luck Firestarter Build",
+    "page": "Fox Builds/Fox Luck Firestarter Build",
+    "character": "Fox",
+    "author": "MegaAdmin",
+    "votes": 1,
+    "created": "2026-07-16",
+    "weapons": [
+      "Firestaff",
+      "Aura",
+      "Bananarang",
+      "Dragons Breath"
+    ],
+    "tomes": [
+      "Quantity Tome",
+      "Damage Tome",
+      "Agility Tome",
+      "Luck Tome"
+    ],
+    "items": [
+      "Clover",
+      "Moldy Cheese",
+      "Slippery Ring",
+      "Eagle Claw"
+    ]
+  },
+  {
+    "name": "Current meta for WR Bandit",
+    "page": "Bandit Builds/Current meta for WR Bandit",
+    "character": "Bandit",
+    "author": "NeXXar",
+    "votes": 1,
+    "created": "2026-07-16",
+    "weapons": [
+      "Dexecutioner",
+      "Katana",
+      "Aura",
+      "Black Hole"
+    ],
+    "tomes": [
+      "XP Tome",
+      "Luck Tome",
+      "Cursed Tome",
+      "Size Tome"
+    ],
+    "items": [
+      "Joes Dagger",
+      "Anvil"
+    ]
+  },
+  {
+    "name": "AFK Build",
+    "page": "Athena Builds/AFK Build",
+    "character": "Athena",
+    "author": "Tanner",
+    "votes": 1,
+    "created": "2026-07-16",
+    "weapons": [
+      "Aegis",
+      "Aura",
+      "Frostwalker"
+    ],
+    "tomes": [
+      "Attraction Tome",
+      "XP Tome",
+      "Bloody Tome"
+    ],
+    "items": []
+  },
+  {
+    "name": "Amog Pacifist Build",
+    "page": "Amog Builds/Amog Pacifist build",
+    "character": "Amog",
+    "author": "Xtra",
+    "votes": 1,
+    "created": "2026-07-16",
+    "weapons": [],
+    "tomes": [
+      "Damage Tome",
+      "Quantity Tome",
+      "Cooldown Tome",
+      "Precision Tome"
+    ],
+    "items": [
+      "Cursed Doll",
+      "Bob (Dead)",
+      "Moldy Cheese",
+      "Moldy Gloves"
+    ]
+  },
+  {
+    "name": "Gigachad AOE -  Always easy start - Anti-swarm enjoyer",
+    "page": "Megachad Builds/Gigachad AOE - Always easy start - Anti-swarm enjoyer",
+    "character": "Megachad",
+    "author": "PaulieLUL",
+    "votes": 1,
+    "created": "2026-07-16",
+    "weapons": [
+      "Aura",
+      "Katana",
+      "Flamewalker",
+      "Bananarang"
+    ],
+    "tomes": [
+      "XP Tome",
+      "Luck Tome",
+      "Cursed Tome",
+      "Size Tome"
+    ],
+    "items": [
+      "Anvil",
+      "Joes Dagger",
+      "Soul Harvester",
+      "Moldy Cheese",
+      "Gas Mask",
+      "Big Bonk"
+    ]
+  },
+  {
+    "name": "Early-Game Walking God",
+    "page": "Megachad Builds/Early-Game Walking God",
+    "character": "Megachad",
+    "author": "C1PL",
+    "votes": 1,
+    "created": "2026-07-16",
+    "weapons": [
+      "Aura",
+      "Sword",
+      "Aegis",
+      "Axe"
+    ],
+    "tomes": [
+      "Damage Tome",
+      "Size Tome",
+      "XP Tome",
+      "Quantity Tome"
+    ],
+    "items": [
+      "Gym Sauce",
+      "Battery",
+      "Cursed Doll",
+      "Campfire",
+      "Demonic Blade",
+      "Power Gloves"
+    ]
+  },
+  {
+    "name": "ptiszka minigun build",
+    "page": "Birdo Builds/ptiszka minigun build",
+    "character": "Birdo",
+    "author": "jakis gnom",
+    "votes": 1,
+    "created": "2026-07-16",
+    "weapons": [
+      "Tornado",
+      "Revolver",
+      "Wireless Dagger"
+    ],
+    "tomes": [
+      "XP Tome",
+      "Quantity Tome",
+      "Agility Tome",
+      "Cooldown Tome"
+    ],
+    "items": [
+      "Moldy Cheese",
+      "Grandmas Secret Tonic",
+      "Clover",
+      "Feathers",
+      "Boss Buster"
+    ]
+  },
+  {
+    "name": "Bush Buff",
+    "page": "Bush Builds/Bush Buff",
+    "character": "Bush",
+    "author": "Ayyyyy",
+    "votes": 1,
+    "created": "2026-07-16",
+    "weapons": [
+      "Sniper Rifle",
+      "Axe",
+      "Flamewalker",
+      "Katana"
+    ],
+    "tomes": [
+      "Cursed Tome",
+      "Size Tome",
+      "XP Tome",
+      "Precision Tome"
+    ],
+    "items": [
+      "Anvil",
+      "Credit Card Green",
+      "Cursed Grabbies",
+      "Big Bonk",
+      "Grandmas Secret Tonic",
+      "Sucky Magnet"
+    ]
+  },
+  {
+    "name": "Noelle New Patch",
+    "page": "Noelle Builds/Noelle New Patch",
+    "character": "Noelle",
+    "author": "Ayyyyy",
+    "votes": 1,
+    "created": "2026-07-16",
+    "weapons": [
+      "Frostwalker",
+      "Flamewalker",
+      "Axe",
+      "Katana"
+    ],
+    "tomes": [
+      "XP Tome",
+      "Cursed Tome",
+      "Chaos Tome",
+      "Duration Tome"
+    ],
+    "items": [
+      "Anvil",
+      "Cursed Grabbies",
+      "Lightning Orb",
+      "Sucky Magnet",
+      "Big Bonk",
+      "Spicy Meatball"
+    ]
+  },
+  {
+    "name": "Chaos Tome Unlocker",
+    "page": "Tony McZoom Builds/Chaos Tome Unlocker",
+    "character": "Tony McZoom",
+    "author": null,
+    "votes": 1,
+    "created": "2026-07-16",
+    "weapons": [
+      "Wireless Dagger",
+      "Revolver",
+      "Dexecutioner",
+      "Katana"
+    ],
+    "tomes": [
+      "XP Tome",
+      "Luck Tome",
+      "Precision Tome"
+    ],
+    "items": [
+      "Cowards Cloak",
+      "Golden Shield",
+      "Kevin",
+      "Demonic Blade",
+      "Cursed Grabbies",
+      "Electric Plug"
+    ]
+  },
+  {
+    "name": "Thorns Damage Build",
+    "page": "Athena Builds/Thorns Damage Build",
+    "character": "Athena",
+    "author": "Hjacksc",
+    "votes": 1,
+    "created": "2026-07-16",
+    "weapons": [
+      "Aegis"
+    ],
+    "tomes": [
+      "Armor Tome",
+      "Thorns Tome",
+      "Bloody Tome",
+      "Quantity Tome"
+    ],
+    "items": [
+      "Cactus",
+      "Spiky Shield",
+      "Quins Mask"
+    ]
+  },
+  {
+    "name": "Tier 3 Desert Boss",
+    "page": "Calcium Builds/Tier 3 Desert Boss WIP",
+    "character": "Calcium",
+    "author": "CanuckMonkey",
+    "votes": 1,
+    "created": "2026-07-16",
+    "weapons": [
+      "Bone",
+      "Revolver",
+      "Bananarang",
+      "Aegis"
+    ],
+    "tomes": [
+      "Armor Tome",
+      "Regen Tome",
+      "Quantity Tome",
+      "XP Tome"
+    ],
+    "items": [
+      "Medkit",
+      "Turbo Socks",
+      "Echo Shard",
+      "Turbo Skates",
+      "Sucky Magnet",
+      "Holy Book"
+    ]
+  },
+  {
+    "name": "Sword Sentinel",
+    "page": "Sir Oofie Builds/Sword Sentinel",
+    "character": "Sir Oofie",
+    "author": "MegaAdmin",
+    "votes": 0,
+    "created": "2026-07-16",
+    "weapons": [
+      "Sword",
+      "Aegis",
+      "Chunkers",
+      "Aura"
+    ],
+    "tomes": [
+      "Size Tome",
+      "Quantity Tome",
+      "Agility Tome",
+      "Projectile Speed Tome"
+    ],
+    "items": [
+      "Demonic Soul",
+      "Power Gloves",
+      "Mirror",
+      "Beefy Ring",
+      "Gym Sauce",
+      "Clover"
+    ]
+  },
+  {
+    "name": "New Vlad Build Template (08.OCT.2025)",
+    "page": "Vlad Builds/New Vlad Build Template (08.OCT.2025)",
+    "character": "Vlad",
+    "author": "Xtra",
+    "votes": 0,
+    "created": "2026-07-16",
+    "weapons": [
+      "Blood Magic",
+      "Dexecutioner",
+      "Black Hole",
+      "Katana"
+    ],
+    "tomes": [
+      "XP Tome",
+      "Luck Tome",
+      "Size Tome",
+      "Damage Tome"
+    ],
+    "items": []
+  },
+  {
+    "name": "INSANE Megabonk Spinning Ogre Build (Update V1.0.12)",
+    "page": "Ogre Builds/INSANE Megabonk Spinning Ogre Build",
+    "character": "Ogre",
+    "author": "stormrazor (posted by skeya)",
+    "votes": 0,
+    "created": "2026-07-16",
+    "weapons": [
+      "Axe",
+      "Tornado",
+      "Aura",
+      "Bananarang"
+    ],
+    "tomes": [
+      "Damage Tome",
+      "Luck Tome",
+      "XP Tome",
+      "Size Tome"
+    ],
+    "items": [
+      "Anvil"
+    ]
+  },
+  {
+    "name": "Bomber Bird",
+    "page": "Birdo Builds/Bomber Bird",
+    "character": "Birdo",
+    "author": "Emitê",
+    "votes": 0,
+    "created": "2026-07-16",
+    "weapons": [
+      "Tornado",
+      "Flamewalker",
+      "Poison Flask",
+      "Mines"
+    ],
+    "tomes": [
+      "XP Tome",
+      "Luck Tome",
+      "Size Tome",
+      "Cursed Tome"
+    ],
+    "items": [
+      "Feathers",
+      "Gas Mask",
+      "Dragonfire"
+    ]
+  },
+  {
+    "name": "Immortal Dps Calcium build",
+    "page": "Calcium Builds/Immortal Dps Calcium build",
+    "character": "Calcium",
+    "author": "GoldenGlazer",
+    "votes": 0,
+    "created": "2026-07-16",
+    "weapons": [
+      "Aegis",
+      "Bananarang"
+    ],
+    "tomes": [
+      "Quantity Tome",
+      "Agility Tome",
+      "Bloody Tome",
+      "Cooldown Tome"
+    ],
+    "items": [
+      "Gym Sauce",
+      "Battery",
+      "Turbo Socks",
+      "Backpack",
+      "Turbo Skates",
+      "Lightning Orb"
+    ]
+  },
+  {
+    "name": "Agile Bouncy Monke",
+    "page": "Monke Builds/Agile Bouncy Monke",
+    "character": "Monke",
+    "author": "C1PL",
+    "votes": 0,
+    "created": "2026-07-16",
+    "weapons": [
+      "Bananarang",
+      "Aegis"
+    ],
+    "tomes": [
+      "Agility Tome"
+    ],
+    "items": [
+      "Turbo Socks",
+      "Feathers",
+      "Cowards Cloak",
+      "Phantom Shroud",
+      "Turbo Skates"
+    ]
+  },
+  {
+    "name": "2001 Space Odyssey",
+    "page": "Spaceman Builds/2001 Space Odyssey",
+    "character": "Spaceman",
+    "author": "JAYxWALK",
+    "votes": 0,
+    "created": "2026-07-16",
+    "weapons": [
+      "Black Hole",
+      "Frostwalker",
+      "Axe",
+      "Aegis"
+    ],
+    "tomes": [
+      "Cooldown Tome",
+      "Size Tome",
+      "Armor Tome",
+      "Damage Tome"
+    ],
+    "items": [
+      "Skuleg",
+      "Clover",
+      "Oats",
+      "Boss Buster",
+      "Time Bracelet",
+      "Battery"
+    ]
+  },
+  {
+    "name": "mostly afk",
+    "page": "Megachad Builds/mostly afk",
+    "character": "Megachad",
+    "author": "...",
+    "votes": 0,
+    "created": "2026-07-16",
+    "weapons": [
+      "Aura",
+      "Aegis",
+      "Frostwalker",
+      "Flamewalker"
+    ],
+    "tomes": [
+      "Size Tome",
+      "XP Tome",
+      "Attraction Tome",
+      "Bloody Tome"
+    ],
+    "items": [
+      "Moldy Cheese",
+      "Gym Sauce",
+      "Power Gloves",
+      "Campfire",
+      "Cursed Doll"
+    ]
+  },
+  {
+    "name": "Reasonable Scaling Ogre (Forest - Graveyard)",
+    "page": "Ogre Builds/Reasonable Scaling Ogre (Forest - Graveyard)",
+    "character": "Ogre",
+    "author": "Ch0mp",
+    "votes": 0,
+    "created": "2026-07-16",
+    "weapons": [
+      "Axe",
+      "Black Hole",
+      "Katana",
+      "Shotgun"
+    ],
+    "tomes": [
+      "Damage Tome",
+      "Luck Tome",
+      "XP Tome",
+      "Cooldown Tome"
+    ],
+    "items": [
+      "Key",
+      "Brass Knuckles",
+      "Feathers",
+      "Grandmas Secret Tonic",
+      "Sucky Magnet",
+      "Anvil"
+    ]
+  }
+]

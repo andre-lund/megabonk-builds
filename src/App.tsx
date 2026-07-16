@@ -4,6 +4,7 @@ import weaponsJson from "./data/weapons.json";
 import tomesJson from "./data/tomes.json";
 import charactersJson from "./data/characters.json";
 import itemsJson from "./data/items.json";
+import buildsJson from "./data/builds.json";
 import type { Character, Item, Tome, Weapon } from "./types";
 import {
   addToBuild,
@@ -17,11 +18,13 @@ import {
 import { activeSynergies, synergizesWithBuild, synergyIndex } from "./lib/synergy";
 import { ARCHETYPES, archetypeIndex, scoreBuild, tier } from "./lib/score";
 import { suggestFor } from "./lib/suggest";
+import { toBuild, type CommunityBuild } from "./lib/community";
 
 const weapons = weaponsJson as Weapon[];
 const tomes = tomesJson as Tome[];
 const characters = charactersJson as Character[];
 const items = itemsJson as Item[];
+const communityBuilds = buildsJson as CommunityBuild[];
 
 const synergyAdj = synergyIndex([weapons, tomes, characters, items]);
 
@@ -32,13 +35,14 @@ const archetypes = archetypeIndex([
   items.map((i) => ({ name: i.name, text: i.effect })),
 ]);
 
-type Tab = "character" | SlotKind;
+type Tab = "character" | SlotKind | "community";
 
 const TABS: { id: Tab; label: string }[] = [
   { id: "character", label: "Characters" },
   { id: "weapon", label: "Weapons" },
   { id: "tome", label: "Tomes" },
   { id: "item", label: "Items" },
+  { id: "community", label: "Community" },
 ];
 
 interface BrowserEntry {
@@ -57,6 +61,16 @@ function entriesFor(tab: Tab): BrowserEntry[] {
       return tomes.map((t) => ({ name: t.name, subtitle: t.stat, detail: t.effect }));
     case "item":
       return items.map((i) => ({ name: i.name, subtitle: i.rarity, detail: i.effect }));
+    case "community":
+      // Dataset is vote-ordered; score each build with our heuristic for the subtitle.
+      return communityBuilds.map((cb) => {
+        const s = scoreBuild(toBuild(cb), synergyAdj, archetypes);
+        return {
+          name: cb.name,
+          subtitle: `${cb.votes} votes · ${tier(s.total)} ${s.total} pts${cb.author ? ` · by ${cb.author}` : ""}`,
+          detail: `${cb.character ?? "?"} — ${[...cb.weapons, ...cb.tomes].join(", ")}`,
+        };
+      });
   }
 }
 
@@ -95,6 +109,7 @@ export default function App() {
   const score = useMemo(() => scoreBuild(build, synergyAdj, archetypes), [build]);
 
   const gains = useMemo(() => {
+    if (tab === "community") return new Map<string, number>();
     const all = entriesFor(tab).map((e) => e.name);
     return new Map(suggestFor(build, tab, all, synergyAdj, archetypes).map((s) => [s.name, s.gain]));
   }, [tab, build]);
@@ -116,7 +131,10 @@ export default function App() {
   }, [tab, query, gains]);
 
   function pick(name: string) {
-    if (tab === "character") {
+    if (tab === "community") {
+      const cb = communityBuilds.find((c) => c.name === name);
+      if (cb) setBuild(toBuild(cb));
+    } else if (tab === "character") {
       setBuild((b) => setCharacter(b, b.character === name ? null : name));
     } else {
       setBuild((b) => addToBuild(b, tab, name));
