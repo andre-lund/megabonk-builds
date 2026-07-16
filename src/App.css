@@ -350,6 +350,23 @@
   padding: 0.5rem;
 }
 
+.import-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.6rem;
+}
+
+.import-save {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.import-hint {
+  color: #6b7280;
+  font-size: 0.75rem;
+}
+
 /* Unlock progress tab */
 .progress-row {
   border: 1px solid #2c2f38;

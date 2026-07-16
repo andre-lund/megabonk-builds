@@ -23,6 +23,7 @@ import { decodeBuild, encodeBuild, type KnownNames } from "./lib/share";
 import { generateBuild, type GeneratePools } from "./lib/generate";
 import { FILTER_KEY, defaultUnlocked, loadUnlocked, saveUnlocked, toggleUnlocked } from "./lib/unlocks";
 import { loadProgress, parseGoal, saveProgress, setProgress } from "./lib/progress";
+import { decryptSave, mapPurchases } from "./lib/saveimport";
 
 const weapons = weaponsJson as Weapon[];
 const tomes = tomesJson as Tome[];
@@ -245,6 +246,7 @@ export default function App() {
   const [unlocked, setUnlocked] = useState(() => loadUnlocked(defaultOwned, localStorage));
   const [onlyUnlocked, setOnlyUnlocked] = useState(() => localStorage.getItem(FILTER_KEY) === "1");
   const [progress, setProgressState] = useState(() => loadProgress(localStorage));
+  const [importStatus, setImportStatus] = useState<string | null>(null);
 
   useEffect(() => saveUnlocked(unlocked, localStorage), [unlocked]);
   useEffect(() => localStorage.setItem(FILTER_KEY, onlyUnlocked ? "1" : "0"), [onlyUnlocked]);
@@ -278,6 +280,21 @@ export default function App() {
     const encoded = encodeBuild(build);
     history.replaceState(null, "", encoded ? `#${encoded}` : window.location.pathname + window.location.search);
   }, [build]);
+
+  async function importSave(file: File) {
+    try {
+      const save = await decryptSave(await file.text());
+      const result = mapPurchases(save, lockableEntities.map((e) => e.name));
+      if (result.totalPurchases === 0) {
+        setImportStatus("No unlocks found — is this progression.json?");
+        return;
+      }
+      setUnlocked((u) => new Set([...u, ...result.unlockedNames]));
+      setImportStatus(`Imported ${result.unlockedNames.length} unlocks from your save.`);
+    } catch {
+      setImportStatus("Could not read that file — expected the game's progression.json.");
+    }
+  }
 
   async function share() {
     await navigator.clipboard.writeText(window.location.href);
@@ -414,6 +431,27 @@ export default function App() {
             </label>
           </div>
         </div>
+        {tab === "progress" && (
+          <div className="import-bar">
+            <label className="action import-save">
+              Import save file
+              <input
+                type="file"
+                accept=".json,application/json,text/plain"
+                hidden
+                onChange={(ev) => {
+                  const file = ev.target.files?.[0];
+                  if (file) void importSave(file);
+                  ev.target.value = "";
+                }}
+              />
+            </label>
+            <span className="import-hint">
+              {importStatus ??
+                "progression.json from %appdata%\\..\\LocalLow\\Ved\\Megabonk\\Saves\\CloudDir\\<id>\\ — read locally, never uploaded."}
+            </span>
+          </div>
+        )}
         {tab === "progress" && (
           <ul className="entries progress-list">
             {lockedRows.map((row) => (
