@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { createCipheriv } from "node:crypto";
-import { decryptSave, mapPurchases } from "./saveimport";
+import { decryptSave, mapPurchases, mapStats, saveKind } from "./saveimport";
 import weaponsJson from "../data/weapons.json";
 import tomesJson from "../data/tomes.json";
 import charactersJson from "../data/characters.json";
@@ -49,5 +49,30 @@ describe("save import", () => {
   it("handles malformed saves gracefully", () => {
     expect(mapPurchases({}, wikiNames).unlockedNames).toEqual([]);
     expect(mapPurchases(null, wikiNames).totalPurchases).toBe(0);
+  });
+
+  it("detects save kind by content", () => {
+    expect(saveKind({ purchases: [] })).toBe("progression");
+    expect(saveKind({ stats: {} })).toBe("stats");
+    expect(saveKind({ foo: 1 })).toBe("unknown");
+    expect(saveKind(null)).toBe("unknown");
+  });
+
+  it("maps stats counters onto unlock progress", () => {
+    const save = {
+      stats: {
+        swordKills: { name: "swordKills", value: 1234.0 },
+        skeletonKills: { name: "skeletonKills", value: 98117.0 },
+        challengesCompleted: { name: "challengesCompleted", value: 2.0 },
+        kills: { name: "kills", value: 0 },
+      },
+    };
+    const progress = mapStats(save, wikiNames);
+    expect(progress.get("Axe")).toBe(1234); // swordKills
+    expect(progress.get("Dexecutioner")).toBe(1234); // same counter, higher goal
+    expect(progress.get("Calcium")).toBe(98117);
+    expect(progress.get("Anvil")).toBe(2);
+    expect(progress.has("Revolver")).toBe(false); // zero value skipped
+    expect(mapStats({ purchases: [] }, wikiNames).size).toBe(0);
   });
 });

@@ -23,7 +23,7 @@ import { decodeBuild, encodeBuild, type KnownNames } from "./lib/share";
 import { generateBuild, type GeneratePools } from "./lib/generate";
 import { FILTER_KEY, defaultUnlocked, loadUnlocked, saveUnlocked, toggleUnlocked } from "./lib/unlocks";
 import { loadProgress, parseGoal, saveProgress, setProgress } from "./lib/progress";
-import { decryptSave, mapPurchases } from "./lib/saveimport";
+import { decryptSave, mapPurchases, mapStats, saveKind } from "./lib/saveimport";
 
 const weapons = weaponsJson as Weapon[];
 const tomes = tomesJson as Tome[];
@@ -281,19 +281,32 @@ export default function App() {
     history.replaceState(null, "", encoded ? `#${encoded}` : window.location.pathname + window.location.search);
   }, [build]);
 
-  async function importSave(file: File) {
-    try {
-      const save = await decryptSave(await file.text());
-      const result = mapPurchases(save, lockableEntities.map((e) => e.name));
-      if (result.totalPurchases === 0) {
-        setImportStatus("No unlocks found — is this progression.json?");
-        return;
+  async function importSaves(files: File[]) {
+    const messages: string[] = [];
+    for (const file of files) {
+      try {
+        const save = await decryptSave(await file.text());
+        const kind = saveKind(save);
+        if (kind === "progression") {
+          const result = mapPurchases(save, lockableEntities.map((e) => e.name));
+          setUnlocked((u) => new Set([...u, ...result.unlockedNames]));
+          messages.push(`${result.unlockedNames.length} unlocks`);
+        } else if (kind === "stats") {
+          const imported = mapStats(save, lockableEntities.map((e) => e.name));
+          setProgressState((p) => {
+            let next = p;
+            for (const [name, value] of imported) next = setProgress(next, name, Math.max(p.get(name) ?? 0, value));
+            return next;
+          });
+          messages.push(`progress for ${imported.size} unlock goals`);
+        } else {
+          messages.push(`${file.name}: not a recognized save file`);
+        }
+      } catch {
+        messages.push(`${file.name}: could not read`);
       }
-      setUnlocked((u) => new Set([...u, ...result.unlockedNames]));
-      setImportStatus(`Imported ${result.unlockedNames.length} unlocks from your save.`);
-    } catch {
-      setImportStatus("Could not read that file — expected the game's progression.json.");
     }
+    setImportStatus(`Imported ${messages.join(" + ")}.`);
   }
 
   async function share() {
@@ -434,21 +447,22 @@ export default function App() {
         {tab === "progress" && (
           <div className="import-bar">
             <label className="action import-save">
-              Import save file
+              Import save files
               <input
                 type="file"
                 accept=".json,application/json,text/plain"
+                multiple
                 hidden
                 onChange={(ev) => {
-                  const file = ev.target.files?.[0];
-                  if (file) void importSave(file);
+                  const files = [...(ev.target.files ?? [])];
+                  if (files.length) void importSaves(files);
                   ev.target.value = "";
                 }}
               />
             </label>
             <span className="import-hint">
               {importStatus ??
-                "progression.json from %appdata%\\..\\LocalLow\\Ved\\Megabonk\\Saves\\CloudDir\\<id>\\ — read locally, never uploaded."}
+                "progression.json (unlocks) + stats.json (progress) from %appdata%\\..\\LocalLow\\Ved\\Megabonk\\Saves\\CloudDir\\<id>\\ — read locally, never uploaded."}
             </span>
           </div>
         )}

@@ -29,6 +29,26 @@ const ALIASES: Record<string, string> = {
 
 const normalize = (name: string) => name.toLowerCase().replace(/[^a-z0-9]/g, "");
 
+// Unlock-condition -> stats.json counter, for entities whose grind progress
+// the game tracks globally. Only confident mappings; everything else stays manual.
+const STAT_SOURCES: Record<string, string> = {
+  Axe: "swordKills", // Kill 2,000 enemies using the Sword
+  Dexecutioner: "swordKills", // Kill 12,500 enemies using the Sword
+  Revolver: "kills", // Kill 7,500 enemies
+  Mines: "rocketsKills", // Kill 7,500 enemies with the Slutty Rocket
+  Frostwalker: "icecubeFreezes", // Freeze 1,000 enemies using the Ice Cube
+  "Dragons Breath": "foxWispsKills", // Kill 1,000 Wisp as Fox on Desert
+  Aegis: "damageReductionArmorAsKnight", // Block 500 damage with Armor as Sir Oofie
+  Calcium: "skeletonKills", // Kill 1,000 Skeletons
+  Ogre: "goblinKills", // Kill 15,000 Goblins
+  Birdo: "killsInTornadoWithTornado", // Kill 100 enemies in a Tornado with the Tornado
+  Amog: "moldyCheeseProcs", // Poison 50,000 enemies with Moldy Cheese
+  Dicehead: "questsCompleted", // Complete 100 Quests
+  Spaceman: "challengesCompleted", // Complete 6 Challenges
+  "Tony McZoom": "challengesCompleted", // Complete 2 challenges
+  Anvil: "challengesCompleted", // Complete 3 Challenges
+};
+
 export async function decryptSave(fileText: string): Promise<unknown> {
   const trimmed = fileText.trim();
   // Already-decrypted saves (e.g. edited ones) are plain JSON.
@@ -60,4 +80,32 @@ export function mapPurchases(save: unknown, wikiNames: Iterable<string>): Import
     if (name) unlocked.add(name);
   }
   return { unlockedNames: [...unlocked].sort(), totalPurchases: purchases.length };
+}
+
+/** Kind of save file, detected by content. */
+export function saveKind(save: unknown): "progression" | "stats" | "unknown" {
+  if (save && typeof save === "object") {
+    if (Array.isArray((save as { purchases?: unknown }).purchases)) return "progression";
+    const stats = (save as { stats?: unknown }).stats;
+    if (stats && typeof stats === "object") return "stats";
+  }
+  return "unknown";
+}
+
+/** Map stats.json counters onto unlock progress for entities with a known stat source. */
+export function mapStats(save: unknown, wikiNames: Iterable<string>): Map<string, number> {
+  const result = new Map<string, number>();
+  if (saveKind(save) !== "stats") return result;
+  const stats = (save as { stats: Record<string, unknown> }).stats;
+  const known = new Set(wikiNames);
+  for (const [name, statKey] of Object.entries(STAT_SOURCES)) {
+    if (!known.has(name)) continue;
+    const entry = stats[statKey];
+    const value =
+      entry && typeof entry === "object" && typeof (entry as { value?: unknown }).value === "number"
+        ? (entry as { value: number }).value
+        : null;
+    if (value !== null && value > 0) result.set(name, Math.floor(value));
+  }
+  return result;
 }
