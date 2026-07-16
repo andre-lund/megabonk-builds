@@ -24,6 +24,7 @@ import { generateBuild, type GeneratePools } from "./lib/generate";
 import { FILTER_KEY, defaultUnlocked, loadUnlocked, saveUnlocked, toggleUnlocked } from "./lib/unlocks";
 import { loadProgress, parseGoal, saveProgress, setProgress } from "./lib/progress";
 import { decryptSave, mapPurchases, mapStats, saveKind } from "./lib/saveimport";
+import { isBackup, restoreBackup, serializeBackup } from "./lib/backup";
 
 const weapons = weaponsJson as Weapon[];
 const tomes = tomesJson as Tome[];
@@ -286,6 +287,13 @@ export default function App() {
     for (const file of files) {
       try {
         const save = await decryptSave(await file.text());
+        if (isBackup(save)) {
+          const restored = restoreBackup(save, lockableEntities.map((e) => e.name));
+          setUnlocked(restored.unlocked);
+          setProgressState(restored.progress);
+          messages.push(`backup restored (${restored.unlocked.size} owned)`);
+          continue;
+        }
         const kind = saveKind(save);
         if (kind === "progression") {
           const result = mapPurchases(save, lockableEntities.map((e) => e.name));
@@ -307,6 +315,17 @@ export default function App() {
       }
     }
     setImportStatus(`Imported ${messages.join(" + ")}.`);
+  }
+
+  function exportBackup() {
+    const blob = new Blob([serializeBackup(unlocked, progress, new Date().toISOString())], {
+      type: "application/json",
+    });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "megabonk-builds-backup.json";
+    a.click();
+    URL.revokeObjectURL(a.href);
   }
 
   async function share() {
@@ -460,6 +479,9 @@ export default function App() {
                 }}
               />
             </label>
+            <button className="action" onClick={exportBackup}>
+              Export backup
+            </button>
             <span className="import-hint">
               {importStatus ??
                 "progression.json (unlocks) + stats.json (progress) from %appdata%\\..\\LocalLow\\Ved\\Megabonk\\Saves\\CloudDir\\<id>\\ — read locally, never uploaded."}
