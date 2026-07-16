@@ -1,8 +1,10 @@
 ---
-status: active
+status: done
 created: 2026-07-16
 updated: 2026-07-16
+completed: 2026-07-16
 adrs: []
+commit refs: [c386f41]
 ---
 
 # Plan: Shareable build URLs + generate best combo
