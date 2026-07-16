@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { addToBuild, emptyBuild, setCharacter } from "./build";
+import { addToBuild, emptyBuild, setCharacter, setMap } from "./build";
 import { decodeBuild, encodeBuild, type KnownNames } from "./share";
 import weaponsJson from "../data/weapons.json";
 import tomesJson from "../data/tomes.json";
@@ -11,11 +11,13 @@ const known: KnownNames = {
   weapons: new Set(weaponsJson.map((w) => w.name)),
   tomes: new Set(tomesJson.map((t) => t.name)),
   items: new Set(itemsJson.map((i) => i.name)),
+  maps: new Set(["Forest", "Desert", "Graveyard"]),
 };
 
 describe("build URL codec", () => {
   it("round-trips a partial build", () => {
     let b = setCharacter(emptyBuild(), "Ninja");
+    b = setMap(b, "Desert");
     b = addToBuild(b, "weapon", "Katana");
     b = addToBuild(b, "tome", "Damage Tome");
     b = addToBuild(b, "item", "Credit Card Green");

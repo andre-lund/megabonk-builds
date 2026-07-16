@@ -5,6 +5,7 @@ import tomesJson from "./data/tomes.json";
 import charactersJson from "./data/characters.json";
 import itemsJson from "./data/items.json";
 import buildsJson from "./data/builds.json";
+import mapsJson from "./data/maps.json";
 import type { Character, Item, Tome, UpgradeRow, Weapon } from "./types";
 import {
   addToBuild,
@@ -12,6 +13,7 @@ import {
   emptyBuild,
   pickedNames,
   setCharacter,
+  setMap,
   type Build,
   type SlotKind,
 } from "./lib/build";
@@ -49,11 +51,20 @@ function EntityIcon({ name, size }: { name: string; size: number }) {
 
 const rarityOf = new Map<string, string>(items.map((i) => [i.name, i.rarity]));
 
+interface GameMap {
+  name: string;
+  tiers: number;
+  unlock: string;
+  icon: string;
+}
+const maps = mapsJson as GameMap[];
+
 const knownNames: KnownNames = {
   characters: new Set(characters.map((c) => c.name)),
   weapons: new Set(weapons.map((w) => w.name)),
   tomes: new Set(tomes.map((t) => t.name)),
   items: new Set(items.map((i) => i.name)),
+  maps: new Set(maps.map((m) => m.name)),
 };
 
 const generatePools: GeneratePools = {
@@ -261,7 +272,7 @@ export default function App() {
     setBuildRaw((prev) => enforceStartingWeapon(typeof update === "function" ? update(prev) : update, startingWeaponOf));
   const [tab, setTab] = useState<Tab>("character");
   const [query, setQuery] = useState("");
-  const [inspect, setInspect] = useState<{ tab: Tab; name: string } | null>(null);
+  const [inspect, setInspect] = useState<{ tab: Tab; name: string; top: number } | null>(null);
   const [copied, setCopied] = useState(false);
   const [unlocked, setUnlocked] = useState(() => loadUnlocked(defaultOwned, localStorage));
   const [onlyUnlocked, setOnlyUnlocked] = useState(() => localStorage.getItem(FILTER_KEY) === "1");
@@ -448,6 +459,22 @@ export default function App() {
             </button>
           </div>
         </div>
+        <div className="slot-group">
+          <h3>Map</h3>
+          <div className="slots">
+            {maps.map((m) => (
+              <button
+                key={m.name}
+                className={build.map === m.name ? "map-pick active" : "map-pick"}
+                title={`${m.name} — ${m.tiers} tier${m.tiers > 1 ? "s" : ""}. ${m.unlock}`}
+                onClick={() => setBuild((b) => setMap(b, b.map === m.name ? null : m.name))}
+              >
+                <img src={`${import.meta.env.BASE_URL}${m.icon}`} alt="" width={54} height={40} />
+                {m.name}
+              </button>
+            ))}
+          </div>
+        </div>
         <SlotRow
           label="Weapons"
           kind="weapon"
@@ -497,7 +524,6 @@ export default function App() {
             Reset
           </button>
         </div>
-        {inspect && <InspectCard target={inspect} />}
       </section>
 
       <section className="panel browser-panel">
@@ -588,7 +614,7 @@ export default function App() {
             {lockedRows.length === 0 && <li className="no-results">Everything is unlocked. Go bonk.</li>}
           </ul>
         )}
-        <ul className="entries" hidden={tab === "progress"}>
+        <ul className="entries" hidden={tab === "progress"} onMouseLeave={() => setInspect(null)}>
           {entries.map((e) => {
             const isPicked = picked.has(e.name);
             const linked = !isPicked && synergizesWithBuild(e.name, picked, synergyAdj);
@@ -599,7 +625,10 @@ export default function App() {
                   className={isPicked ? "entry picked" : linked ? "entry linked" : "entry"}
                   data-rarity={tab === "item" ? rarityOf.get(e.name)?.toLowerCase() : undefined}
                   onClick={() => pick(e.name)}
-                  onMouseEnter={() => tab !== "community" && setInspect({ tab, name: e.name })}
+                  onMouseEnter={(ev) =>
+                    tab !== "community" &&
+                    setInspect({ tab, name: e.name, top: ev.currentTarget.getBoundingClientRect().top })
+                  }
                 >
                   <span className="entry-name">
                     <EntityIcon name={e.iconName ?? e.name} size={26} />
@@ -632,6 +661,11 @@ export default function App() {
           {entries.length === 0 && <li className="no-results">No matches.</li>}
         </ul>
       </section>
+      {inspect && (
+        <div className="inspect-popup" style={{ top: Math.max(8, Math.min(inspect.top, window.innerHeight - 420)) }}>
+          <InspectCard target={inspect} />
+        </div>
+      )}
     </div>
   );
 }

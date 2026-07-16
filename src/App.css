@@ -519,13 +519,48 @@
 .rarity-tag[data-rarity="epic"] { color: var(--rarity-epic); }
 .rarity-tag[data-rarity="legendary"] { color: var(--rarity-legendary); }
 
-/* Inspect card */
+/* Inspect popup: fixed next to the browser list, aligned with the hovered row. */
+.inspect-popup {
+  position: fixed;
+  left: max(8px, calc(50vw - 550px + 1rem));
+  width: 340px;
+  max-height: 410px;
+  overflow-y: auto;
+  z-index: 20;
+  pointer-events: none;
+  filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.5));
+}
+
 .inspect-card {
-  margin-top: 1rem;
   border: 1px solid #3a3e4a;
   border-radius: 6px;
   padding: 0.7rem 0.8rem;
   background: #14161b;
+}
+
+.map-pick {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid #2c2f38;
+  border-radius: 6px;
+  background: transparent;
+  color: #9aa1af;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+.map-pick img {
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.map-pick.active {
+  border-color: #4f8cff;
+  background: #22304a;
+  color: #dbe4f5;
 }
 
 .inspect-title {

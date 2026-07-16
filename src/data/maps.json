@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Forest",
+    "tiers": 3,
+    "unlock": "Unlocked by default.",
+    "icon": "icons/map-forest.png"
+  },
+  {
+    "name": "Desert",
+    "tiers": 3,
+    "unlock": "Reach Forest Tier 2 with CL4NK.",
+    "icon": "icons/map-desert.png"
+  },
+  {
+    "name": "Graveyard",
+    "tiers": 1,
+    "unlock": "As Calcium on Desert Tier 2, defeat the undead boss.",
+    "icon": "icons/map-graveyard.png"
+  }
+]

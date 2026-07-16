@@ -8,6 +8,7 @@ export type SlotKind = "weapon" | "tome" | "item";
 
 export interface Build {
   character: string | null;
+  map: string | null;
   weapons: (string | null)[];
   tomes: (string | null)[];
   items: (string | null)[];
@@ -16,10 +17,15 @@ export interface Build {
 export function emptyBuild(): Build {
   return {
     character: null,
+    map: null,
     weapons: Array(WEAPON_SLOTS).fill(null),
     tomes: Array(TOME_SLOTS).fill(null),
     items: Array(ITEM_SLOTS).fill(null),
   };
+}
+
+export function setMap(build: Build, map: string | null): Build {
+  return { ...build, map };
 }
 
 function slotArray(build: Build, kind: SlotKind): (string | null)[] {
