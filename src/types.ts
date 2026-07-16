@@ -8,6 +8,7 @@ export interface UpgradeRow {
 }
 
 export interface Weapon {
+  icon: string | null;
   name: string;
   type: string;
   description: string;
@@ -18,6 +19,7 @@ export interface Weapon {
 }
 
 export interface Tome {
+  icon: string | null;
   name: string;
   stat: string;
   effect: string;
@@ -28,6 +30,7 @@ export interface Tome {
 }
 
 export interface Character {
+  icon: string | null;
   name: string;
   weapon: string;
   blessing: string;
@@ -37,6 +40,7 @@ export interface Character {
 }
 
 export interface Item {
+  icon: string | null;
   name: string;
   rarity: string;
   effect: string;

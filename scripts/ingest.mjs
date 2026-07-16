@@ -6,6 +6,7 @@ import { dirname, join } from "node:path";
 
 const API = "https://megabonk.wiki/api.php";
 const OUT_DIR = join(dirname(fileURLToPath(import.meta.url)), "..", "src", "data");
+const ICONS_DIR = join(dirname(fileURLToPath(import.meta.url)), "..", "public", "icons");
 
 const CATEGORIES = {
   weapons: "Weapons",
@@ -29,6 +30,59 @@ async function categoryMembers(category) {
 async function wikitext(page) {
   const data = await api({ action: "parse", page, prop: "wikitext" });
   return data.parse.wikitext["*"];
+}
+
+// Batched pageimages lookup: title -> image URL (50 titles per request).
+async function pageImages(titles) {
+  const urls = new Map();
+  for (let i = 0; i < titles.length; i += 50) {
+    const data = await api({
+      action: "query",
+      titles: titles.slice(i, i + 50).join("|"),
+      prop: "pageimages",
+      piprop: "original",
+    });
+    for (const page of Object.values(data.query.pages)) {
+      if (page.original) urls.set(page.title, page.original.source);
+    }
+  }
+  return urls;
+}
+
+// Resolve File:<name> to a raw URL (used for infobox/seo fallbacks).
+async function fileUrls(fileNames) {
+  const urls = new Map();
+  const names = [...new Set(fileNames)].filter(Boolean);
+  for (let i = 0; i < names.length; i += 50) {
+    const data = await api({
+      action: "query",
+      titles: names.slice(i, i + 50).map((n) => `File:${n}`).join("|"),
+      prop: "imageinfo",
+      iiprop: "url",
+    });
+    for (const page of Object.values(data.query.pages)) {
+      if (page.imageinfo?.[0]) urls.set(page.title.replace(/^File:/, "").replaceAll(" ", "_"), page.imageinfo[0].url);
+    }
+  }
+  return urls;
+}
+
+// Image filename from the infobox `image` param or the {{#seo:}} block.
+function imageParam(text, box) {
+  if (box.image) return plain(box.image);
+  const seo = text.match(/\{\{#seo:[\s\S]*?\|\s*image\s*=\s*([^\n|}]+)/);
+  return seo ? seo[1].trim() : null;
+}
+
+const slug = (name) => name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+
+async function downloadIcon(url, name) {
+  const res = await fetch(url, { headers: { "User-Agent": "megabonk-builds ingest (olund.dev@pm.me)" } });
+  if (!res.ok) return null;
+  const ext = url.match(/\.(png|jpg|jpeg|gif|webp)$/i)?.[1].toLowerCase() ?? "png";
+  const file = `${slug(name)}.${ext}`;
+  writeFileSync(join(ICONS_DIR, file), Buffer.from(await res.arrayBuffer()));
+  return `icons/${file}`;
 }
 
 // Strip wiki markup: [[A|B]] -> B, [[A]] -> A, '''x''' -> x, [url label] -> label.
@@ -120,14 +174,18 @@ function parseSynergies(text, selfName) {
 
 async function ingest() {
   mkdirSync(OUT_DIR, { recursive: true });
+  mkdirSync(ICONS_DIR, { recursive: true });
   const meta = { source: "https://megabonk.wiki", fetched: new Date().toISOString(), counts: {} };
 
   for (const [kind, category] of Object.entries(CATEGORIES)) {
     const titles = await categoryMembers(category);
     const entities = [];
+    const fallbackImages = new Map();
     for (const title of titles) {
       const text = await wikitext(title);
       const box = parseInfobox(text);
+      const fallback = imageParam(text, box);
+      if (fallback) fallbackImages.set(title, fallback);
       const base = { name: title, synergies: parseSynergies(text, title) };
       if (kind === "weapons") {
         entities.push({
@@ -167,6 +225,26 @@ async function ingest() {
       await new Promise((r) => setTimeout(r, 150));
     }
     console.log();
+
+    // Icon resolution: pageimages, then infobox/seo image param, then the
+    // wiki's <Title>.png naming convention (most weapon pages carry no image
+    // reference in their own wikitext).
+    const primary = await pageImages(titles);
+    const guesses = new Map(titles.map((t) => [t, `${t.replaceAll(" ", "_")}.png`]));
+    const fallbacks = await fileUrls([
+      ...[...fallbackImages.values()].map((f) => f.replaceAll(" ", "_")),
+      ...guesses.values(),
+    ]);
+    for (const entity of entities) {
+      const url =
+        primary.get(entity.name) ??
+        fallbacks.get(fallbackImages.get(entity.name)?.replaceAll(" ", "_") ?? "") ??
+        fallbacks.get(guesses.get(entity.name));
+      entity.icon = url ? await downloadIcon(url, entity.name) : null;
+    }
+    const withIcons = entities.filter((e) => e.icon).length;
+    console.log(`${kind}: ${withIcons}/${entities.length} icons`);
+
     meta.counts[kind] = entities.length;
     writeFileSync(join(OUT_DIR, `${kind}.json`), JSON.stringify(entities, null, 2) + "\n");
   }

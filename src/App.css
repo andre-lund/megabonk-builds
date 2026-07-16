@@ -101,6 +101,15 @@
   color: #6b7280;
   font-size: 0.85rem;
   cursor: default;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.entity-icon {
+  image-rendering: pixelated;
+  flex-shrink: 0;
+  object-fit: contain;
 }
 
 .slot.filled {
@@ -187,6 +196,9 @@
 
 .entry-name {
   font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .entry-subtitle {

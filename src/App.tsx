@@ -28,6 +28,17 @@ const communityBuilds = buildsJson as CommunityBuild[];
 
 const synergyAdj = synergyIndex([weapons, tomes, characters, items]);
 
+const iconOf = new Map<string, string>();
+for (const e of [...weapons, ...tomes, ...characters, ...items]) {
+  if (e.icon) iconOf.set(e.name, `${import.meta.env.BASE_URL}${e.icon}`);
+}
+
+function EntityIcon({ name, size }: { name: string; size: number }) {
+  const src = iconOf.get(name);
+  if (!src) return null;
+  return <img className="entity-icon" src={src} alt="" width={size} height={size} />;
+}
+
 const archetypes = archetypeIndex([
   weapons.map((w) => ({ name: w.name, text: `${w.type} ${w.description}` })),
   tomes.map((t) => ({ name: t.name, text: `${t.stat} ${t.effect}` })),
@@ -47,6 +58,7 @@ const TABS: { id: Tab; label: string }[] = [
 
 interface BrowserEntry {
   name: string;
+  iconName?: string;
   subtitle: string;
   detail: string;
 }
@@ -67,6 +79,7 @@ function entriesFor(tab: Tab): BrowserEntry[] {
         const s = scoreBuild(toBuild(cb), synergyAdj, archetypes);
         return {
           name: cb.name,
+          iconName: cb.character ?? undefined,
           subtitle: `${cb.votes} votes · ${tier(s.total)} ${s.total} pts${cb.author ? ` · by ${cb.author}` : ""}`,
           detail: `${cb.character ?? "?"} — ${[...cb.weapons, ...cb.tomes].join(", ")}`,
         };
@@ -91,6 +104,7 @@ function SlotRow(props: {
             title={name ? `Remove ${name}` : "Empty slot"}
             onClick={() => name && props.onClear(props.kind, i)}
           >
+            {name && <EntityIcon name={name} size={20} />}
             {name ?? "—"}
           </button>
         ))}
@@ -172,6 +186,7 @@ export default function App() {
               title={build.character ? `Remove ${build.character}` : "Pick a character"}
               onClick={() => build.character && setBuild((b) => setCharacter(b, null))}
             >
+              {build.character && <EntityIcon name={build.character} size={20} />}
               {build.character ?? "—"}
             </button>
           </div>
@@ -226,6 +241,7 @@ export default function App() {
                   onClick={() => pick(e.name)}
                 >
                   <span className="entry-name">
+                    <EntityIcon name={e.iconName ?? e.name} size={26} />
                     {e.name}
                     {linked && <span className="synergy-badge">synergy</span>}
                     {gain !== undefined && gain > 0 && <span className="gain-badge">+{gain}</span>}

@@ -5,7 +5,8 @@
     "weapon": "Poison Flask",
     "blessing": "Poisoned enemies explode on death, adding all stacks of Poison to enemies hit. Also gain 1% Poison Damage per level.",
     "role": "Crowd Control",
-    "unlock": "Poison 50,000 enemies with Moldy Cheese and get the Poison Flask."
+    "unlock": "Poison 50,000 enemies with Moldy Cheese and get the Poison Flask.",
+    "icon": "icons/amog.png"
   },
   {
     "name": "Athena",
@@ -13,7 +14,8 @@
     "weapon": "Aegis",
     "blessing": "Deals more damage at lower HP, gains +2 Thorns per level. Also increases her attack speed by 150% when no shields are active.",
     "role": "Tank",
-    "unlock": "Upgrade Thorns Tome to level 9 and get the Aegis"
+    "unlock": "Upgrade Thorns Tome to level 9 and get the Aegis",
+    "icon": "icons/athena.png"
   },
   {
     "name": "Bandit",
@@ -21,7 +23,8 @@
     "weapon": "Dexecutioner",
     "blessing": "+1% Attack Speed per level.",
     "role": "Melee / Assassin",
-    "unlock": "Find and defeat Bandit in the Desert and get the Dexecutioner"
+    "unlock": "Find and defeat Bandit in the Desert and get the Dexecutioner",
+    "icon": "icons/bandit.png"
   },
   {
     "name": "Birdo",
@@ -29,7 +32,8 @@
     "weapon": "Tornado",
     "blessing": "Hold \"Jump\" to float in the air. Also gain 1% Airborne Damage per level.",
     "role": "Mobile",
-    "unlock": "Kill 100 enemies using the Tornado while carried by a Tornado on Desert"
+    "unlock": "Kill 100 enemies using the Tornado while carried by a Tornado on Desert",
+    "icon": "icons/birdo.png"
   },
   {
     "name": "Bush",
@@ -37,7 +41,8 @@
     "weapon": "Sniper Rifle",
     "blessing": "Marked enemies explode when shot. +1% Crit Damage per level",
     "role": "Ranged",
-    "unlock": "Find and defeat Bush in the Forest and get the Sniper Rifle"
+    "unlock": "Find and defeat Bush in the Forest and get the Sniper Rifle",
+    "icon": "icons/bush.png"
   },
   {
     "name": "Calcium",
@@ -45,7 +50,8 @@
     "weapon": "Bone",
     "blessing": "Speed builds up over time, but is halved when you take damage. Gain damage based on speed.",
     "role": "Ranged / Skirmisher",
-    "unlock": "Kill 1,000 Skeletons."
+    "unlock": "Kill 1,000 Skeletons.",
+    "icon": "icons/calcium.png"
   },
   {
     "name": "CL4NK",
@@ -53,7 +59,8 @@
     "weapon": "Revolver",
     "blessing": "Gain 1% Crit Chance per level.",
     "role": "Ranged / Glass Cannon",
-    "unlock": "Complete Forest Tier 1 and get the Revolver."
+    "unlock": "Complete Forest Tier 1 and get the Revolver.",
+    "icon": "icons/cl4nk.png"
   },
   {
     "name": "Dicehead",
@@ -61,7 +68,8 @@
     "weapon": "Dice",
     "blessing": "Roll the dice and upgrade a random stat when you level up.",
     "role": "RNG / Trickster",
-    "unlock": "Complete 100 Quests and get the Dice."
+    "unlock": "Complete 100 Quests and get the Dice.",
+    "icon": "icons/dicehead.png"
   },
   {
     "name": "Fox",
@@ -69,7 +77,8 @@
     "weapon": "Firestaff",
     "blessing": "Gain 2% Luck per level.",
     "role": "Ranged DPS / Lucky",
-    "unlock": "Starting Character"
+    "unlock": "Starting Character",
+    "icon": "icons/fox.png"
   },
   {
     "name": "Megachad",
@@ -77,7 +86,8 @@
     "weapon": "Aura",
     "blessing": "Stuns enemies and prevents damage; cooldown decreases by 0.2s per level. Gain 2.5% damage when you flex",
     "role": "Tank / CC",
-    "unlock": "Get the Damage Tome to Level 7 and get the Aura"
+    "unlock": "Get the Damage Tome to Level 7 and get the Aura",
+    "icon": "icons/megachad.png"
   },
   {
     "name": "Monke",
@@ -85,7 +95,8 @@
     "weapon": "Bananarang",
     "blessing": "Climb up walls. Also gain +2 Max HP per level",
     "role": "Brawler / High HP",
-    "unlock": "Find and release Monke from his cage in the Forest; also find the Bananarang in the Forest"
+    "unlock": "Find and release Monke from his cage in the Forest; also find the Bananarang in the Forest",
+    "icon": "icons/monke.png"
   },
   {
     "name": "Ninja",
@@ -93,7 +104,8 @@
     "weapon": "Katana",
     "blessing": "Execute an enemy upon evading them. Also, 0.5% Evasion per level.",
     "role": "Melee / Assassin",
-    "unlock": "Complete Desert Tier 1 and get the Katana."
+    "unlock": "Complete Desert Tier 1 and get the Katana.",
+    "icon": "icons/ninja.png"
   },
   {
     "name": "Noelle",
@@ -101,7 +113,8 @@
     "weapon": "Frostwalker",
     "blessing": "Gain 0.75% Size per level. Also increase Damage by 1.5% per currently frozen enemy.",
     "role": "Mage / Control",
-    "unlock": "Use a Microwave to duplicate an Ice Crystal 3 times in a row and get the Frostwalker"
+    "unlock": "Use a Microwave to duplicate an Ice Crystal 3 times in a row and get the Frostwalker",
+    "icon": "icons/noelle.png"
   },
   {
     "name": "Ogre",
@@ -109,7 +122,8 @@
     "weapon": "Axe",
     "blessing": "Gain 1.5% damage per level.",
     "role": "Bruiser",
-    "unlock": "Kill 15,000 Goblins and get the Axe."
+    "unlock": "Kill 15,000 Goblins and get the Axe.",
+    "icon": "icons/ogre.png"
   },
   {
     "name": "Robinette",
@@ -117,7 +131,8 @@
     "weapon": "Bow",
     "blessing": "+1% Gold Gain per level. Increase Damage by 10% per 1000 gold in inventory.",
     "role": "Mobile / Scout",
-    "unlock": "Complete Forest Tier 2."
+    "unlock": "Complete Forest Tier 2.",
+    "icon": "icons/robinette.png"
   },
   {
     "name": "Sir Chadwell",
@@ -125,7 +140,8 @@
     "weapon": "Corrupted Sword",
     "blessing": "Gain 1% Difficulty per level",
     "role": "Melee",
-    "unlock": "Complete Forest Tier 3 and get the Corrupted Sword."
+    "unlock": "Complete Forest Tier 3 and get the Corrupted Sword.",
+    "icon": "icons/sir-chadwell.png"
   },
   {
     "name": "Sir Oofie",
@@ -133,7 +149,8 @@
     "weapon": "Sword",
     "blessing": "Gain 1% Armor per level.",
     "role": "Tank",
-    "unlock": "Starting Character"
+    "unlock": "Starting Character",
+    "icon": "icons/sir-oofie.png"
   },
   {
     "name": "Spaceman",
@@ -141,7 +158,8 @@
     "weapon": "Black Hole",
     "blessing": "Gain 1% XP Gain per level",
     "role": "Crowd Control",
-    "unlock": "Complete 6 Challenges and get the Black Hole."
+    "unlock": "Complete 6 Challenges and get the Black Hole.",
+    "icon": "icons/spaceman.png"
   },
   {
     "name": "Tony McZoom",
@@ -149,7 +167,8 @@
     "weapon": "Wireless Dagger",
     "blessing": "Charge an electric attack by moving around. Gain 2% pickup range per level.",
     "role": "Speed / Assassin",
-    "unlock": "Complete 2 challenges and get the Wireless Dagger."
+    "unlock": "Complete 2 challenges and get the Wireless Dagger.",
+    "icon": "icons/tony-mczoom.png"
   },
   {
     "name": "Vlad",
@@ -157,6 +176,7 @@
     "weapon": "Blood Magic",
     "blessing": "+1% Lifesteal per level",
     "role": "Mage / Lifesteal",
-    "unlock": "Complete Desert Tier 2 and get the Blood Magic (unlocks after upgrading the Bloody Tome to level 12)."
+    "unlock": "Complete Desert Tier 2 and get the Blood Magic (unlocks after upgrading the Bloody Tome to level 12).",
+    "icon": "icons/vlad.png"
   }
 ]

@@ -4,7 +4,8 @@
     "synergies": [],
     "rarity": "Legendary",
     "effect": "Weapon upgrades can now have +1 to their stats, and you may be offered three choices instead of two.",
-    "unlock": "To unlock the Anvil, the player must complete 3 Challenges."
+    "unlock": "To unlock the Anvil, the player must complete 3 Challenges.",
+    "icon": "icons/anvil.png"
   },
   {
     "name": "Backpack",
@@ -15,7 +16,8 @@
     ],
     "rarity": "Rare",
     "effect": "+1 Projectile Count for all Weapons.",
-    "unlock": "Unlocked by default."
+    "unlock": "Unlocked by default.",
+    "icon": "icons/backpack.png"
   },
   {
     "name": "Battery",
@@ -28,7 +30,8 @@
     ],
     "rarity": "Common",
     "effect": "+8% Attack Speed.",
-    "unlock": "Upgrade the Cooldown Tome to Level 5."
+    "unlock": "Upgrade the Cooldown Tome to Level 5.",
+    "icon": "icons/battery.png"
   },
   {
     "name": "Beacon",
@@ -39,7 +42,8 @@
     ],
     "rarity": "Rare",
     "effect": "Charging a Charge Shrine creates a healing zone and spawns +2 extra Shrines in future stages.",
-    "unlock": "Unlocked by default."
+    "unlock": "Unlocked by default.",
+    "icon": "icons/beacon.png"
   },
   {
     "name": "Beefy Ring",
@@ -51,7 +55,8 @@
     ],
     "rarity": "Epic",
     "effect": "Adds +20% Damage per 100 Max HP.",
-    "unlock": "Unlocked by default."
+    "unlock": "Unlocked by default.",
+    "icon": "icons/beefy-ring.png"
   },
   {
     "name": "Beer",
@@ -63,7 +68,8 @@
     ],
     "rarity": "Common",
     "effect": "+20% Damage; -5% Max HP.",
-    "unlock": "Available from the start."
+    "unlock": "Available from the start.",
+    "icon": "icons/beer.png"
   },
   {
     "name": "Big Bonk",
@@ -77,14 +83,16 @@
     ],
     "rarity": "Legendary",
     "effect": "2% chance to BONK an enemy, dealing 20x damage.",
-    "unlock": "Available from the start."
+    "unlock": "Available from the start.",
+    "icon": "icons/big-bonk.png"
   },
   {
     "name": "Bloody Cleaver",
     "synergies": [],
     "rarity": "Legendary",
     "effect": "Lifesteal now also triggers Bloodmark stacks, with a 50% chance to apply Bloodmark.",
-    "unlock": "The specific unlock condition for the Bloody Cleaver is currently unconfirmed based on the provided data."
+    "unlock": "The specific unlock condition for the Bloody Cleaver is currently unconfirmed based on the provided data.",
+    "icon": "icons/bloody-cleaver.png"
   },
   {
     "name": "Bob (Dead)",
@@ -94,21 +102,24 @@
     ],
     "rarity": "Epic",
     "effect": "For every 14 units moved, summon Bob (dead).",
-    "unlock": "Survive the Final Swarm for 2 minutes."
+    "unlock": "Survive the Final Swarm for 2 minutes.",
+    "icon": "icons/bob-dead.png"
   },
   {
     "name": "Bob's Light",
     "synergies": [],
     "rarity": "Epic",
     "effect": "A sphere of light explodes every 45s, killing all nearby enemies. Stacks reduce cooldown by 3s and increases radius by 10m.",
-    "unlock": "Kill Big Bob on Graveyard using the damage from a lamp as the killing blow."
+    "unlock": "Kill Big Bob on Graveyard using the damage from a lamp as the killing blow.",
+    "icon": null
   },
   {
     "name": "Borgar",
     "synergies": [],
     "rarity": "Default",
     "effect": "+2% chance to spawn a healing Borgar upon killing an enemy.",
-    "unlock": ""
+    "unlock": "",
+    "icon": "icons/borgar.png"
   },
   {
     "name": "Boss Buster",
@@ -120,7 +131,8 @@
     ],
     "rarity": "Common",
     "effect": "+15% more damage to Elites and Bosses.",
-    "unlock": "Defeat a Stage Boss in under 30 seconds."
+    "unlock": "Defeat a Stage Boss in under 30 seconds.",
+    "icon": "icons/boss-buster.png"
   },
   {
     "name": "Brass Knuckles",
@@ -133,7 +145,8 @@
     ],
     "rarity": "Rare",
     "effect": "Deal +20% more damage to nearby enemies.",
-    "unlock": "Kill 5,000 enemies with the Sword."
+    "unlock": "Kill 5,000 enemies with the Sword.",
+    "icon": "icons/brass-knuckles.png"
   },
   {
     "name": "Cactus",
@@ -143,7 +156,8 @@
     ],
     "rarity": "Common",
     "effect": "Shoots spikes when taking damage, scaling with Thorns.",
-    "unlock": "Kill 100 cactus enemies with Thorns damage."
+    "unlock": "Kill 100 cactus enemies with Thorns damage.",
+    "icon": "icons/cactus.png"
   },
   {
     "name": "Campfire",
@@ -154,7 +168,8 @@
     ],
     "rarity": "Common",
     "effect": "Standing still heals you.",
-    "unlock": "Available from the start."
+    "unlock": "Available from the start.",
+    "icon": "icons/campfire.png"
   },
   {
     "name": "Chonkplate",
@@ -165,14 +180,16 @@
     ],
     "rarity": "Legendary",
     "effect": "Grants +20% Lifesteal and allows overheal up to 75% of Max HP.",
-    "unlock": "Reach 500 Max HP."
+    "unlock": "Reach 500 Max HP.",
+    "icon": "icons/chonkplate.png"
   },
   {
     "name": "Clover",
     "synergies": [],
     "rarity": "Default",
     "effect": "+7.5% Luck.",
-    "unlock": ""
+    "unlock": "",
+    "icon": "icons/clover.png"
   },
   {
     "name": "Cowards Cloak",
@@ -182,21 +199,24 @@
     ],
     "rarity": "Common",
     "effect": "Boosts Move Speed when hit; +5% base Move Speed.",
-    "unlock": "Available from the start."
+    "unlock": "Available from the start.",
+    "icon": "icons/cowards-cloak.png"
   },
   {
     "name": "Credit Card Green",
     "synergies": [],
     "rarity": "Epic",
     "effect": "Permanently gain +2% Luck when opening a chest. Also increase Chest price by +10%.",
-    "unlock": "The Credit Card (Green) is available from the start and can drop randomly from chests or appear as a reward during runs."
+    "unlock": "The Credit Card (Green) is available from the start and can drop randomly from chests or appear as a reward during runs.",
+    "icon": "icons/credit-card-green.png"
   },
   {
     "name": "Credit Card Red",
     "synergies": [],
     "rarity": "Common",
     "effect": "Permanently gain +2.5% Damage when opening a chest.",
-    "unlock": "The Credit Card (Red) is available from the start and can be found randomly in chests or as a run reward."
+    "unlock": "The Credit Card (Red) is available from the start and can be found randomly in chests or as a run reward.",
+    "icon": "icons/credit-card-red.png"
   },
   {
     "name": "Cursed Doll",
@@ -207,7 +227,8 @@
     ],
     "rarity": "Common",
     "effect": "Curses enemies, dealing 30% of their Max HP as damage per second.",
-    "unlock": "Die 10 times."
+    "unlock": "Die 10 times.",
+    "icon": "icons/cursed-doll.png"
   },
   {
     "name": "Cursed Grabbies",
@@ -217,7 +238,8 @@
     ],
     "rarity": "Epic",
     "effect": "+10% Difficulty, 0.8x Max HP, 5% on-hit chance to cast curse.",
-    "unlock": "Get the Cursed Tome to Level 10."
+    "unlock": "Get the Cursed Tome to Level 10.",
+    "icon": "icons/cursed-grabbies.png"
   },
   {
     "name": "Demonic Blade",
@@ -231,7 +253,8 @@
     ],
     "rarity": "Rare",
     "effect": "Crits have a +25% chance to heal you",
-    "unlock": "Heal for 350 HP using Lifesteal."
+    "unlock": "Heal for 350 HP using Lifesteal.",
+    "icon": "icons/demonic-blade.png"
   },
   {
     "name": "Demonic Blood",
@@ -241,7 +264,8 @@
     ],
     "rarity": "Rare",
     "effect": "Increase Max Hp by +0.5 per kill (Max 200 stacks)",
-    "unlock": "Increase your Max HP with Blood Magic 400 times."
+    "unlock": "Increase your Max HP with Blood Magic 400 times.",
+    "icon": "icons/demonic-blood.png"
   },
   {
     "name": "Demonic Soul",
@@ -251,7 +275,8 @@
     ],
     "rarity": "Epic",
     "effect": "+0.1% Damage per kill, up to +100%.",
-    "unlock": "Reach Level 30 as Calcium."
+    "unlock": "Reach Level 30 as Calcium.",
+    "icon": "icons/demonic-soul.png"
   },
   {
     "name": "Dragonfire",
@@ -263,7 +288,8 @@
     ],
     "rarity": "Legendary",
     "effect": "15% chance to summon dragonfire when hitting enemies. Fire damage can now apply burn.",
-    "unlock": "Kill 4,000 enemies with fire damage."
+    "unlock": "Kill 4,000 enemies with fire damage.",
+    "icon": "icons/dragonfire.png"
   },
   {
     "name": "Eagle Claw",
@@ -274,7 +300,8 @@
     ],
     "rarity": "Epic",
     "effect": "66% Damage vs airborne enemies and 8% chance to launch them into the air.",
-    "unlock": "Kill 10,000 enemies as Birdo."
+    "unlock": "Kill 10,000 enemies as Birdo.",
+    "icon": "icons/eagle-claw.png"
   },
   {
     "name": "Echo Shard",
@@ -285,7 +312,8 @@
     ],
     "rarity": "Rare",
     "effect": "+12% chance to spawn a bonus XP Shard on kill.",
-    "unlock": "Upgrade the XP Tome to Level 8."
+    "unlock": "Upgrade the XP Tome to Level 8.",
+    "icon": "icons/echo-shard.png"
   },
   {
     "name": "Electric Plug",
@@ -296,7 +324,8 @@
     ],
     "rarity": "Common",
     "effect": "On taking damage, send out an electric shock.",
-    "unlock": "Available from the start."
+    "unlock": "Available from the start.",
+    "icon": "icons/electric-plug.png"
   },
   {
     "name": "Energy Core",
@@ -305,7 +334,8 @@
     ],
     "rarity": "Legendary",
     "effect": "Gives cooldown reduction and energy regeneration.",
-    "unlock": "Defeat a Final Boss two times."
+    "unlock": "Defeat a Final Boss two times.",
+    "icon": "icons/energy-core.png"
   },
   {
     "name": "Feathers",
@@ -314,7 +344,8 @@
     ],
     "rarity": "Common",
     "effect": "Lets you jump higher and further.",
-    "unlock": "Available from the start."
+    "unlock": "Available from the start.",
+    "icon": "icons/feathers.png"
   },
   {
     "name": "Forbidden Juice",
@@ -332,7 +363,8 @@
     ],
     "rarity": "Common",
     "effect": "Increase Crit Chance by +10%",
-    "unlock": "Perform 100 critical hits in a single run."
+    "unlock": "Perform 100 critical hits in a single run.",
+    "icon": "icons/forbidden-juice.png"
   },
   {
     "name": "Gamer Goggles",
@@ -359,7 +391,8 @@
     ],
     "rarity": "Epic",
     "effect": "Increase Damage the lower your HP is. chat im locking in",
-    "unlock": "Defeat a Stage Boss with less than 10% HP."
+    "unlock": "Defeat a Stage Boss with less than 10% HP.",
+    "icon": "icons/gamer-goggles.png"
   },
   {
     "name": "Gas Mask",
@@ -370,7 +403,8 @@
     ],
     "rarity": "Epic",
     "effect": "Gain Armor and Overheal for each poisoned enemy.",
-    "unlock": "Kill 5,000 enemies using Amog."
+    "unlock": "Kill 5,000 enemies using Amog.",
+    "icon": "icons/gas-mask.png"
   },
   {
     "name": "Ghost",
@@ -380,7 +414,8 @@
     ],
     "rarity": "Common",
     "effect": "Summons ghosts using an interactable.",
-    "unlock": "Survive the Final Swarm for 60 seconds."
+    "unlock": "Survive the Final Swarm for 60 seconds.",
+    "icon": "icons/ghost.png"
   },
   {
     "name": "Giant Fork",
@@ -400,21 +435,24 @@
     ],
     "rarity": "Legendary",
     "effect": "You can eat so much spaghetti with this bad boi. Also crits have a chance to become Megacrits",
-    "unlock": "The Giant Fork is unlocked by default. No challenges or requirements are needed — it is available from the start of the game."
+    "unlock": "The Giant Fork is unlocked by default. No challenges or requirements are needed — it is available from the start of the game.",
+    "icon": "icons/giant-fork.png"
   },
   {
     "name": "Golden Glove",
     "synergies": [],
     "rarity": "Default",
     "effect": "+15% more gold from killing enemies.",
-    "unlock": ""
+    "unlock": "",
+    "icon": "icons/golden-glove.png"
   },
   {
     "name": "Golden Ring",
     "synergies": [],
     "rarity": "Legendary",
     "effect": "It doesn't seem to do anything...",
-    "unlock": "N/A"
+    "unlock": "N/A",
+    "icon": "icons/golden-ring.png"
   },
   {
     "name": "Golden Shield",
@@ -424,7 +462,8 @@
     ],
     "rarity": "Common",
     "effect": "Gain gold when taking damage.",
-    "unlock": "Available from the start."
+    "unlock": "Available from the start.",
+    "icon": "icons/golden-shield.png"
   },
   {
     "name": "Golden Sneakers",
@@ -433,7 +472,8 @@
     ],
     "rarity": "Rare",
     "effect": "Earn money by moving.",
-    "unlock": "Break 150 pots."
+    "unlock": "Break 150 pots.",
+    "icon": "icons/golden-sneakers.png"
   },
   {
     "name": "Grandmas Secret Tonic",
@@ -447,7 +487,8 @@
     ],
     "rarity": "Epic",
     "effect": "Crits have a 50% chance to explode and damage nearby enemies for 50% damage",
-    "unlock": "Kill 3,000 enemies with the Sniper Rifle."
+    "unlock": "Kill 3,000 enemies with the Sniper Rifle.",
+    "icon": "icons/grandmas-secret-tonic.png"
   },
   {
     "name": "Gym Sauce",
@@ -469,7 +510,8 @@
     ],
     "rarity": "Common",
     "effect": "Increase Damage by +10%",
-    "unlock": "Available from the start."
+    "unlock": "Available from the start.",
+    "icon": "icons/gym-sauce.png"
   },
   {
     "name": "Holy Book",
@@ -481,7 +523,8 @@
     ],
     "rarity": "Legendary",
     "effect": "+100 Max HP, +50 HP Regen. Healing radiates damaging energy to nearby enemies.",
-    "unlock": "To unlock the Holy Book, the player must defeat a first Stage Boss without taking any damage."
+    "unlock": "To unlock the Holy Book, the player must defeat a first Stage Boss without taking any damage.",
+    "icon": "icons/holy-book.png"
   },
   {
     "name": "Ice Crystal",
@@ -492,14 +535,16 @@
     ],
     "rarity": "Common",
     "effect": "7.5% freeze chance; executes enemies below threshold HP.",
-    "unlock": "Get 50 kills with the Frostwalker weapon."
+    "unlock": "Get 50 kills with the Frostwalker weapon.",
+    "icon": "icons/ice-crystal.png"
   },
   {
     "name": "Ice Cube",
     "synergies": [],
     "rarity": "Legendary",
     "effect": "20% chance to inflict ice damage when hitting enemies, which can freeze them.",
-    "unlock": ""
+    "unlock": "",
+    "icon": "icons/ice-cube.png"
   },
   {
     "name": "Idle Juice",
@@ -510,7 +555,8 @@
     ],
     "rarity": "Rare",
     "effect": "Damage ramps up to +100% while standing still.",
-    "unlock": "Kill 500 enemies while standing still."
+    "unlock": "Kill 500 enemies while standing still.",
+    "icon": "icons/idle-juice.png"
   },
   {
     "name": "Joes Dagger",
@@ -532,7 +578,8 @@
     ],
     "rarity": "Legendary",
     "effect": "1% chance to instantly Execute an enemy. Performing Execute increases Damage by 1%.",
-    "unlock": "To unlock Joe’s Dagger, the player must kill 10,000 enemies using the Dexecutioner."
+    "unlock": "To unlock Joe’s Dagger, the player must kill 10,000 enemies using the Dexecutioner.",
+    "icon": "icons/joes-dagger.png"
   },
   {
     "name": "Kevin",
@@ -544,7 +591,8 @@
     ],
     "rarity": "Epic",
     "effect": "25% chance to punch you on hit (cannot kill you). Triggers on-hit effects.",
-    "unlock": "Obtain 3 Leeching Crystal items in one run."
+    "unlock": "Obtain 3 Leeching Crystal items in one run.",
+    "icon": "icons/kevin.png"
   },
   {
     "name": "Key",
@@ -558,7 +606,8 @@
     ],
     "rarity": "Common",
     "effect": "+10% chance to open chests for free.",
-    "unlock": "Purchase items from 25 chests."
+    "unlock": "Purchase items from 25 chests.",
+    "icon": "icons/key.png"
   },
   {
     "name": "Leeching Crystal",
@@ -579,7 +628,8 @@
     ],
     "rarity": "Rare",
     "effect": "+50% Max HP at the cost of -50% HP Regen.",
-    "unlock": "Upgrade the Regen Tome to Level 8."
+    "unlock": "Upgrade the Regen Tome to Level 8.",
+    "icon": "icons/leeching-crystal.png"
   },
   {
     "name": "Lightning Orb",
@@ -591,14 +641,16 @@
     ],
     "rarity": "Legendary",
     "effect": "25% chance on hit to summon lightning that can stun enemies.",
-    "unlock": "Kill 3,000 enemies with lightning damage."
+    "unlock": "Kill 3,000 enemies with lightning damage.",
+    "icon": "icons/lightning-orb.png"
   },
   {
     "name": "Medkit",
     "synergies": [],
     "rarity": "Default",
     "effect": "+45 HP Regen (approx. 0.75 HP/sec).",
-    "unlock": ""
+    "unlock": "",
+    "icon": "icons/medkit.png"
   },
   {
     "name": "Mirror",
@@ -608,7 +660,8 @@
     ],
     "rarity": "Epic",
     "effect": "Reflects all incoming damage and grants brief invulnerability.",
-    "unlock": "Available from the start."
+    "unlock": "Available from the start.",
+    "icon": "icons/mirror.png"
   },
   {
     "name": "Moldy Cheese",
@@ -621,7 +674,8 @@
     ],
     "rarity": "Default",
     "effect": "+40% chance to poison enemies on hit.",
-    "unlock": ""
+    "unlock": "",
+    "icon": "icons/moldy-cheese.png"
   },
   {
     "name": "Moldy Gloves",
@@ -634,21 +688,24 @@
     ],
     "rarity": "Rare",
     "effect": "Create a moldy poison cloud upon hitting an enemy.",
-    "unlock": "Use a Microwave to duplicate Moldy Cheese three times in a row."
+    "unlock": "Use a Microwave to duplicate Moldy Cheese three times in a row.",
+    "icon": "icons/moldy-gloves.png"
   },
   {
     "name": "Oats",
     "synergies": [],
     "rarity": "Default",
     "effect": "+25 Max HP.",
-    "unlock": ""
+    "unlock": "",
+    "icon": "icons/oats.png"
   },
   {
     "name": "Old Mask",
     "synergies": [],
     "rarity": "Common",
     "effect": "",
-    "unlock": "Find on Graveyard"
+    "unlock": "Find on Graveyard",
+    "icon": "icons/old-mask.png"
   },
   {
     "name": "Overpowered Lamp",
@@ -675,7 +732,8 @@
     ],
     "rarity": "Legendary",
     "effect": "+1 chance to proc on hit effects",
-    "unlock": "Available from the start."
+    "unlock": "Available from the start.",
+    "icon": "icons/overpowered-lamp.png"
   },
   {
     "name": "Phantom Shroud",
@@ -686,14 +744,16 @@
     ],
     "rarity": "Rare",
     "effect": "After evading, next hit deals 2x Damage and briefly boosts Attack Speed and Move Speed.",
-    "unlock": "Unlocked by default."
+    "unlock": "Unlocked by default.",
+    "icon": "icons/phantom-shroud.png"
   },
   {
     "name": "Pot (Stainless Steel)",
     "synergies": [],
     "rarity": "Legendary",
     "effect": "+10  max levels for all weapons. Gives one less max  level per stack, for a minimum of 2 at 9 stacks.",
-    "unlock": "Collect every pot and chest in the first crypt in Graveyard"
+    "unlock": "Collect every pot and chest in the first crypt in Graveyard",
+    "icon": "icons/pot-stainless-steel.png"
   },
   {
     "name": "Power Gloves",
@@ -707,14 +767,16 @@
     ],
     "rarity": "Common",
     "effect": "8% chance to create a giant blast on hit.",
-    "unlock": "Available from the start."
+    "unlock": "Available from the start.",
+    "icon": "icons/power-gloves.png"
   },
   {
     "name": "Pumpkin",
     "synergies": [],
     "rarity": "Rare",
     "effect": "",
-    "unlock": "As Roberto, break every pumpkim on Graveyard"
+    "unlock": "As Roberto, break every pumpkim on Graveyard",
+    "icon": "icons/pumpkin.png"
   },
   {
     "name": "Quins Mask",
@@ -724,7 +786,8 @@
     ],
     "rarity": "Epic",
     "effect": "Thorns damage has a 50% chance to explode.",
-    "unlock": "As Athena, land the killing blow on a Stage Boss using Aegis."
+    "unlock": "As Athena, land the killing blow on a Stage Boss using Aegis.",
+    "icon": "icons/quins-mask.png"
   },
   {
     "name": "Scarf",
@@ -736,7 +799,8 @@
     ],
     "rarity": "Epic",
     "effect": "+50% Damage while airborne.",
-    "unlock": "Available from the start."
+    "unlock": "Available from the start.",
+    "icon": "icons/scarf.png"
   },
   {
     "name": "Shattered Knowledge",
@@ -746,7 +810,8 @@
     ],
     "rarity": "Epic",
     "effect": "XP Shards slice through enemies while traveling.",
-    "unlock": "Upgrade the Attraction Tome to Level 8."
+    "unlock": "Upgrade the Attraction Tome to Level 8.",
+    "icon": "icons/shattered-knowledge.png"
   },
   {
     "name": "Skuleg",
@@ -756,14 +821,16 @@
     ],
     "rarity": "Common",
     "effect": "+7% Difficulty.",
-    "unlock": "Reach a total of 40% Difficulty in a single run."
+    "unlock": "Reach a total of 40% Difficulty in a single run.",
+    "icon": "icons/skuleg.png"
   },
   {
     "name": "Slippery Ring",
     "synergies": [],
     "rarity": "Default",
     "effect": "+15% Evasion.",
-    "unlock": ""
+    "unlock": "",
+    "icon": "icons/slippery-ring.png"
   },
   {
     "name": "Slurp Gloves",
@@ -775,7 +842,8 @@
     ],
     "rarity": "Epic",
     "effect": "Cast blood magic on hit; heals 7.5% with an AoE burst (9s cooldown).",
-    "unlock": "Available from the start."
+    "unlock": "Available from the start.",
+    "icon": "icons/slurp-gloves.png"
   },
   {
     "name": "Slutty Cannon",
@@ -786,14 +854,16 @@
     ],
     "rarity": "Epic",
     "effect": "20% chance to spawn missiles on kill.",
-    "unlock": "Kill 5,000 enemies with the Slutty Rocket."
+    "unlock": "Kill 5,000 enemies with the Slutty Rocket.",
+    "icon": "icons/slutty-cannon.png"
   },
   {
     "name": "Snek",
     "synergies": [],
     "rarity": "Legendary",
     "effect": "Apply +4 stacks of poison and a 5% chance to instantly burst all the poison damage when hitting an enemy",
-    "unlock": "Find the hidden chest in the graveyard crypt. (View the discussion tab for spoilers and hints for where the chest is located.)"
+    "unlock": "Find the hidden chest in the graveyard crypt. (View the discussion tab for spoilers and hints for where the chest is located.)",
+    "icon": "icons/snek.png"
   },
   {
     "name": "Soul Harvester",
@@ -804,7 +874,8 @@
     ],
     "rarity": "Legendary",
     "effect": "Killing an enemy summons two homing souls that attack other enemies.",
-    "unlock": "Survive the Final Swarm for 6 minutes."
+    "unlock": "Survive the Final Swarm for 6 minutes.",
+    "icon": "icons/soul-harvester.png"
   },
   {
     "name": "Speed Boi",
@@ -814,7 +885,8 @@
     ],
     "rarity": "Legendary",
     "effect": "Upon taking damage below 50% Max HP, slow down time and deal 2x damage.",
-    "unlock": "To unlock Speed Boi, the player must complete a stage with at least 2 Boss Curses active."
+    "unlock": "To unlock Speed Boi, the player must complete a stage with at least 2 Boss Curses active.",
+    "icon": "icons/speed-boi.png"
   },
   {
     "name": "Spicy Meatball",
@@ -823,7 +895,8 @@
     ],
     "rarity": "Legendary",
     "effect": "Attacks have a 25% chance to explode, dealing 65% Damage to surrounding enemies",
-    "unlock": "Available from the start."
+    "unlock": "Available from the start.",
+    "icon": "icons/spicy-meatball.png"
   },
   {
     "name": "Spiky Shield",
@@ -834,7 +907,8 @@
     ],
     "rarity": "Epic",
     "effect": "Gain +2 Thorns per 1% Armor and +10% Armor.",
-    "unlock": "Available from the start."
+    "unlock": "Available from the start.",
+    "icon": "icons/spiky-shield.png"
   },
   {
     "name": "Sucky Magnet",
@@ -843,7 +917,8 @@
     ],
     "rarity": "Legendary",
     "effect": "Periodically pulls in all XP gems on the screen.",
-    "unlock": "To unlock the Sucky Magnet, the player must complete every single Charge Shrine on the map in a single run."
+    "unlock": "To unlock the Sucky Magnet, the player must complete every single Charge Shrine on the map in a single run.",
+    "icon": "icons/sucky-magnet.png"
   },
   {
     "name": "Tactical Glasses",
@@ -854,7 +929,8 @@
     ],
     "rarity": "Common",
     "effect": "+20% more damage to enemies above 90% HP.",
-    "unlock": "Defeat a Miniboss in under 25 seconds."
+    "unlock": "Defeat a Miniboss in under 25 seconds.",
+    "icon": "icons/tactical-glasses.png"
   },
   {
     "name": "Thunder Mitts",
@@ -865,14 +941,16 @@
     ],
     "rarity": "Common",
     "effect": "On hit, generate a lightning strike (10s cooldown).",
-    "unlock": "Available from the start."
+    "unlock": "Available from the start.",
+    "icon": "icons/thunder-mitts.png"
   },
   {
     "name": "Time Bracelet",
     "synergies": [],
     "rarity": "Default",
     "effect": "+8% XP Gain.",
-    "unlock": ""
+    "unlock": "",
+    "icon": "icons/time-bracelet.png"
   },
   {
     "name": "Toxic Barrel",
@@ -883,7 +961,8 @@
     ],
     "rarity": "Epic",
     "effect": "Releases a toxic cloud when hit.",
-    "unlock": "Kill 2,000 enemies using Poison damage."
+    "unlock": "Kill 2,000 enemies using Poison damage.",
+    "icon": "icons/toxic-barrel.png"
   },
   {
     "name": "Turbo Skates",
@@ -893,7 +972,8 @@
     ],
     "rarity": "Epic",
     "effect": "Move Speed converts to Attack Speed (max +40% per stack).",
-    "unlock": "Upgrade both the Cooldown Tome and Agility Tome to Level 5 in the same run."
+    "unlock": "Upgrade both the Cooldown Tome and Agility Tome to Level 5 in the same run.",
+    "icon": "icons/turbo-skates.png"
   },
   {
     "name": "Turbo Socks",
@@ -904,7 +984,8 @@
     ],
     "rarity": "Common",
     "effect": "+15% Movement Speed.",
-    "unlock": "Upgrade the Agility Tome to Level 5."
+    "unlock": "Upgrade the Agility Tome to Level 5.",
+    "icon": "icons/turbo-socks.png"
   },
   {
     "name": "Unstable Transfusion",
@@ -915,21 +996,24 @@
     ],
     "rarity": "Rare",
     "effect": "Has a 27% chance to apply Bloodmark on hit.",
-    "unlock": "Unlocked by default."
+    "unlock": "Unlocked by default.",
+    "icon": "icons/unstable-transfusion.png"
   },
   {
     "name": "Wizard's Hat",
     "synergies": [],
     "rarity": "Legendary",
     "effect": "Functions as a pot but for Tomes",
-    "unlock": "As Vlad, use Pot (Stainless Steel) to upgrade any weapon above the max level of 40."
+    "unlock": "As Vlad, use Pot (Stainless Steel) to upgrade any weapon above the max level of 40.",
+    "icon": "icons/wizard-s-hat.png"
   },
   {
     "name": "Wrench",
     "synergies": [],
     "rarity": "Common",
     "effect": "Charge Shrines 4% faster and gain 7.5% increased rewards.",
-    "unlock": "The Wrench is available from the start and does not require any special conditions to obtain."
+    "unlock": "The Wrench is available from the start and does not require any special conditions to obtain.",
+    "icon": "icons/wrench.png"
   },
   {
     "name": "Za Warudo",
@@ -939,6 +1023,7 @@
     ],
     "rarity": "Legendary",
     "effect": "On fatal damage, time freezes once to prevent death.",
-    "unlock": "Unlocked by default."
+    "unlock": "Unlocked by default.",
+    "icon": "icons/za-warudo.png"
   }
 ]

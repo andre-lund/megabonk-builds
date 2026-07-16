@@ -23,7 +23,8 @@
         "epic": "24%",
         "legendary": "30%"
       }
-    ]
+    ],
+    "icon": "icons/agility-tome.png"
   },
   {
     "name": "Armor Tome",
@@ -47,7 +48,8 @@
         "epic": "19%",
         "legendary": "24%"
       }
-    ]
+    ],
+    "icon": "icons/armor-tome.png"
   },
   {
     "name": "Attraction Tome",
@@ -68,7 +70,8 @@
         "epic": "120%",
         "legendary": "150%"
       }
-    ]
+    ],
+    "icon": "icons/attraction-tome.png"
   },
   {
     "name": "Bloody Tome",
@@ -92,7 +95,8 @@
         "epic": "16%",
         "legendary": "20%"
       }
-    ]
+    ],
+    "icon": "icons/bloody-tome.png"
   },
   {
     "name": "Chaos Tome",
@@ -104,7 +108,8 @@
     "effect": "Grants a random stat boost per level. Reward bonus is 50% higher as of Patch 1.0.12.",
     "unlock": "Charge all Charge Shrines on a Tier 3 run across all 3 stages without leaving the charge zone",
     "maxLevel": 99,
-    "upgrades": []
+    "upgrades": [],
+    "icon": "icons/chaos-tome.png"
   },
   {
     "name": "Cooldown Tome",
@@ -127,7 +132,8 @@
         "epic": "12%",
         "legendary": "15%"
       }
-    ]
+    ],
+    "icon": "icons/cooldown-tome.png"
   },
   {
     "name": "Cursed Tome",
@@ -158,7 +164,8 @@
         "epic": "6%",
         "legendary": "7%"
       }
-    ]
+    ],
+    "icon": "icons/cursed-tome.png"
   },
   {
     "name": "Damage Tome",
@@ -181,7 +188,8 @@
         "epic": "0.13",
         "legendary": "0.16"
       }
-    ]
+    ],
+    "icon": "icons/damage-tome.png"
   },
   {
     "name": "Duration Tome",
@@ -204,7 +212,8 @@
         "epic": "24%",
         "legendary": "30%"
       }
-    ]
+    ],
+    "icon": "icons/duration-tome.png"
   },
   {
     "name": "Evasion Tome",
@@ -227,7 +236,8 @@
         "epic": "16%",
         "legendary": "20%"
       }
-    ]
+    ],
+    "icon": "icons/evasion-tome.png"
   },
   {
     "name": "Golden Tome",
@@ -250,7 +260,8 @@
         "epic": "19%",
         "legendary": "24%"
       }
-    ]
+    ],
+    "icon": "icons/golden-tome.png"
   },
   {
     "name": "Health Tome",
@@ -272,7 +283,8 @@
         "epic": "40",
         "legendary": "50"
       }
-    ]
+    ],
+    "icon": "icons/health-tome.png"
   },
   {
     "name": "Knockback Tome",
@@ -296,7 +308,8 @@
         "epic": "32%",
         "legendary": "40%"
       }
-    ]
+    ],
+    "icon": "icons/knockback-tome.png"
   },
   {
     "name": "Luck Tome",
@@ -321,7 +334,8 @@
         "epic": "11%",
         "legendary": "14%"
       }
-    ]
+    ],
+    "icon": "icons/luck-tome.png"
   },
   {
     "name": "Precision Tome",
@@ -343,7 +357,8 @@
         "epic": "11%",
         "legendary": "14%"
       }
-    ]
+    ],
+    "icon": "icons/precision-tome.png"
   },
   {
     "name": "Projectile Speed Tome",
@@ -366,7 +381,8 @@
         "epic": "24%",
         "legendary": "30%"
       }
-    ]
+    ],
+    "icon": "icons/projectile-speed-tome.png"
   },
   {
     "name": "Quantity Tome",
@@ -388,7 +404,8 @@
         "epic": "1.6",
         "legendary": "2"
       }
-    ]
+    ],
+    "icon": "icons/quantity-tome.png"
   },
   {
     "name": "Regen Tome",
@@ -406,7 +423,8 @@
         "epic": "64",
         "legendary": "80"
       }
-    ]
+    ],
+    "icon": "icons/regen-tome.png"
   },
   {
     "name": "Shield Tome",
@@ -429,7 +447,8 @@
         "epic": "40",
         "legendary": "50"
       }
-    ]
+    ],
+    "icon": "icons/shield-tome.png"
   },
   {
     "name": "Silver Tome",
@@ -452,7 +471,8 @@
         "epic": "19%",
         "legendary": "24%"
       }
-    ]
+    ],
+    "icon": "icons/silver-tome.png"
   },
   {
     "name": "Size Tome",
@@ -478,7 +498,8 @@
         "epic": "16%",
         "legendary": "20%"
       }
-    ]
+    ],
+    "icon": "icons/size-tome.png"
   },
   {
     "name": "Thorns Tome",
@@ -502,7 +523,8 @@
         "epic": "24",
         "legendary": "30"
       }
-    ]
+    ],
+    "icon": "icons/thorns-tome.png"
   },
   {
     "name": "XP Tome",
@@ -531,6 +553,7 @@
         "epic": "11%",
         "legendary": "14%"
       }
-    ]
+    ],
+    "icon": "icons/xp-tome.png"
   }
 ]

@@ -46,7 +46,8 @@
         "epic": "24%",
         "legendary": "30%"
       }
-    ]
+    ],
+    "icon": "icons/aegis.png"
   },
   {
     "name": "Aura",
@@ -77,7 +78,8 @@
         "epic": "22%",
         "legendary": "28%"
       }
-    ]
+    ],
+    "icon": "icons/aura.png"
   },
   {
     "name": "Axe",
@@ -121,7 +123,8 @@
         "epic": "16%",
         "legendary": "20%"
       }
-    ]
+    ],
+    "icon": "icons/axe.png"
   },
   {
     "name": "Bananarang",
@@ -165,7 +168,8 @@
         "epic": "22%",
         "legendary": "28%"
       }
-    ]
+    ],
+    "icon": "icons/bananarang.png"
   },
   {
     "name": "Black Hole",
@@ -211,7 +215,8 @@
         "epic": "21%",
         "legendary": "26%"
       }
-    ]
+    ],
+    "icon": "icons/black-hole.png"
   },
   {
     "name": "Blood Magic",
@@ -250,7 +255,8 @@
         "epic": "24%",
         "legendary": "30%"
       }
-    ]
+    ],
+    "icon": "icons/blood-magic.png"
   },
   {
     "name": "Bone",
@@ -312,7 +318,8 @@
         "epic": "0",
         "legendary": "0"
       }
-    ]
+    ],
+    "icon": "icons/bone.png"
   },
   {
     "name": "Chunkers",
@@ -366,7 +373,8 @@
         "epic": "32%",
         "legendary": "40%"
       }
-    ]
+    ],
+    "icon": "icons/chunkers.png"
   },
   {
     "name": "Corrupted Sword",
@@ -418,7 +426,8 @@
         "epic": "24%",
         "legendary": "30%"
       }
-    ]
+    ],
+    "icon": "icons/corrupted-sword.png"
   },
   {
     "name": "Dexecutioner",
@@ -471,7 +480,8 @@
         "epic": "32%",
         "legendary": "40%"
       }
-    ]
+    ],
+    "icon": "icons/dexecutioner.png"
   },
   {
     "name": "Dice",
@@ -533,7 +543,8 @@
         "epic": "24%",
         "legendary": "30%"
       }
-    ]
+    ],
+    "icon": "icons/dice.png"
   },
   {
     "name": "Dragons Breath",
@@ -572,7 +583,8 @@
         "epic": "24%",
         "legendary": "30%"
       }
-    ]
+    ],
+    "icon": "icons/dragons-breath.png"
   },
   {
     "name": "Firestaff",
@@ -619,7 +631,8 @@
         "epic": "26%",
         "legendary": "32%"
       }
-    ]
+    ],
+    "icon": "icons/firestaff.png"
   },
   {
     "name": "Flamewalker",
@@ -663,7 +676,8 @@
         "epic": "24%",
         "legendary": "30%"
       }
-    ]
+    ],
+    "icon": "icons/flamewalker.png"
   },
   {
     "name": "Frostwalker",
@@ -702,7 +716,8 @@
         "epic": "16%",
         "legendary": "20%"
       }
-    ]
+    ],
+    "icon": "icons/frostwalker.png"
   },
   {
     "name": "Hero Sword",
@@ -744,7 +759,8 @@
         "epic": "24%",
         "legendary": "30%"
       }
-    ]
+    ],
+    "icon": "icons/hero-sword.png"
   },
   {
     "name": "Katana",
@@ -799,7 +815,8 @@
         "epic": "32%",
         "legendary": "40%"
       }
-    ]
+    ],
+    "icon": "icons/katana.png"
   },
   {
     "name": "Mines",
@@ -846,7 +863,8 @@
         "epic": "24%",
         "legendary": "30%"
       }
-    ]
+    ],
+    "icon": "icons/mines.png"
   },
   {
     "name": "Poison Flask",
@@ -908,7 +926,8 @@
         "epic": "24%",
         "legendary": "30%"
       }
-    ]
+    ],
+    "icon": "icons/poison-flask.png"
   },
   {
     "name": "Revolver",
@@ -970,7 +989,8 @@
         "epic": "0.6",
         "legendary": "0.8"
       }
-    ]
+    ],
+    "icon": "icons/revolver.png"
   },
   {
     "name": "Shotgun",
@@ -1025,7 +1045,8 @@
         "epic": "24%",
         "legendary": "30%"
       }
-    ]
+    ],
+    "icon": "icons/shotgun.png"
   },
   {
     "name": "Slutty Rocket",
@@ -1070,7 +1091,8 @@
         "epic": "0.32",
         "legendary": "0.4"
       }
-    ]
+    ],
+    "icon": "icons/slutty-rocket.png"
   },
   {
     "name": "Sniper Rifle",
@@ -1104,7 +1126,8 @@
         "epic": "21%",
         "legendary": "26%"
       }
-    ]
+    ],
+    "icon": "icons/sniper-rifle.png"
   },
   {
     "name": "Space Noodle",
@@ -1144,7 +1167,8 @@
         "epic": "32%",
         "legendary": "40%"
       }
-    ]
+    ],
+    "icon": "icons/space-noodle.png"
   },
   {
     "name": "Sword",
@@ -1186,7 +1210,8 @@
         "epic": "32%",
         "legendary": "40%"
       }
-    ]
+    ],
+    "icon": "icons/sword.png"
   },
   {
     "name": "Tornado",
@@ -1240,7 +1265,8 @@
         "epic": "22%",
         "legendary": "28%"
       }
-    ]
+    ],
+    "icon": "icons/tornado.png"
   },
   {
     "name": "Wireless Dagger",
@@ -1282,6 +1308,7 @@
         "epic": "0.16",
         "legendary": "0.2"
       }
-    ]
+    ],
+    "icon": "icons/wireless-dagger.png"
   }
 ]
