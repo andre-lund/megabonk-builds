@@ -819,6 +819,53 @@
     "icon": "icons/katana.png"
   },
   {
+    "name": "Lightning Staff",
+    "synergies": [
+      "Tomes",
+      "Size Tome",
+      "Quantity Tome"
+    ],
+    "type": "Area of Effect (AoE), Instant",
+    "description": "Summons lightning to smite nearby enemies",
+    "unlock": "Starter Weapon",
+    "special": "Damage Type: Lightning",
+    "upgrades": [
+      {
+        "stat": "Damage",
+        "common": "2",
+        "uncommon": "2.4",
+        "rare": "2.8",
+        "epic": "3.2",
+        "legendary": "4"
+      },
+      {
+        "stat": "Projectile Count",
+        "common": "1",
+        "uncommon": "1.2",
+        "rare": "1.4",
+        "epic": "1.6",
+        "legendary": "2"
+      },
+      {
+        "stat": "Projectile Bounces",
+        "common": "1",
+        "uncommon": "1.2",
+        "rare": "1.4",
+        "epic": "1.6",
+        "legendary": "2"
+      },
+      {
+        "stat": "Size",
+        "common": "20%",
+        "uncommon": "24%",
+        "rare": "28%",
+        "epic": "32%",
+        "legendary": "40%"
+      }
+    ],
+    "icon": "icons/lightning-staff.png"
+  },
+  {
     "name": "Mines",
     "synergies": [
       "Tomes",

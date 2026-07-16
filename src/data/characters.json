@@ -45,15 +45,6 @@
     "icon": "icons/bush.png"
   },
   {
-    "name": "Calcium",
-    "synergies": [],
-    "weapon": "Bone",
-    "blessing": "Speed builds up over time, but is halved when you take damage. Gain damage based on speed.",
-    "role": "Ranged / Skirmisher",
-    "unlock": "Kill 1,000 Skeletons.",
-    "icon": "icons/calcium.png"
-  },
-  {
     "name": "CL4NK",
     "synergies": [],
     "weapon": "Revolver",
@@ -61,6 +52,15 @@
     "role": "Ranged / Glass Cannon",
     "unlock": "Complete Forest Tier 1 and get the Revolver.",
     "icon": "icons/cl4nk.png"
+  },
+  {
+    "name": "Calcium",
+    "synergies": [],
+    "weapon": "Bone",
+    "blessing": "Speed builds up over time, but is halved when you take damage. Gain damage based on speed.",
+    "role": "Ranged / Skirmisher",
+    "unlock": "Kill 1,000 Skeletons.",
+    "icon": "icons/calcium.png"
   },
   {
     "name": "Dicehead",

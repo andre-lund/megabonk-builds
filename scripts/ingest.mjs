@@ -15,6 +15,11 @@ const CATEGORIES = {
   items: "Items",
 };
 
+// Pages that belong in a kind but are missing its wiki category tag.
+const EXTRA_PAGES = {
+  weapons: ["Lightning Staff"],
+};
+
 async function api(params) {
   const url = `${API}?${new URLSearchParams({ format: "json", ...params })}`;
   const res = await fetch(url, { headers: { "User-Agent": "megabonk-builds ingest (olund.dev@pm.me)" } });
@@ -178,7 +183,7 @@ async function ingest() {
   const meta = { source: "https://megabonk.wiki", fetched: new Date().toISOString(), counts: {} };
 
   for (const [kind, category] of Object.entries(CATEGORIES)) {
-    const titles = await categoryMembers(category);
+    const titles = [...new Set([...(await categoryMembers(category)), ...(EXTRA_PAGES[kind] ?? [])])].sort();
     const entities = [];
     const fallbackImages = new Map();
     for (const title of titles) {
