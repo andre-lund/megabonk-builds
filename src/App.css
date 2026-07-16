@@ -143,6 +143,18 @@
   cursor: pointer;
 }
 
+.slot.pinned {
+  border-color: #e8c76a;
+  cursor: default;
+}
+
+.slot.pinned::after {
+  content: "★";
+  color: #e8c76a;
+  font-size: 0.7rem;
+  margin-left: 0.15rem;
+}
+
 .actions {
   margin-top: 1rem;
   display: flex;

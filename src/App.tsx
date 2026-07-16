@@ -25,6 +25,7 @@ import { FILTER_KEY, defaultUnlocked, loadUnlocked, saveUnlocked, toggleUnlocked
 import { loadProgress, parseGoal, saveProgress, setProgress } from "./lib/progress";
 import { decryptSave, mapPurchases, mapStats, saveKind } from "./lib/saveimport";
 import { isBackup, restoreBackup, serializeBackup } from "./lib/backup";
+import { enforceStartingWeapon, isStartingSlot, startingWeaponIndex } from "./lib/starting";
 
 const weapons = weaponsJson as Weapon[];
 const tomes = tomesJson as Tome[];
@@ -62,6 +63,8 @@ const generatePools: GeneratePools = {
 };
 
 const defaultOwned = defaultUnlocked([weapons, tomes, characters, items]);
+
+const startingWeaponOf = startingWeaponIndex(characters);
 
 const RARITY_COLUMNS = ["common", "uncommon", "rare", "epic", "legendary"] as const;
 
@@ -215,31 +218,46 @@ function SlotRow(props: {
   label: string;
   kind: SlotKind;
   slots: (string | null)[];
+  pinnedIndex?: number;
+  character?: string | null;
   onClear: (kind: SlotKind, index: number) => void;
 }) {
   return (
     <div className="slot-group">
       <h3>{props.label}</h3>
       <div className="slots">
-        {props.slots.map((name, i) => (
-          <button
-            key={i}
-            className={name ? "slot filled" : "slot"}
-            data-rarity={props.kind === "item" && name ? rarityOf.get(name)?.toLowerCase() : undefined}
-            title={name ? `Remove ${name}` : "Empty slot"}
-            onClick={() => name && props.onClear(props.kind, i)}
-          >
-            {name && <EntityIcon name={name} size={20} />}
-            {name ?? "—"}
-          </button>
-        ))}
+        {props.slots.map((name, i) => {
+          const pinned = i === props.pinnedIndex;
+          return (
+            <button
+              key={i}
+              className={pinned ? "slot filled pinned" : name ? "slot filled" : "slot"}
+              data-rarity={props.kind === "item" && name ? rarityOf.get(name)?.toLowerCase() : undefined}
+              title={
+                pinned
+                  ? `${name} — ${props.character}'s starting weapon (locked)`
+                  : name
+                    ? `Remove ${name}`
+                    : "Empty slot"
+              }
+              onClick={() => name && !pinned && props.onClear(props.kind, i)}
+            >
+              {name && <EntityIcon name={name} size={20} />}
+              {name ?? "—"}
+            </button>
+          );
+        })}
       </div>
     </div>
   );
 }
 
 export default function App() {
-  const [build, setBuild] = useState<Build>(() => decodeBuild(window.location.hash, knownNames));
+  const [build, setBuildRaw] = useState<Build>(() =>
+    enforceStartingWeapon(decodeBuild(window.location.hash, knownNames), startingWeaponOf),
+  );
+  const setBuild = (update: Build | ((b: Build) => Build)) =>
+    setBuildRaw((prev) => enforceStartingWeapon(typeof update === "function" ? update(prev) : update, startingWeaponOf));
   const [tab, setTab] = useState<Tab>("character");
   const [query, setQuery] = useState("");
   const [inspect, setInspect] = useState<{ tab: Tab; name: string } | null>(null);
@@ -368,7 +386,15 @@ export default function App() {
       const cb = communityBuilds.find((c) => c.name === name);
       if (cb) setBuild(toBuild(cb));
     } else if (tab === "character") {
-      setBuild((b) => setCharacter(b, b.character === name ? null : name));
+      setBuild((b) => {
+        if (b.character === name) {
+          const wasPinned = isStartingSlot(b, "weapon", 0, startingWeaponOf);
+          const next = setCharacter(b, null);
+          return wasPinned ? clearSlot(next, "weapon", 0) : next;
+        }
+        const wasPinned = isStartingSlot(b, "weapon", 0, startingWeaponOf);
+        return setCharacter(wasPinned ? clearSlot(b, "weapon", 0) : b, name);
+      });
     } else {
       setBuild((b) => addToBuild(b, tab, name));
     }
@@ -403,14 +429,28 @@ export default function App() {
             <button
               className={build.character ? "slot filled" : "slot"}
               title={build.character ? `Remove ${build.character}` : "Pick a character"}
-              onClick={() => build.character && setBuild((b) => setCharacter(b, null))}
+              onClick={() =>
+                build.character &&
+                setBuild((b) => {
+                  const wasPinned = isStartingSlot(b, "weapon", 0, startingWeaponOf);
+                  const next = setCharacter(b, null);
+                  return wasPinned ? clearSlot(next, "weapon", 0) : next;
+                })
+              }
             >
               {build.character && <EntityIcon name={build.character} size={20} />}
               {build.character ?? "—"}
             </button>
           </div>
         </div>
-        <SlotRow label="Weapons" kind="weapon" slots={build.weapons} onClear={(k, i) => setBuild((b) => clearSlot(b, k, i))} />
+        <SlotRow
+          label="Weapons"
+          kind="weapon"
+          slots={build.weapons}
+          pinnedIndex={isStartingSlot(build, "weapon", 0, startingWeaponOf) ? 0 : undefined}
+          character={build.character}
+          onClear={(k, i) => setBuild((b) => clearSlot(b, k, i))}
+        />
         <SlotRow label="Tomes" kind="tome" slots={build.tomes} onClear={(k, i) => setBuild((b) => clearSlot(b, k, i))} />
         <SlotRow label="Items" kind="item" slots={build.items} onClear={(k, i) => setBuild((b) => clearSlot(b, k, i))} />
         <div className="slot-group">
