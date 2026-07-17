@@ -44,4 +44,6 @@ Pushes to `main` deploy to GitHub Pages via Actions (tests must pass).
 
 Project docs follow an ADR/plan standard — see `docs/`.
 
-Unofficial fan project. Game data and icons belong to their respective owners; sourced from the community-maintained [megabonk.wiki](https://megabonk.wiki).
+## License
+
+[MIT](LICENSE) for the app code. Game data and icons are not covered — they belong to their respective owners and are sourced from the community-maintained [megabonk.wiki](https://megabonk.wiki); the bundled Titan One font is OFL-1.1. Unofficial fan project.

@@ -181,8 +181,14 @@
   color: #cf8d8d;
   font-size: 0.78rem;
   text-decoration: line-through;
-  text-decoration-color: rgba(207, 141, 141, 0.55);
 }
+
+.ban-list li[data-rarity="default"] { border-color: var(--rarity-default); color: var(--rarity-default); }
+.ban-list li[data-rarity="common"] { border-color: var(--rarity-common); color: var(--rarity-common); }
+.ban-list li[data-rarity="uncommon"] { border-color: var(--rarity-uncommon); color: var(--rarity-uncommon); }
+.ban-list li[data-rarity="rare"] { border-color: var(--rarity-rare); color: var(--rarity-rare); }
+.ban-list li[data-rarity="epic"] { border-color: var(--rarity-epic); color: var(--rarity-epic); }
+.ban-list li[data-rarity="legendary"] { border-color: var(--rarity-legendary); color: var(--rarity-legendary); }
 
 .actions {
   margin-top: 1rem;
