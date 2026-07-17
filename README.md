@@ -1,32 +1,47 @@
-# React + TypeScript + Vite
+# megabonk-builds
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A build planner for [Megabonk](https://store.steampowered.com/app/3405340/Megabonk/): assemble character/weapon/tome/item builds, see synergies light up, get a heuristic strength score, and let the optimizer fill your open slots. Static web app, no backend.
 
-Currently, two official plugins are available:
+**Live: https://andre-lund.github.io/megabonk-builds/**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- **Build creator** — 1 character, 4 weapons, 4 tomes, 6 items (the wiki's own build template shape), plus map selection. The character's starting weapon is pinned automatically, like in the game.
+- **Synergy display** — active synergy pairs listed live; browser entries that would link with your picks get a badge.
+- **Build score** — heuristic tier (S–D) from synergy pairs, archetype coverage (damage/defense/mobility/utility), slot completeness, and map fit. Not a damage sim.
+- **Suggestions** — every open slot's candidates ranked by marginal score gain; the browser sorts by it.
+- **Generate** — greedily completes any partial build with the best picks, taking the selected map's emphasis into account.
+- **Community builds** — vote-ranked builds from the wiki's Cargo database, browsable and importable.
+- **Compare** — your build vs a community build or a pasted share link, side by side with pick diffs; load the compared build into the editor.
+- **Shareable URLs** — the whole build lives in the URL hash; copy the link, get the build back.
+- **Collection tracking** — mark what you own (or import your actual save files), filter to unlocked-only, track grind progress toward locked unlocks, and get disable-before-run recommendations for items that don't fit your build. Export/restore everything as a JSON backup.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Save-file import
 
-## Expanding the Oxlint configuration
+The Unlocks tab imports the game's own `progression.json` (unlocks) and `stats.json` (grind progress) from
+`%appdata%\..\LocalLow\Ved\Megabonk\Saves\CloudDir\<id>\`.
+Files are decrypted and parsed entirely in your browser (Web Crypto, AES-256-CBC with the key published in the community save editor) — nothing is uploaded anywhere.
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+## Data
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+Game data (28 weapons, 23 tomes, 20 characters, 85 items, icons) is ingested from [megabonk.wiki](https://megabonk.wiki)'s MediaWiki API and committed as static JSON, so the app has no runtime dependency on the wiki. After a game patch:
+
+```sh
+npm run ingest         # entities + icons
+npm run ingest:builds  # community builds + votes
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Development
+
+```sh
+pnpm install
+pnpm dev       # dev server
+pnpm test      # vitest
+pnpm build     # production build
+```
+
+Pushes to `main` deploy to GitHub Pages via Actions (tests must pass).
+
+Project docs follow an ADR/plan standard — see `docs/`.
+
+Unofficial fan project. Game data and icons belong to their respective owners; sourced from the community-maintained [megabonk.wiki](https://megabonk.wiki).
