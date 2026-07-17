@@ -24,6 +24,7 @@ import { toBuild, type CommunityBuild } from "./lib/community";
 import { decodeBuild, encodeBuild, type KnownNames } from "./lib/share";
 import { generateBuild, type GeneratePools } from "./lib/generate";
 import { FILTER_KEY, defaultUnlocked, loadUnlocked, saveUnlocked, toggleUnlocked } from "./lib/unlocks";
+import { excludeFromPools, loadExcluded, saveExcluded, toggleExcluded } from "./lib/exclude";
 import { loadProgress, parseGoal, saveProgress, setProgress } from "./lib/progress";
 import { decryptSave, mapPurchases, mapStats, saveKind } from "./lib/saveimport";
 import { isBackup, restoreBackup, serializeBackup } from "./lib/backup";
@@ -280,6 +281,7 @@ export default function App() {
   const [copied, setCopied] = useState(false);
   const [unlocked, setUnlocked] = useState(() => loadUnlocked(defaultOwned, localStorage));
   const [onlyUnlocked, setOnlyUnlocked] = useState(() => localStorage.getItem(FILTER_KEY) === "1");
+  const [excluded, setExcluded] = useState(() => loadExcluded(localStorage));
   const [progress, setProgressState] = useState(() => loadProgress(localStorage));
   const [importStatus, setImportStatus] = useState<string | null>(null);
   const [compareWith, setCompareWith] = useState<{ label: string; build: Build } | null>(null);
@@ -288,6 +290,7 @@ export default function App() {
   useEffect(() => saveUnlocked(unlocked, localStorage), [unlocked]);
   useEffect(() => localStorage.setItem(FILTER_KEY, onlyUnlocked ? "1" : "0"), [onlyUnlocked]);
   useEffect(() => saveProgress(progress, localStorage), [progress]);
+  useEffect(() => saveExcluded(excluded, localStorage), [excluded]);
 
   const lockedRows = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -527,7 +530,9 @@ export default function App() {
         <div className="actions">
           <button
             className="action generate"
-            onClick={() => setBuild((b) => generateBuild(b, activePools, synergyAdj, archetypes, mapEmphasis))}
+            onClick={() =>
+              setBuild((b) => generateBuild(b, excludeFromPools(activePools, excluded), synergyAdj, archetypes, mapEmphasis))
+            }
           >
             Generate
           </button>
@@ -763,6 +768,26 @@ export default function App() {
                         }}
                       >
                         {unlocked.has(e.name) ? "owned" : "locked"}
+                      </span>
+                    )}
+                    {tab !== "community" && (
+                      <span
+                        role="checkbox"
+                        aria-checked={excluded.has(e.name)}
+                        aria-label={`excluded from generate: ${e.name}`}
+                        tabIndex={0}
+                        className={excluded.has(e.name) ? "exclude-toggle excluded" : "exclude-toggle"}
+                        title={
+                          excluded.has(e.name)
+                            ? "Excluded from Generate — click to allow"
+                            : "Click to keep Generate from picking this"
+                        }
+                        onClick={(ev) => {
+                          ev.stopPropagation();
+                          setExcluded((x) => toggleExcluded(x, e.name));
+                        }}
+                      >
+                        {excluded.has(e.name) ? "excluded" : "exclude"}
                       </span>
                     )}
                   </span>
