@@ -1,8 +1,10 @@
 ---
-status: active
+status: done
 created: 2026-07-17
 updated: 2026-07-17
+completed: 2026-07-17
 adrs: []
+commit refs: [a68596c]
 ---
 
 # Plan: Exclude entities from Generate
