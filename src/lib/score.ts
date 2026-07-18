@@ -9,10 +9,10 @@ export const ARCHETYPES = ["damage", "defense", "mobility", "utility"] as const;
 export type Archetype = (typeof ARCHETYPES)[number];
 
 const ARCHETYPE_PATTERNS: Record<Archetype, RegExp> = {
-  damage: /damage|crit|precision|projectile|quantity|attack|cooldown|size|burn|fire|lightning|ice|freeze|poison/i,
+  damage: /damage|crit|precision|projectile|quantity|attack|cooldown|size|burn|fire|lightning|ice|freeze|poison|summon/i,
   defense: /armor|health|hp\b|max hp|evasion|evade|shield|heal|regen|lifesteal|leech|revive/i,
-  mobility: /speed|agility|dash|movement/i,
-  utility: /luck|xp|experience|gold|silver|magnet|attraction|pickup|duration|curse|reroll|choice/i,
+  mobility: /speed|agility|dash|movement|moving|jump/i,
+  utility: /luck|xp|experience|gold|silver|money|magnet|attraction|pickup|duration|curse|reroll|choice|chest|reward|shrine/i,
 };
 
 export interface ScoredEntity {

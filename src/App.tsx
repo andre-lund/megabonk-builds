@@ -379,7 +379,7 @@ export default function App() {
     [build.map],
   );
   const bans = useMemo(
-    () => (picked.size < 2 ? [] : recommendBans(build, activePools.items, synergyAdj, archetypes, 10)),
+    () => (picked.size < 2 ? [] : recommendBans(build, activePools.items, synergyAdj, archetypes, rarityOf)),
     [build, picked, activePools],
   );
   const synergies = useMemo(() => activeSynergies(picked, synergyAdj), [picked]);
