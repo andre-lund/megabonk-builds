@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import "./App.css";
 import weaponsJson from "./data/weapons.json";
 import tomesJson from "./data/tomes.json";
@@ -52,6 +52,10 @@ function EntityIcon({ name, size }: { name: string; size: number }) {
 }
 
 const rarityOf = new Map<string, string>(items.map((i) => [i.name, i.rarity]));
+
+function buildKey(b: Build): string {
+  return [...pickedNames(b)].sort().join("|");
+}
 
 interface GameMap {
   name: string;
@@ -385,6 +389,32 @@ export default function App() {
   const synergies = useMemo(() => activeSynergies(picked, synergyAdj), [picked]);
   const score = useMemo(() => scoreBuild(build, synergyAdj, archetypes, mapEmphasis), [build, mapEmphasis]);
 
+  // Reroll state: pressing Generate on the unmodified last result regenerates
+  // from the original base with fresh seeds; any edit resets to deterministic.
+  const genRef = useRef<{ base: Build; result: Build; seen: Set<string>; seed: number } | null>(null);
+  function generate() {
+    const pools = excludeFromPools(activePools, excluded);
+    // Enforce the starting weapon here too: setBuild re-enforces idempotently,
+    // so the stored reference stays identical to the rendered build.
+    const gen = (base: Build, seed?: number) =>
+      enforceStartingWeapon(generateBuild(base, pools, synergyAdj, archetypes, mapEmphasis, seed), startingWeaponOf);
+    const st = genRef.current;
+    if (!st || build !== st.result) {
+      const first = gen(build);
+      genRef.current = { base: build, result: first, seen: new Set([buildKey(first)]), seed: 1 };
+      setBuild(first);
+      return;
+    }
+    let next = st.result;
+    for (let tries = 0; tries < 12; tries++) {
+      next = gen(st.base, st.seed++);
+      if (!st.seen.has(buildKey(next))) break;
+    }
+    st.seen.add(buildKey(next));
+    st.result = next;
+    setBuild(next);
+  }
+
   const gains = useMemo(() => {
     if (tab === "community" || tab === "progress" || tab === "compare") return new Map<string, number>();
     const pool = tab === "character" ? activePools.characters : activePools[`${tab}s`];
@@ -528,12 +558,7 @@ export default function App() {
           </div>
         )}
         <div className="actions">
-          <button
-            className="action generate"
-            onClick={() =>
-              setBuild((b) => generateBuild(b, excludeFromPools(activePools, excluded), synergyAdj, archetypes, mapEmphasis))
-            }
-          >
+          <button className="action generate" onClick={generate}>
             Generate
           </button>
           <button className="action" onClick={share}>

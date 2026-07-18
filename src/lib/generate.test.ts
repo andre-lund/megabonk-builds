@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { addToBuild, emptyBuild, firstOpenSlot, setCharacter } from "./build";
+import { addToBuild, emptyBuild, firstOpenSlot, pickedNames, setCharacter } from "./build";
 import { synergyIndex } from "./synergy";
 import { archetypeIndex, scoreBuild, type ScoredEntity } from "./score";
 import { generateBuild, type GeneratePools } from "./generate";
@@ -63,5 +63,35 @@ describe("generate best combo", () => {
     const before = scoreBuild(b, adj, archetypes).total;
     const after = scoreBuild(generateBuild(b, pools, adj, archetypes), adj, archetypes).total;
     expect(after).toBeGreaterThan(before);
+  });
+});
+
+describe("seeded rerolls", () => {
+  const base = setCharacter(emptyBuild(), "Ninja");
+  const key = (b: ReturnType<typeof generateBuild>) => [...pickedNames(b)].sort().join("|");
+
+  it("completes the build and keeps existing picks", () => {
+    const g = generateBuild(base, pools, adj, archetypes, [], 1);
+    expect(g.character).toBe("Ninja");
+    for (const kind of ["weapon", "tome", "item"] as const) expect(firstOpenSlot(g, kind)).toBe(-1);
+  });
+
+  it("same seed reproduces the same build", () => {
+    expect(generateBuild(base, pools, adj, archetypes, [], 3)).toEqual(
+      generateBuild(base, pools, adj, archetypes, [], 3),
+    );
+  });
+
+  it("different seeds produce different builds", () => {
+    const keys = new Set([1, 2, 3, 4, 5].map((s) => key(generateBuild(base, pools, adj, archetypes, [], s))));
+    expect(keys.size).toBeGreaterThan(1);
+  });
+
+  it("stays near the deterministic optimum", () => {
+    const best = scoreBuild(generateBuild(base, pools, adj, archetypes), adj, archetypes).total;
+    for (const s of [1, 2, 3, 4, 5]) {
+      const total = scoreBuild(generateBuild(base, pools, adj, archetypes, [], s), adj, archetypes).total;
+      expect(total).toBeGreaterThanOrEqual(best * 0.7);
+    }
   });
 });
