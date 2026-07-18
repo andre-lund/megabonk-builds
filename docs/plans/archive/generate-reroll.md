@@ -1,8 +1,10 @@
 ---
-status: active
+status: done
 created: 2026-07-18
 updated: 2026-07-18
+completed: 2026-07-18
 adrs: []
+commit refs: [9ed081c]
 ---
 
 # Plan: Reroll variation for Generate
