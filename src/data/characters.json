@@ -126,6 +126,15 @@
     "icon": "icons/ogre.png"
   },
   {
+    "name": "Roberto",
+    "synergies": [],
+    "weapon": "Scythe",
+    "blessing": "Free chest every 60s, increasing to 120s over levels. He can also float (a little).",
+    "role": "TBA",
+    "unlock": "Defeat Spooky Steve.",
+    "icon": "icons/roberto.png"
+  },
+  {
     "name": "Robinette",
     "synergies": [],
     "weapon": "Bow",

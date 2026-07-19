@@ -322,6 +322,70 @@
     "icon": "icons/bone.png"
   },
   {
+    "name": "Bow",
+    "synergies": [
+      "Tomes",
+      "Size Tome",
+      "Quantity Tome",
+      "Cooldown Tome"
+    ],
+    "type": "Projectile, Area of Effect (AoE)",
+    "description": "Shoots arrows that pierce enemies",
+    "unlock": "Starter Weapon",
+    "special": "Projectiles pierce enemies.",
+    "upgrades": [
+      {
+        "stat": "Damage",
+        "common": "1.75",
+        "uncommon": "2.1",
+        "rare": "2.45",
+        "epic": "2.8",
+        "legendary": "3.5"
+      },
+      {
+        "stat": "Crit Chance",
+        "common": "8%",
+        "uncommon": "10%",
+        "rare": "11%",
+        "epic": "13%",
+        "legendary": "16%"
+      },
+      {
+        "stat": "Crit Damage",
+        "common": "18%",
+        "uncommon": "22%",
+        "rare": "25%",
+        "epic": "29%",
+        "legendary": "36%"
+      },
+      {
+        "stat": "Projectile Count",
+        "common": "1",
+        "uncommon": "1.2",
+        "rare": "1.4",
+        "epic": "1.6",
+        "legendary": "2"
+      },
+      {
+        "stat": "Projectile Speed",
+        "common": "0.3",
+        "uncommon": "0.36",
+        "rare": "0.42",
+        "epic": "0.48",
+        "legendary": "0.6"
+      },
+      {
+        "stat": "Size",
+        "common": "0.2",
+        "uncommon": "0.2",
+        "rare": "0.2",
+        "epic": "0.3",
+        "legendary": "0.3"
+      }
+    ],
+    "icon": "icons/bow.png"
+  },
+  {
     "name": "Chunkers",
     "synergies": [
       "Tomes",

@@ -17,7 +17,8 @@ const CATEGORIES = {
 
 // Pages that belong in a kind but are missing its wiki category tag.
 const EXTRA_PAGES = {
-  weapons: ["Lightning Staff"],
+  weapons: ["Lightning Staff", "Bow"],
+  characters: ["Roberto"],
 };
 
 async function api(params) {
