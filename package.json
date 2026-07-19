@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "ingest": "node scripts/ingest.mjs",
     "test": "vitest run",
-    "ingest:builds": "node scripts/ingest-builds.mjs"
+    "ingest:builds": "node scripts/ingest-builds.mjs",
+    "ingest:leaderboard": "node scripts/ingest-leaderboard.mjs"
   },
   "dependencies": {
     "react": "^19.2.7",

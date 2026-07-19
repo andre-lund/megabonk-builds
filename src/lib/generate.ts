@@ -5,6 +5,7 @@
 import { addToBuild, firstOpenSlot, setCharacter, type Build, type SlotKind } from "./build";
 import type { Archetype } from "./score";
 import { suggestFor } from "./suggest";
+import type { MetaIndex } from "./meta";
 
 export interface GeneratePools {
   characters: string[];
@@ -52,6 +53,7 @@ export function generateBuild(
   archetypes: Map<string, Archetype[]>,
   mapEmphasis: Archetype[] = [],
   seed?: number,
+  meta: MetaIndex | null = null,
 ): Build {
   const rng = seed === undefined ? null : mulberry32(seed);
   let current = build;
@@ -64,7 +66,7 @@ export function generateBuild(
     if (open.length === 0) return current;
     const candidates: Candidate[] = [];
     for (const [kind, pool] of open) {
-      for (const top of suggestFor(current, kind, pool, adj, archetypes, mapEmphasis).slice(0, rng ? REROLL_TOP : 1))
+      for (const top of suggestFor(current, kind, pool, adj, archetypes, mapEmphasis, meta).slice(0, rng ? REROLL_TOP : 1))
         candidates.push({ kind, name: top.name, gain: top.gain });
     }
     if (candidates.length === 0) return current;

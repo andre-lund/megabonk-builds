@@ -4,6 +4,7 @@
 import { addToBuild, firstOpenSlot, pickedNames, setCharacter, type Build, type SlotKind } from "./build";
 import type { Archetype } from "./score";
 import { scoreBuild } from "./score";
+import type { MetaIndex } from "./meta";
 
 export interface Suggestion {
   name: string;
@@ -17,15 +18,16 @@ export function suggestFor(
   adj: Map<string, Set<string>>,
   archetypes: Map<string, Archetype[]>,
   mapEmphasis: Archetype[] = [],
+  meta: MetaIndex | null = null,
 ): Suggestion[] {
   if (kind === "character" ? build.character !== null : firstOpenSlot(build, kind) === -1) return [];
   const picked = pickedNames(build);
-  const base = scoreBuild(build, adj, archetypes, mapEmphasis).total;
+  const base = scoreBuild(build, adj, archetypes, mapEmphasis, meta).total;
   return candidates
     .filter((name) => !picked.has(name))
     .map((name) => {
       const next = kind === "character" ? setCharacter(build, name) : addToBuild(build, kind, name);
-      return { name, gain: scoreBuild(next, adj, archetypes, mapEmphasis).total - base };
+      return { name, gain: scoreBuild(next, adj, archetypes, mapEmphasis, meta).total - base };
     })
     .sort((a, b) => b.gain - a.gain || a.name.localeCompare(b.name));
 }

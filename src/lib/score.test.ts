@@ -1,11 +1,15 @@
 import { describe, expect, it } from "vitest";
 import { addToBuild, emptyBuild, setCharacter, type Build } from "./build";
 import { synergyIndex } from "./synergy";
-import { archetypeIndex, scoreBuild, tier, type ScoredEntity } from "./score";
+import { archetypeIndex, COOC_POINTS, scoreBuild, tier, USAGE_POINTS, type ScoredEntity } from "./score";
+import { buildMetaIndex, type LeaderboardData } from "./meta";
 import weaponsJson from "../data/weapons.json";
 import tomesJson from "../data/tomes.json";
 import charactersJson from "../data/characters.json";
 import itemsJson from "../data/items.json";
+import leaderboardJson from "../data/leaderboard.json";
+
+const metaIndex = buildMetaIndex(leaderboardJson as unknown as LeaderboardData);
 
 const groups: ScoredEntity[][] = [
   weaponsJson.map((w) => ({ name: w.name, text: `${w.type} ${w.description}` })),
@@ -87,5 +91,20 @@ describe("heuristic score", () => {
     expect(tier(0)).toBe("D");
     expect(tier(45)).toBe("B");
     expect(tier(85)).toBe("S");
+  });
+
+  it("meta bonus combines the usage prior and discovered co-occurrence", () => {
+    const edge = (leaderboardJson as unknown as LeaderboardData).cooccurrence.find((e) => e.kind === "weapons")!;
+    const b = makeBuild("Fox", [edge.a, edge.b], [], []);
+    const withMeta = scoreBuild(b, adj, archetypes, [], metaIndex);
+    const noMeta = scoreBuild(b, adj, archetypes);
+    const fa = metaIndex.usageFrac("Fox", edge.a);
+    const fb = metaIndex.usageFrac("Fox", edge.b);
+    expect(metaIndex.hasCoo(edge.a, edge.b)).toBe(true);
+    expect(withMeta.metaBonus).toBe(Math.round(USAGE_POINTS * (fa + fb) + COOC_POINTS));
+    // meta is additive: it only affects the total through metaBonus.
+    expect(noMeta.metaBonus).toBe(0);
+    expect(withMeta.total).toBe(noMeta.total + withMeta.metaBonus);
+    expect(withMeta.metaBonus).toBeGreaterThan(0);
   });
 });

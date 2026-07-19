@@ -3,10 +3,14 @@ import { addToBuild, emptyBuild, setCharacter } from "./build";
 import { synergyIndex } from "./synergy";
 import { archetypeIndex, type ScoredEntity } from "./score";
 import { BAN_CUTOFF, recommendBans } from "./bans";
+import { buildMetaIndex, type LeaderboardData } from "./meta";
 import weaponsJson from "../data/weapons.json";
 import tomesJson from "../data/tomes.json";
 import charactersJson from "../data/characters.json";
 import itemsJson from "../data/items.json";
+import leaderboardJson from "../data/leaderboard.json";
+
+const metaIndex = buildMetaIndex(leaderboardJson as unknown as LeaderboardData);
 
 const groups: ScoredEntity[][] = [
   weaponsJson.map((w) => ({ name: w.name, text: `${w.type} ${w.description}` })),
@@ -45,7 +49,7 @@ describe("ban recommendations", () => {
     let b = noelleBuild();
     const first = recommendBans(b, itemNames, adj, archetypes, rarityOf)[0];
     b = addToBuild(b, "item", first.name);
-    const bans = recommendBans(b, itemNames, adj, archetypes, rarityOf, 5);
+    const bans = recommendBans(b, itemNames, adj, archetypes, rarityOf, null, 5);
     expect(bans.length).toBeLessThanOrEqual(5);
     expect(bans.map((c) => c.name)).not.toContain(first.name);
   });
@@ -55,5 +59,17 @@ describe("ban recommendations", () => {
     expect(recommendBans(b, itemNames, adj, archetypes, rarityOf)).toEqual(
       recommendBans(b, itemNames, adj, archetypes, rarityOf),
     );
+  });
+
+  it("empirical usage protects proven items and never introduces new bans", () => {
+    const b = addToBuild(setCharacter(emptyBuild(), "Fox"), "weapon", "Katana");
+    const noMeta = recommendBans(b, itemNames, adj, archetypes, rarityOf).map((c) => c.name);
+    const withMeta = recommendBans(b, itemNames, adj, archetypes, rarityOf, metaIndex).map((c) => c.name);
+    expect(noMeta.length).toBeGreaterThan(0);
+    // meta only raises fit, so it can shrink the ban list but never add to it.
+    for (const name of withMeta) expect(noMeta).toContain(name);
+    expect(withMeta.length).toBeLessThan(noMeta.length);
+    // an item in >=50% of Fox's top runs clears the cutoff on usage alone (8 * 0.5 = 4).
+    for (const name of noMeta) if (metaIndex.usageFrac("Fox", name) >= 0.5) expect(withMeta).not.toContain(name);
   });
 });

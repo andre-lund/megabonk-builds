@@ -6,6 +6,7 @@ import charactersJson from "./data/characters.json";
 import itemsJson from "./data/items.json";
 import buildsJson from "./data/builds.json";
 import mapsJson from "./data/maps.json";
+import leaderboardJson from "./data/leaderboard.json";
 import type { Character, Item, Tome, UpgradeRow, Weapon } from "./types";
 import {
   addToBuild,
@@ -30,6 +31,7 @@ import { decryptSave, mapPurchases, mapStats, saveKind } from "./lib/saveimport"
 import { isBackup, restoreBackup, serializeBackup } from "./lib/backup";
 import { enforceStartingWeapon, isStartingSlot, startingWeaponIndex } from "./lib/starting";
 import { recommendBans } from "./lib/bans";
+import { buildMetaIndex, type LeaderboardData } from "./lib/meta";
 import { diffBuilds, parseSharedLink } from "./lib/compare";
 
 const weapons = weaponsJson as Weapon[];
@@ -39,6 +41,9 @@ const items = itemsJson as Item[];
 const communityBuilds = buildsJson as CommunityBuild[];
 
 const synergyAdj = synergyIndex([weapons, tomes, characters, items]);
+// Empirical meta from megabonk.leaderboard.gg (ADR-0001), character-conditioned
+// downstream via build.character.
+const metaIndex = buildMetaIndex(leaderboardJson as unknown as LeaderboardData);
 
 const iconOf = new Map<string, string>();
 for (const e of [...weapons, ...tomes, ...characters, ...items]) {
@@ -224,7 +229,7 @@ function entriesFor(tab: Tab): BrowserEntry[] {
     case "community":
       // Dataset is vote-ordered; score each build with our heuristic for the subtitle.
       return communityBuilds.map((cb) => {
-        const s = scoreBuild(toBuild(cb), synergyAdj, archetypes);
+        const s = scoreBuild(toBuild(cb), synergyAdj, archetypes, [], metaIndex);
         return {
           name: cb.name,
           iconName: cb.character ?? undefined,
@@ -383,11 +388,11 @@ export default function App() {
     [build.map],
   );
   const bans = useMemo(
-    () => (picked.size < 2 ? [] : recommendBans(build, activePools.items, synergyAdj, archetypes, rarityOf)),
+    () => (picked.size < 2 ? [] : recommendBans(build, activePools.items, synergyAdj, archetypes, rarityOf, metaIndex)),
     [build, picked, activePools],
   );
   const synergies = useMemo(() => activeSynergies(picked, synergyAdj), [picked]);
-  const score = useMemo(() => scoreBuild(build, synergyAdj, archetypes, mapEmphasis), [build, mapEmphasis]);
+  const score = useMemo(() => scoreBuild(build, synergyAdj, archetypes, mapEmphasis, metaIndex), [build, mapEmphasis]);
 
   // Reroll state: pressing Generate on the unmodified last result regenerates
   // from the original base with fresh seeds; any edit resets to deterministic.
@@ -397,7 +402,7 @@ export default function App() {
     // Enforce the starting weapon here too: setBuild re-enforces idempotently,
     // so the stored reference stays identical to the rendered build.
     const gen = (base: Build, seed?: number) =>
-      enforceStartingWeapon(generateBuild(base, pools, synergyAdj, archetypes, mapEmphasis, seed), startingWeaponOf);
+      enforceStartingWeapon(generateBuild(base, pools, synergyAdj, archetypes, mapEmphasis, seed, metaIndex), startingWeaponOf);
     const st = genRef.current;
     if (!st || build !== st.result) {
       const first = gen(build);
@@ -418,7 +423,7 @@ export default function App() {
   const gains = useMemo(() => {
     if (tab === "community" || tab === "progress" || tab === "compare") return new Map<string, number>();
     const pool = tab === "character" ? activePools.characters : activePools[`${tab}s`];
-    return new Map(suggestFor(build, tab, pool, synergyAdj, archetypes, mapEmphasis).map((s) => [s.name, s.gain]));
+    return new Map(suggestFor(build, tab, pool, synergyAdj, archetypes, mapEmphasis, metaIndex).map((s) => [s.name, s.gain]));
   }, [tab, build, activePools]);
 
   const entries = useMemo(() => {
@@ -635,7 +640,7 @@ export default function App() {
                   <div className="compare-columns">
                     {columns.map(({ title, b, unique, loadable }) => {
                       const emphasis = (maps.find((m) => m.name === b.map)?.emphasis ?? []) as Archetype[];
-                      const s = scoreBuild(b, synergyAdj, archetypes, emphasis);
+                      const s = scoreBuild(b, synergyAdj, archetypes, emphasis, metaIndex);
                       const groups: [string, (string | null)[]][] = [
                         ["Character", [b.character]],
                         ["Map", [b.map]],

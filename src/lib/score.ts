@@ -4,6 +4,7 @@
 import type { Build } from "./build";
 import { pickedNames } from "./build";
 import { activeSynergies } from "./synergy";
+import type { MetaIndex } from "./meta";
 
 export const ARCHETYPES = ["damage", "defense", "mobility", "utility"] as const;
 export type Archetype = (typeof ARCHETYPES)[number];
@@ -38,6 +39,12 @@ export const SLOT_POINTS = 1;
 // Per picked entity carrying a map-emphasized archetype — per-entity (not
 // coverage-once) so stacking the emphasized archetype keeps paying.
 export const MAP_POINTS = 3;
+// Empirical meta (ADR-0001), a deliberately modest nudge that informs rather
+// than overrides synergy/archetype: per picked entity scaled by its shrunk
+// usage fraction, and per picked pair that forms a discovered co-occurrence
+// edge. Weaker than a wiki synergy (10) since it is observed, not editorial.
+export const USAGE_POINTS = 2;
+export const COOC_POINTS = 4;
 
 export interface Score {
   total: number;
@@ -45,6 +52,7 @@ export interface Score {
   covered: Archetype[];
   filledSlots: number;
   mapBonus: number;
+  metaBonus: number;
 }
 
 const TIERS: [number, string][] = [
@@ -64,6 +72,7 @@ export function scoreBuild(
   adj: Map<string, Set<string>>,
   archetypes: Map<string, Archetype[]>,
   mapEmphasis: Archetype[] = [],
+  meta: MetaIndex | null = null,
 ): Score {
   const picked = pickedNames(build);
   const synergyPairs = activeSynergies(picked, adj).length;
@@ -76,11 +85,31 @@ export function scoreBuild(
   }
   const covered = ARCHETYPES.filter((a) => coveredSet.has(a));
   const filledSlots = picked.size;
+  const metaBonus = meta ? metaScore(build, picked, meta) : 0;
   return {
-    total: synergyPairs * SYNERGY_POINTS + covered.length * ARCHETYPE_POINTS + filledSlots * SLOT_POINTS + mapBonus,
+    total:
+      synergyPairs * SYNERGY_POINTS +
+      covered.length * ARCHETYPE_POINTS +
+      filledSlots * SLOT_POINTS +
+      mapBonus +
+      metaBonus,
     synergyPairs,
     covered,
     filledSlots,
     mapBonus,
+    metaBonus,
   };
+}
+
+// Empirical-meta contribution, character-conditioned on build.character (the
+// character itself is excluded — it is not part of the run's item usage).
+function metaScore(build: Build, picked: Set<string>, meta: MetaIndex): number {
+  const entities = [...picked].filter((n) => n !== build.character);
+  let usage = 0;
+  for (const name of entities) usage += meta.usageFrac(build.character, name);
+  let coocPairs = 0;
+  const sorted = entities.sort();
+  for (let i = 0; i < sorted.length; i++)
+    for (let j = i + 1; j < sorted.length; j++) if (meta.hasCoo(sorted[i], sorted[j])) coocPairs++;
+  return Math.round(USAGE_POINTS * usage + COOC_POINTS * coocPairs);
 }
