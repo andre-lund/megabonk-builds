@@ -1,8 +1,10 @@
 ---
-status: active
+status: done
 created: 2026-07-19
 updated: 2026-07-19
+completed: 2026-07-19
 adrs: [0001]
+commit refs: [fb0d372]
 ---
 
 # Plan: Leaderboard empirical-meta layer

@@ -4,7 +4,7 @@ status: accepted
 
 # 0001 — Adopt leaderboard.gg empirical run data as a second, distinct data source
 
-**Implemented by:** [docs/plans/active/leaderboard-meta.md](../plans/active/leaderboard-meta.md) _pending commits_
+**Implemented by:** [docs/plans/archive/leaderboard-meta.md](../plans/archive/leaderboard-meta.md), commit fb0d372 (T1–T6)
 
 The app ingests aggregate run statistics from `megabonk.leaderboard.gg` into `src/data/leaderboard.json` as a **second data source, kept distinct from the wiki data**. It supplies an *empirical meta* signal — how often each weapon/tome/item actually appears in video-verified top runs per character — that augments, but never replaces, the wiki-derived synergy/archetype model. Wiki data stays authoritative for what things are and what they editorially synergize with; leaderboard data is authoritative only for observed usage.
 
