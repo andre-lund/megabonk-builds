@@ -40,6 +40,23 @@
   color: #e8ecf5;
 }
 
+.build-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.build-header h2 {
+  margin: 0;
+}
+
+.build-header .actions {
+  margin-top: 0;
+}
+
 .score-card {
   border: 1px solid #2c2f38;
   border-radius: 6px;
@@ -363,6 +380,24 @@
   grid-column: 1 / -1;
   color: #b7bdc9;
   font-size: 0.85rem;
+}
+
+.synergy-fold summary {
+  cursor: pointer;
+  margin: 0.75rem 0 0.35rem;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #9aa1af;
+  font-family: var(--display-font);
+}
+
+.synergy-fold summary:hover {
+  color: #c9cfdb;
+}
+
+.synergy-fold[open] summary {
+  margin-bottom: 0.5rem;
 }
 
 .synergy-empty {

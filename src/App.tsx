@@ -467,7 +467,20 @@ export default function App() {
   return (
     <div className="layout">
       <section className="panel build-panel">
-        <h2>Build</h2>
+        <div className="build-header">
+          <h2>Build</h2>
+          <div className="actions">
+            <button className="action generate" onClick={generate}>
+              Generate
+            </button>
+            <button className="action" onClick={share}>
+              {copied ? "Copied!" : "Share"}
+            </button>
+            <button className="action" onClick={() => setBuild(emptyBuild())}>
+              Reset
+            </button>
+          </div>
+        </div>
         <div className="score-card">
           <div className="score-main">
             <span className="score-tier" data-tier={tier(score.total)}>
@@ -534,8 +547,8 @@ export default function App() {
         />
         <SlotRow label="Tomes" kind="tome" slots={build.tomes} onClear={(k, i) => setBuild((b) => clearSlot(b, k, i))} />
         <SlotRow label="Items" kind="item" slots={build.items} onClear={(k, i) => setBuild((b) => clearSlot(b, k, i))} />
-        <div className="slot-group">
-          <h3>Synergies ({synergies.length})</h3>
+        <details className="slot-group synergy-fold">
+          <summary>Synergies ({synergies.length})</summary>
           {synergies.length === 0 ? (
             <p className="synergy-empty">No active synergies yet.</p>
           ) : (
@@ -547,7 +560,7 @@ export default function App() {
               ))}
             </ul>
           )}
-        </div>
+        </details>
         {bans.length > 0 && (
           <div className="slot-group">
             <h3>Disable before run</h3>
@@ -562,17 +575,6 @@ export default function App() {
             </ul>
           </div>
         )}
-        <div className="actions">
-          <button className="action generate" onClick={generate}>
-            Generate
-          </button>
-          <button className="action" onClick={share}>
-            {copied ? "Copied!" : "Share"}
-          </button>
-          <button className="action" onClick={() => setBuild(emptyBuild())}>
-            Reset
-          </button>
-        </div>
       </section>
 
       <section className="panel browser-panel">
